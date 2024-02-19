@@ -1,0 +1,199 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+
+.pink{
+    background-color: #f6c9c0;
+}
+.wallpaper{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+.wallpaper img{
+    margin-top: 120px;
+}
+.doctor-image img{
+    height: 34px;
+    border-radius: 50%;
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 10px;
+}
+.heading{
+    padding: 10px;
+}
+.first-fold .cta {
+    display: inline-block;
+    line-height: 1.56;
+    padding: 9px 32px;
+    font-size: 18px;
+    margin-top: px;
+    border-radius: 4px;
+}
+
+html,body{
+    overflow-x: hidden;
+}
+.button.primary, .link.primary-button {
+    /* display: block;
+    border-radius: 2px; */
+    background: #14bef0;
+    color: #fff;
+    border: 1px solid #14bef0;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+}
+.cta a{
+    text-decoration: none;
+}
+.tcard img{
+    width: 120px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+}
+.card{
+    padding: 10px;
+    width: 100px;
+    font-size: 0.8rem;
+}
+.card h5{
+    font-size: 0.8rem;
+}
+
+heading h2{
+    font-size: 36px;
+    line-height: 1.28;
+    font-family: Lato,sans-serif;
+}
+.tcard{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+/* ==========crausel css=============== */
+/* ==========offers css=============== */
+
+.offers{
+    background-color: aquamarine;
+    padding: 0px;
+    border-radius: 20px;
+}
+.offers1{
+    background-color: #cf95c6;
+    border-radius: 20px;
+}
+.temp{
+    color: white;
+}
+.offer_heading{
+    font-size: 1rem;
+}
+
+
+.testmonial{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);   
+}
+.black {
+    background-color: #2d2d32;
+    color: #fff;
+}
+.b-heading{
+    font-size: 20px;
+}
+.mb-heading{
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.health-qurey-header{
+    display: flex;
+    justify-content: space-between;
+}
+.health-qurey-description{
+    line-height: 1.43;
+    padding: 14px 0 20px;
+}
+
+/* Find Doctor page Css */
+
+
+
+.jamboo_banner{
+        background: url(../image/finddoctor_banner.png) top no-repeat;
+        min-height: 460px;
+        background-attachment: fixed;
+        background-position-y: 50px;
+        margin-top: 0px;
+}
+.jamboo_header_container {
+    padding-top: 40px;
+    margin-bottom: 50px;
+    /* border: 2px solid red; */
+    margin-top: 40px;
+}
+.jumbo_heading{
+
+text-align: center;
+font-size: 40px;
+color: white;
+font-weight : 700;
+}
+.jumbo_subheading{
+text-align: center;
+font-size: 24px;
+color: white;
+font-weight : 500;
+}
+.icon_list{
+    overflow: hidden;
+    /* height: 80px; */
+    padding: 17px 0 ;
+    background-color: #1d2869;
+    text-align: center;
+    color: white;
+}
+
+.highlight{
+    font-weight: 400;
+}
+.highlight-tittle{
+    font-weight: 600;
+}
+.c-list-item__icon {
+    font-size: 15px;
+    vertical-align: -3px;
+    color: #14bef0;
+}
+
+.ban{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);   
+}
+.carousel-control-prev{
+    color: black;
+}
+
+/* Precto prime Banner */
+
+.precto_prime_banner{
+    background: url(../image/practo-prime1.png) top no-repeat;
+    min-height: 400px;
+    background-position-y: 10px;
+    margin-top: 0px;
+}
+.no-bold{
+    font-weight: 400;
+}
+.sm{
+    background-color: #F3F0F9;
+}
+.fam{
+    background-color: #905CF7 ;
+}
+.form{
+    margin: 50px;
+}

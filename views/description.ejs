@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Website name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="../css/style2.css"> -->
+    <style>
+    * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .hero {
+            width: 90%;
+        }
+
+        .col {
+            flex-basis: 45%;
+        }
+
+        .slider {
+            height: 81vh;
+            display: flex;
+        }
+
+        .product img {
+            height: 17vh;
+            margin-bottom: 9px;
+            cursor: pointer;
+            opacity: 0.6;
+            box-shadow: 1px rgba(166, 166, 166, 0.719);
+        }
+
+        .product img:hover {
+            opacity: 1;
+        }
+
+
+        .preview img {
+            height: 340px;
+            background-size: cover;
+            width: 380px;
+            /* border: 1px solid red; */
+        }
+        .header__cart-btn {
+            width: 150px;
+        }
+        #myDIV {
+  width: 100%;
+  /* padding: 50px 0; */
+  text-align: center;
+  /* background-color: lightblue; */
+  margin-top: 20px;
+}
+
+.magnify{
+  border-radius: none;
+  border: 1px solid white;
+  position: absolute;
+  z-index: 20;
+  background-repeat: no-repeat;
+  background-color: white;
+  box-shadow: inset 0 0 20px rgba(0,0,0,.5);
+  display: none;
+  cursor: none;
+}
+
+/* abc */
+
+.abc a:hover {
+            color: lightskyblue;
+        }
+
+        .nav-item a {
+            color: white;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 500;
+            letter-spacing: -.3px;
+        }
+
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            pointer-events: none;
+        }
+
+        .dropdown a {
+            color: black;
+            list-style: none;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .dropdown-menu li a {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .sidenav {
+            width: 109%;
+            border: none;
+            float: left;
+            margin-left: -12px;
+            background-color: #f0f0f5;
+        }
+
+        .sidenav a,
+        .dropdown-btn {
+            padding: 12px 20px 10px 18px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .sidenav a {
+            color: blue;
+        }
+
+        .dropdown-btn:hover {
+            color: black;
+            border: 2px solid black;
+        }
+
+        .sidenav a:hover {
+            color: blue;
+            border: 1px solid blue;
+        }
+
+        .main {
+            margin-left: 200px;
+            font-size: 20px;
+            padding: 0px 10px;
+        }
+
+        .active {
+            background-color: #f0f0f5;
+            color: black;
+        }
+
+        .dropdown-container {
+            display: none;
+            background-color: #f0f0f5;
+            padding-left: 8px;
+        }
+
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        @media only screen and (max-width: 774px) {
+            .abc {
+                text-align: center;
+            }
+        }
+
+        .desc {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.desc:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.desc h5 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: #ff6b6b;
+}
+
+.desc p {
+  margin: 0;
+  font-size: 18px;
+  border: 2px solid #555;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.2s ease-in-out;
+  color: #555;
+}
+
+.desc p:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.desc .d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desc .d-flex p {
+  font-weight: bold;
+}
+
+.product img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <%-include('./common/header.ejs') %>
+
+
+    <div class="container-fluid"
+    style="position: sticky; top: 0px; background-color: whitesmoke; z-index: 3;border-bottom: 1px solid lightgray;">
+    <div class="row">
+        <div class="col-md-12">
+            <header class="header">
+                <div class="container header__top">
+                    <div class="header__logo">
+                        <form class="d-flex mb-2 mt-2">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"
+                                    style=" border: 1px solid lightgray; border-right: none; font-size: 22px;padding: 5.5px; box-shadow: 0px 4px 4px 0.6px #bbcbd88a;  color: aqua;"></i>
+                            </div>
+                            <input class="ps-2" type="search" name="search" id="search-result"
+                                placeholder="Search for Medicines, Health Products and more"
+                                style="box-shadow: 0px 4px 4px 0.6px #bbcbd88a; width: 450px; height: 34px;border: 1px solid lightgray; border-left: none;">
+                        </form>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+</div>
+
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-md-5" style="box-shadow:0 0 1px 0 rgba(rgb(167, 163, 163));">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><%= result?.[0].page%> / <%= result?.[0].name%></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    <div class="container-fluid" >
+        <div class="row">
+            <% if(result.length>0){ %>
+
+                <% for (var i=0; i<result.length; i++) {%>
+            <div class="col-md-5" style="box-shadow: 0 0 2px  0 rgba(166, 166, 166, 0.719);">
+                <div class="hero"  style="background-color:white;position: sticky;top: 85px;">
+                    <div class="row">
+                        <div class="col-md-3" style="border: 1px solid black;">
+                            <div class="slider text-center">
+                                <div class="product">
+                                    <div class="mb-2 ">
+                                        <img class="border border-dark img-fluid" src="/static/upload/<%= result[i].filename %>"  onclick="clickme(this)"><br>
+                                    </div>
+                                    <div class="mb-2">
+
+                                        <img class="border border-dark img-fluid" src="/static/upload/<%= result[i].caption %>" onclick="clickme(this)"><br>
+                                    </div>
+                                    <div class="mb-2">
+
+                                        <img class="border border-dark img-fluid" src="/static/upload/<%= result[i].tags %>"   onclick="clickme(this)"><br>
+                                    </div>
+                                    <img class="border border-dark img-fluid" src="/static/upload/<%= result[i].image3 %>" onclick="clickme(this)">
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-9">
+
+                                <div class="preview">
+                                    <img class="magnifiedImg img-fluid" src="../<%= result[i].filename %>"  id="imagebox">
+                                <div class="desc">
+                                    <h5 class="pt-2 ps-4">₹<%= result[i].price %></h5>
+                                    <div class="d-flex justify-content-evenly mt-5">
+                                        <p>Quantity</p>
+                                        <P><%= result[i].quantity %></P>
+                                    </div>
+                                </div>
+                               
+                            </div>            
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                
+            <div class="col-md-7" style="position:sticky;top: 0px;">
+                <div class="row">
+                <H3><%= result[i].name %></H3>
+                </div>
+                <div class="row page-description">
+                    <h3 style="color: gray; font-size: 14px;">Manufactured by</h3>
+                        <p style="font-weight: 500;"><%= result.brand %></p>
+                    <hr>
+                    <h4 style="font-size: 20px; font-weight: 550; letter-spacing: 1px;">Highlights</h4>
+                    <p style="font-size: 13px;" class="text-muted">- <%= result[i].highlight %></p>
+                    <hr>
+                    <h4 style="font-size: 20px; font-weight: 550; letter-spacing: 1px;">Description</h4>
+                    <p style="font-size: 13px;" class="text-muted"><%= result[i].description %></p>
+                    <hr>
+                    <h4 style="font-size: 20px; font-weight: 550; letter-spacing: 1px;">Key Ingredients</h4>
+                    <p style="font-size: 13px;" class="text-muted">- <%= result[i].keyingredient %></p>
+                    <hr>
+                    <h4 style="font-size: 20px; font-weight: 550; letter-spacing: 1px;">Key Features</h4>
+                    <p style="font-size: 13px;" class="text-muted"><%= result[i].keyfeature %></p>
+                    <hr>
+                    <h4 style="font-size: 20px; font-weight: 550; letter-spacing: 1px;">How To Use</h4>
+                    <p style="font-size: 13px;" class="text-muted"><%= result[i].howtouse %></p>
+                    <hr>
+                    <h4 style="font-size: 20px; font-weight: 550; letter-spacing: 1px;">Storage</h4>
+                    <p style="font-size: 13px;" class="text-muted"><%= result[i].storage %></p>
+                    <hr>
+                    <h4 style="font-size: 20px; font-weight: 550; letter-spacing: 1px;">Precautions</h4>
+                    <p style="font-size: 13px;" class="text-muted">- <%= result[i].precaution %></p>
+                    <hr>
+                    <div>
+                        <h3 class="my-auto py-2"  style="font-size: 18px; font-weight: 550; letter-spacing: 1px;">Something doesn’t feel right? <span class="text-danger"
+                            style="font-size: 12px;float: right;cursor: pointer;"><span onclick="myFunction()"> Report an error</span></span></h3>
+                    <!-- <button onclick="myFunction()">Report an error</button> -->
+
+                    <div id="myDIV">
+                        <div class="mb-3">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="report an error. Add details here.." rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                          </div>
+                            <div class="text-center mb-3">
+
+                                <button class="btn btn-outline-primary w-100 add-to-cart"  data-id="20">Submit</button>
+                            </div>                    </div>
+                </div>
+            </div>
+            <% } %>
+            <%} else{%> no record found
+                <%} %>
+        </div>
+    </div>
+</div>
+                
+    <%-include('./common/footer.ejs') %>
+  
+       
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myDIV");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+            crossorigin="anonymous"></script>
+        <script>
+            function clickme(smallImg) {
+                var fullImg = document.getElementById("imagebox");
+                fullImg.src = smallImg.src;
+            }
+        </script>
+
+       <script>
+    $(document).ready(function () {
+        // Show the first image on the #imagebox element before hovering over any image
+        var firstImgSrc = $('.product img').eq(0).attr('src');
+        $('#imagebox').attr('src', firstImgSrc);
+        // Change the #imagebox src attribute to the src of the hovered image
+        $('.product img').hover(function () {
+            var src = $(this).attr('src');
+            $('#imagebox').attr('src', src);
+        });
+    });
+</script>
+
+
+<script>
+/*Size is  set in pixels... supports being written as: '250px' */
+var magnifierSize = 140;
+
+/*How many times magnification of image on page.*/
+var magnification = 2;
+
+function magnifier() {
+
+this.magnifyImg = function(ptr, magnification, magnifierSize) {
+var $pointer;
+if (typeof ptr == "string") {
+  $pointer = $(ptr);
+} else if (typeof ptr == "object") {
+  $pointer = ptr;
+}
+
+if(!($pointer.is('img'))){
+  alert('Object must be image.');
+  return false;
+}
+
+magnification = +(magnification);
+
+$pointer.hover(function() {
+  $(this).css('cursor', 'none');
+  $('.magnify').show();
+  //Setting some variables for later use
+  var width = $(this).width();
+  var height = $(this).height();
+  var src = $(this).attr('src');
+  var imagePos = $(this).offset();
+  var image = $(this);
+
+  if (magnifierSize == undefined) {
+    magnifierSize = '100px';
+  }
+
+  $('.magnify').css({
+    'background-size': width * magnification + 'px ' + height * magnification + "px",
+    'background-image': 'url("' + src + '")',
+    'width': magnifierSize,
+    'height': magnifierSize
+  });
+
+  //Setting a few more...
+  var magnifyOffset = +($('.magnify').width() / 2);
+  var rightSide = +(imagePos.left + $(this).width());
+  var bottomSide = +(imagePos.top + $(this).height());
+
+  $(document).mousemove(function(e) {
+    if (e.pageX < +(imagePos.left - magnifyOffset / 6) || e.pageX > +(rightSide + magnifyOffset / 6) || e.pageY < +(imagePos.top - magnifyOffset / 6) || e.pageY > +(bottomSide + magnifyOffset / 6)) {
+      $('.magnify').hide();
+      $(document).unbind('mousemove');
+    }
+    var backgroundPos = "" - ((e.pageX - imagePos.left) * magnification - magnifyOffset) + "px " + -((e.pageY - imagePos.top) * magnification - magnifyOffset) + "px";
+    $('.magnify').css({
+      'left': e.pageX - magnifyOffset,
+      'top': e.pageY - magnifyOffset,
+      'background-position': backgroundPos
+    });
+  });
+}, function() {
+
+});
+};
+
+this.init = function() {
+$('body').prepend('<div class="magnify"></div>');
+}
+
+return this.init();
+}
+
+var magnify = new magnifier();
+magnify.magnifyImg('img', magnification, magnifierSize);
+
+</script>
+        <script src="../js/script.js"></script>
+
+
+    </body>
+</html>

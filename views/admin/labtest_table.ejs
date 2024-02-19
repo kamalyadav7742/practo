@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</head>
+<style>
+  .operating_hours {
+    background: white;
+    border-radius: 5px;
+  }
+
+  @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+
+  body {
+    margin-top: 10%;
+    margin-left: 10%;
+  }
+
+  form {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .pseudo-search {
+    display: inline;
+    border: 2px solid #ccc;
+    border-radius: 100px;
+    padding: 10px 15px;
+    transition: background-color 0.5 ease-in-out;
+  }
+
+  input {
+    border: 0;
+    background-color: transparent;
+    width: 200px;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  button,
+  i {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  select {
+    border: none;
+  }
+
+  @media screen and (max-width: 705px) {
+
+    .table th {
+      display: none;
+
+    }
+
+    .table,
+    .table tr,
+    .table td {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    button {
+      text-align: center;
+    }
+
+    .table tr,
+    .table td {
+      margin-bottom: 10px;
+    }
+  }
+
+
+  th {
+    background-color: #1F2739;
+  }
+
+  th {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #3C91E6;
+    color: #3C91E6;
+  }
+
+  div tr td {
+    font-size: 13px;
+  }
+
+  .cot {
+
+    box-shadow: -1px 2px 17px -5px rgba(0, 0, 0, 0.88);
+  }
+
+  .close {
+    color: white;
+  }
+
+  thead th {
+    background-color: #323232;
+    /* font-size: 16px; */
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .pagination a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .pagination .current-page {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  #download-csv {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  #download-csv:hover {
+    background-color: #3e8e41;
+  }
+
+  /* modal */
+  /* Styling for the modal header */
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+  }
+
+  /* Styling for the input fields */
+  .form-control {
+    border-radius: 0;
+    border-color: #ccc;
+  }
+
+  /* Styling for the submit button */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 0;
+  }
+
+  /* Styling for the close button */
+  .btn-close {
+    color: white;
+  }
+
+  /* Styling for the modal footer */
+  .modal-footer {
+    background-color: #f1f1f1;
+  }
+</style>
+
+<body style="background-color: #eee;">
+  <%- include('../partials/main_navbar.ejs') %>
+    <%- include('../partials/main_sidebar.ejs') %>
+      <%- include('../partials/setting_sidebar.ejs') %>
+        <div class="" style=" margin-top: 65px;margin-right: 15px;
+    margin-left: 285px; display: flex; justify-content: center; align-items: center;">
+          <div class="container-fluid notification mt-3">
+            <div class="row p-3">
+              <div class="col-12 pb-2 border-bottom">
+                <i class="fas fa-bell"></i>
+                <span>Dynamic Data</span>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-12 pb-3" style="font-size: 12px">
+
+                
+            <div class="pseudo-search">
+              <input type="search" id="searchInput" placeholder="Search" aria-label="Search" autofocus required>
+              
+              <i class="fa fa-globe places"></i>
+              <button  class="fa fa-search" id="searchButton" type="button"></button>
+            </div>
+                <div class="text-center">
+                  <button id="download-csv" class="btn btn-outline-dark">Download CSV</button>
+                </div>
+                <div class="row mt-3">
+                  <% if(result.length>0){%>
+                    <table class=" w-100 table table-light cot mb-5  table-sm table-responsive table-hover-dark"
+                      style="border-top: 3px solid blue;">
+                      <thead>
+                        <tr>
+                          <th class="border border-dark">Id</th>
+                          <th class="border border-dark">name</th>
+                          <th class="border border-dark">price</th>
+                          <th class="border border-dark">description</th>
+
+                          <th class="border border-dark">Edit</th>
+                          <th class="border border-dark">Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody id="ivr_table">
+                        <% var recordsPerPage=5; var currentPage=parseInt(req.query.page) || 1; var
+                          totalRecords=result.length; var totalPages=Math.ceil(totalRecords / recordsPerPage); var
+                          startIndex=(currentPage - 1) * recordsPerPage; var endIndex=startIndex + recordsPerPage; if
+                          (endIndex> totalRecords) endIndex = totalRecords;
+                          for (var i = startIndex; i < endIndex; i++) { %>
+                            <tr style="border: 1px solid black;">
+                              <td class="border border-dark">
+                                <%= result[i].id %>
+                              </td>
+                            
+                              <td class="border border-dark">
+                                <%= result[i].name %>
+                              </td>
+                              
+                              <td class="border border-dark">
+                                <%= result[i].price %>
+                              </td>
+                              <td class="border border-dark">
+                                <%= result[i].description%>
+                              </td>
+                              <!-- <td class="text-center border border-dark"><a href="/edit/<%= result[i].id %>"><i class="fas fa-pen" style="color:#184e77;font-size: 13px;"></i></a></td> -->
+                              <td class="text-center border border-dark">
+
+                                <button id="edit" data-id="<%= result[i].id  %>" type="button"
+                                  class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                                  data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i
+                                    class="fa-regular fa-pen-to-square text-primary"></i></button>
+                              </td>
+
+
+                              <td class="text-center border border-dark"><a href='/delete13/<%= result[i].id %>'> <i
+                                    class="fa-regular fa-trash-can text-danger"></i></a>
+                              </td>
+                            </tr>
+                            <%} %>
+                      </tbody>
+                    </table>
+                    <% if (totalPages> 1) { %>
+                      <div class="pagination">
+                        <% if (currentPage> 1) { %>
+                          <a href="?page=<%= currentPage - 1 %>">&laquo; Previous</a>
+                          <% } %>
+                            <% for (var i=Math.max(1, currentPage - 2); i <=Math.min(currentPage + 2, totalPages); i++)
+                              { %>
+                              <% if (i==currentPage) { %>
+                                <span class="current-page">
+                                  <%= i %>
+                                </span>
+                                <% } else { %>
+                                  <a href="?page=<%= i %>">
+                                    <%= i %>
+                                  </a>
+                                  <% } %>
+                                    <% } %>
+                                      <% if (currentPage < totalPages) { %>
+                                        <a href="?page=<%= currentPage + 1 %>" style="z-index: 1200;">Next &raquo;</a>
+                                        <% } %>
+                      </div>
+                      <% } %>
+                        <%} else{%> no record found <%} %>
+                </div>
+              </div>
+              <!--  -->
+
+
+              
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header  text-center">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body  text-center">
+                      <form class="input mt-2 ms-5" action="/labtest_update" method="post">
+                        <div class="mb-3">
+                          <input class="border border-dark" type="text" class="input form-control" placeholder="Date"
+                            id="id" name="id" value="" hidden required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                          <label for="recipient-name" class="col-form-label">Name</label>
+
+
+                            </div>
+                            <div class="col-md-8">
+
+                                <div class="mb-3">
+                                  <input type="text" class="form-control w-100" placeholder="name" id="name" name="name"
+                                    value="" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <dv class="col-md-3">
+                          <label for="recipient-name" class="col-form-label">Price</label>
+
+
+                            </dv>
+                            <dv class="col-md-8">
+
+                                <div class="mb-3">
+                                  <input type="text" class="form-control" placeholder="price" id="price" name="price" value=""
+                                    required>
+                                </div>
+                            </dv>
+                        </div>
+
+                        <div class="row">
+                            <dv class="col-md-3">
+                          <label for="recipient-name" class="col-form-label">Description</label>
+
+                                
+                            </dv>
+                            <dv class="col-md-8">
+                                
+                                <div class="mb-3">
+                                  <input type="text" class="form-control" placeholder="description" id="description" name="description"
+                                    value="" required>
+                                </div>
+                            </dv>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" id="form_submit" class="btn btn-primary">submit</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- add -->
+
+              
+</body>
+<script>
+  $(document).on('click', '#edit', function () {
+    const id = $(this).data('id'); // Get the ID of the clicked button
+    alert(id)
+    $.ajax({
+      url: '/labtest_edit', // The URL to send the GET request to
+      type: 'post',
+      data: { id: id },
+      dataType: 'json',// The ID parameter to send with the request
+      success: function (data) {
+        console.log
+        // Populate the modal form fields with the record data
+        $('#id').val(data.result[0].id);
+        $('#name').val(data.result[0].name);
+        $('#price').val(data.result[0].price);
+        $('#description').val(data.result[0].description);
+        // ... repeat for other fields ...
+        $('#exampleModal').modal('show'); // Show the modal
+      },
+      error: function () {
+        alert('Error getting record data!');
+      }
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $('#form_submit',).click(function () {
+      var name = document.getElementById("name").value
+      var price = document.getElementById("price").value
+      var description = document.getElementById("description").value
+      alert(name)
+      $.ajax({
+        url: "/labtest_update",
+        method: "post",
+        data: {
+          name: name,
+          price: price,
+          description: description,
+        },
+        success: function (result) {
+          console.log(result)
+        }
+
+      });
+    });
+  });
+
+</script>
+
+
+<script>
+    $(document).ready(function() {
+      // Add event listener to the search button
+      $('#searchButton').click(function() {
+        // Get the search term from the input field
+        var searchTerm = $('#searchInput').val().trim();
+  
+        // Make an AJAX request to the server to get the search results
+        $.ajax({
+          url: '/search3',
+          type: 'post',
+          data: { searchTerm: searchTerm },
+          success: function(response) {
+            // Clear the current table content
+            $('#ivr_table').empty();
+            
+            // Loop through the search results and build the table content
+            for (var i = 0; i < response.result.length; i++) {
+              var row = response.result[i];
+              $('#ivr_table').append(`<tr><td class="border border-dark">${row.id}</td><td class="border border-dark">${row.name}</td><td class="border border-dark">${row.price}</td><td class="border border-dark">${row.description}</td> <td class="text-center border border-dark">
+              <button id="edit" data-id="${row.id}" type="button"
+                class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i
+                  class="fa-regular fa-pen-to-square text-primary"></i></button>
+              </td>  <td class="text-center border border-dark mt-2"><a href='/delete13/${row.id}'> <i
+                                              class="fa-regular fa-trash-can text-danger"></i></a>
+                                        </td></tr>`);
+            }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.log('Error:', textStatus, errorThrown);
+          }
+        });
+      });
+    });
+  </script>
+  
+</html>
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+</head>
+<style>
+  .operating_hours {
+    background: white;
+    border-radius: 5px;
+  }
+
+  @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+
+body {
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+form {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.pseudo-search {
+  display: inline;
+  border: 2px solid #ccc;
+  border-radius: 100px;
+  padding: 10px 15px;
+  transition: background-color 0.5 ease-in-out;
+}
+  input {
+    border: 0;
+    background-color: transparent;
+    width: 200px;
+  }
+    :focus {
+      outline: none;
+    }
+    
+  button, i {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  select {
+    border: none;
+  }
+
+  @media screen and (max-width: 705px) {
+
+.table th {
+  display: none;
+
+}
+
+.table,
+.table tr,
+.table td {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  text-align: center;
+}
+
+.table tr,
+.table td {
+  margin-bottom: 10px;
+}
+}
+
+
+th {
+background-color: #1F2739;
+}
+
+th{
+font-size: 14px;
+font-weight: 600;
+background-color: #3C91E6;
+color: #3C91E6;
+}
+
+div tr td{
+font-size: 13px;
+}
+
+.cot{
+
+box-shadow: -1px 2px 17px -5px rgba(0,0,0,0.88);
+}
+
+.close {
+ color: white;
+}
+thead th {
+        background-color: #323232;
+        /* font-size: 16px; */
+        font-weight: bold;
+        padding: 10px;
+        text-align: left;
+        text-transform: uppercase;
+      }
+      
+      .pagination a {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  color: #333;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.pagination .current-page {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+</style>
+
+<body st
+yle="background-color: white;">
+  <%- include('partials/main_navbar.ejs') %> <%- include('partials/main_sidebar.ejs') %> <%-
+        include('partials/setting_sidebar.ejs') %>
+        <div style=" margin-top: 80px;margin-right: 15px;
+     margin-left: 285px;">
+          <div class="container-fluid operating_hours">
+
+            <div class="pseudo-search">
+                <input type="text" id="find_amd" placeholder="Search..." autofocus required>
+                
+                <i class="fa fa-globe places"></i>
+                <button class="fa fa-search" type="submit"></button>
+              </div>
+  
+
+
+            <div class="container-fluid">
+                <div class="row mt-3">
+                  <% if(result1.length>0){%>
+                  <table class=" w-100 table table-light cot mb-5  table-sm table-responsive table-hover-dark">
+                    <thead>
+                      <tr>
+                        <th class="border border-dark">Id</th>
+                        <th class="border border-dark">Name</th>
+                        <th class="border border-dark">Email</th>
+                        <th class="border border-dark">Number</th>
+                        <th class="border border-dark">Organisation Name</th>
+                        <th class="border border-dark">Age</th>
+                        <th class="border border-dark">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody id="ivr_table">
+                      <% var recordsPerPage = 10;
+                      var currentPage = parseInt(req1.query.page) || 1;
+                      var totalRecords = result1.length;
+                      var totalPages = Math.ceil(totalRecords / recordsPerPage);
+                      var startIndex = (currentPage - 1) * recordsPerPage;
+                      var endIndex = startIndex + recordsPerPage;
+                      if (endIndex > totalRecords) endIndex = totalRecords;
+                      for (var i = startIndex; i < endIndex; i++) { %>
+                      <tr style="border: 1px solid black;">
+                        <td class="border border-dark"><%= i %></td>
+                        <td><a href="../<%= result1[i].image %>" style="text-decoration: none; color: red;" target="_blank"><%= result1[i].name %></a></td>
+                        <td class="border border-dark"><%= result1[i].email %></td>
+                        <td class="border border-dark"><%= result1[i].number %></td>
+                        <td class="border border-dark"><%= result1[i].org_name %></td>
+                        <td class="border border-dark"><%= result1[i].age %></td>
+                        
+    
+                        <td class="text-center border border-dark"><a href='/delete5/<%= result1[i].id %>'> <i class="fa-regular fa-trash-can text-danger"></i></a>
+                        </td>
+                      </tr>
+                      <%} %>
+                    </tbody>
+                  </table>
+                  <% if (totalPages > 1) { %>
+                    <div class="pagination">
+                      <% if (currentPage > 1) { %>
+                        <a href="?page=<%= currentPage - 1 %>">&laquo; Previous</a>
+                      <% } %>
+                      <% for (var i = Math.max(1, currentPage - 2); i <= Math.min(currentPage + 2, totalPages); i++) { %>
+                        <% if (i == currentPage) { %>
+                          <span class="current-page"><%= i %></span>
+                        <% } else { %>
+                          <a href="?page=<%= i %>"><%= i %></a>
+                        <% } %>
+                      <% } %>
+                      <% if (currentPage < totalPages) { %>
+                        <a href="?page=<%= currentPage + 1 %>" style="z-index: 1200;">Next &raquo;</a>
+                      <% } %>
+                    </div>
+                  <% } %>
+                <%} else{%> no record found <%} %>
+              </div>
+          </div>
+
+
+
+            
+        <!--  -->
+
+         
+          <script>
+            $(document).ready(function () {
+              $("#find_amd").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#ivr_table tr").filter(function () {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+                var letCount = $("#ivr_table tr td").length;
+
+              });
+            });
+          </script>
+</body>
+
+</html>

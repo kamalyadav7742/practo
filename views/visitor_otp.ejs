@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/static/img/egv_logo.png" type="image/gif">
+  <link rel="stylesheet" href="/static/CDN/bootstrap5.min.css">
+  <script src="/static/CDN/bootstrap5.bundle.min.JS"></script>
+  <script src="/static/CDN/jquery.js"></script>
+  <title>ADD VISITOR</title>
+</head>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Gill+Sans');
+
+  #preloader {
+    background: black url(/static/img/preloader2.gif) no-repeat center;
+    background-size: 20%;
+    height: 100vh;
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    z-index: 1000000000;
+  }
+
+  #msg01 {
+    font-size: 3vw;
+    color: red;
+  }
+
+  #msg {
+    font-size: 3vw;
+    color: red;
+  }
+
+  #resend {
+    display: none;
+  }
+</style>
+
+<body style="background:url(/static/img/bg_dot.png); font-family: 'Gill Sans', Gill Sans;">
+  <!-- <div id="preloader"></div> -->
+
+    <div class="mx-3 pt-2  pb-2"
+      style="background-color:rgb(255, 255, 255);border-radius: 10px;box-shadow: 0px 0px 20px #aaaaaa;margin-top:8vw;height: auto;margin-top:20vw;">
+      <h1 class=" text-center"
+        style="font-size: 3.5vw;font-weight: bold;text-transform: uppercase;  margin-bottom: -8px;">Visitor
+        Verification</h1>
+
+      <hr>
+      <div class="m-3" id="m_div">
+        <div class="row" id="rows" style="font-size: 3vw;">
+          <div class="col-12 d-flex">
+            <button class="" style="    width: 15vw;
+            height: 9vw;
+            border: none;
+            background: whitesmoke;
+            border-bottom: 1px solid grey;
+            border-radius: 5px;
+            padding-left: 1.5vw;">
+              <p style="padding-top: 2.5vw;font-size: 3vw;  font-weight: bold; display: flex;"><img
+                  src="/static/img/ind_flag.png" style="width: 5vw;
+              height: 3vw;
+              padding-top: 0vw;
+              margin-top: 0.5vw; margin-right: 2vw;" alt=""> 91</p>
+            </button> &nbsp;
+            <input type="number" id="mob_input" name="mob_input" placeholder=" Mobile Number" required
+              class="form-control w-100"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              maxlength="10"
+              style="background: #f2f2f2b0;font-size: 3vw;width: 100%;border-radius: 5px;border: none;border-bottom: 1px solid grey;font-weight: bold;padding: 10px;height: 9vw;">
+          </div>
+
+
+        </div>
+        <div id="msg01" class="text-center"></div>
+        <div class="w-100 d-flex justify-content-center mt-2">
+
+          <button type="button" class="btn" id="get_otp"
+            style="color: white;text-align: center;width: 100px;background-color: #7f9b67d6;border-radius: 1vw;font-size: 3vw;width:20vw;margin-top:2vw;font-weight: bold;text-transform: uppercase;">Get
+            OTP</button>
+        </div>
+        <div id="transit">
+
+          <div class="mt-3">
+            <!-- <label for="" class="fs-6 text-secondary">verify otp</label> -->
+            <input type="number" id="inp" placeholder="Enter OTP" class="form-control w-100"
+              style="background: #f2f2f2b0;font-size: 3vw;width: 100%;border-radius: 5px;border: none;border-bottom: 1px solid grey;font-weight: bold;padding: 10px;height: 9vw;" />
+            <div class="text-secondary mt-2" style="font-size:3.5vw">OTP Expire In : <span id="counter"></span></div>
+          </div>
+          <!-- <div class="row mt-4"> -->
+          <!-- <div class="col-6"> -->
+
+          <div id="msg"></div>
+
+          <div class="d-flex justify-content-center">
+            <button type="button" id="veri" class="btn " onclick="form2()"
+              style="color: white;text-align: center; background-color: #7f9b67d6;border-radius: 1vw;font-size: 3.5vw;width:20vw;font-weight: bold;text-transform: uppercase;">
+              verify</button>
+            <!-- </div> -->
+            <!-- <div class="col-6"> -->
+
+            <button type="button " id="resend" class=" btn "
+              style="color: white;text-align: center; background-color: #7f9b67d6;border-radius: 1vw;font-size: 3.5vw;width: 20vw;font-weight: bold;text-transform: uppercase;">
+              resend</button>
+
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="m-3" id="otp_div"> </div> -->
+    </div>
+
+
+    <div style="margin-top: 100px;"></div>
+
+      <script>
+        document.getElementById('transit').style.display = 'none'
+        $('#msg').hide()
+        $('#msg01').hide()
+
+        // let otp = '';
+        document.getElementById('get_otp').addEventListener('click', function () {
+          let smobile = document.getElementById('mob_input').value;
+          //console.log(smobile)
+          if (smobile == "") {
+            $('#msg01').show().html('mobile field cannot be empty').fadeOut(5000);
+
+            // alert("mobile field cannot be empty")
+            return false
+          }
+          else if ((smobile.length > 10) || (smobile.length < 10)) {
+            // alert("mobile number must be of 10 digits")
+            $('#msg01').show().html('Mobile number must be of 10 digits').fadeOut(5000);
+
+            return false
+          }
+          else {
+            let otp = ''
+            for (var i = 0; i < 6; i++) {
+              otp = otp + [Math.floor(Math.random() * 10)]
+              // console.log(" ")
+            }
+
+
+            $.ajax({
+              url: "/otpsend1",
+              method: "POST",
+              dataType: "JSON",
+              data: {
+                er02: otp,
+                smobile: smobile
+              },
+              success: function (result) {
+
+              }
+
+            })
+
+            // console.log("one time password is " + otp)
+            window.er = otp
+            $('#get_otp').remove("")
+            // timer
+            let timerOn = true;
+            function timer(remaining) {
+              var m = Math.floor(remaining / 60);
+              var s = remaining % 60;
+              s = s < 10 ? '0' + s : s;
+              document.getElementById('counter').innerHTML = m + ':' + s;
+              remaining -= 1;
+
+              if (remaining >= 0 && timerOn) {
+                setTimeout(function () {
+                  timer(remaining);
+                }, 1000);
+                return;
+              }
+              if (!timerOn) {
+
+              }
+
+              er = ''
+              $('#resend').show()
+            }
+            timer(600);
+            return document.getElementById('transit').style.display = 'block'
+          }
+        })
+
+        window.er2 = '';
+        document.getElementById('resend').addEventListener('click', function () {
+          let smobile = document.getElementById('mob_input').value;
+
+          $('#resend').hide()
+          $('#veri').slideDown(2000)
+          let res = '';
+          er = '';
+          for (var i = 0; i < 6; i++) {
+            res = res + [Math.floor(Math.random() * 10)]
+            // console.log(" ")
+          }
+
+          $.ajax({
+            url: "/otpsend2",
+            method: "POST",
+            dataType: "JSON",
+            data: {
+              er04: res,
+              smobile: smobile
+
+            },
+            success: function (result) {
+
+            }
+
+          })
+
+          er2 = res;
+          let timerOn = true;
+          function timer(remaining) {
+            var m = Math.floor(remaining / 60);
+            var s = remaining % 60;
+
+            s = s < 10 ? '0' + s : s;
+            document.getElementById('counter').innerHTML = m + ':' + s;
+            remaining -= 1;
+
+            if (remaining >= 0 && timerOn) {
+              setTimeout(function () {
+                timer(remaining);
+              }, 1000);
+              return;
+            }
+
+            if (!timerOn) {
+
+            }
+
+            // Do timeout stuff here
+            $('#msg').show().html('Timeout for otp, Resend otp').fadeOut(5000);
+
+
+            $('#resend').show()
+          }
+          timer(600);
+
+          // console.log("one time password is " + er2)
+        })
+
+        // verify otp
+        document.getElementById('veri').addEventListener('click', function () {
+          window.btn1 = document.getElementById('inp').value;
+          if (btn1 == '') {
+            $('#veri').slideDown(2000)
+          }
+          else if (btn1 === er) {
+            er = ''
+            // console.log(btn1 + " otp matched successfully")
+            $('#veri').slideUp(2000)
+          }
+          else if (btn1 === er2) {
+            // console.log(btn1 + " otp matched successfully")
+            $('#veri').slideUp(2000)
+          }
+          else if ((btn1 !== er) || (btn1 !== er2)) {
+            $('#veri').slideDown(2000)
+            // alert(btn1 + "otp does not matched")
+            $('#msg').show().html('OTP does not matched').fadeOut(5000);
+            // console.log(btn1 + " otp does not match")
+          }
+        })
+      </script>
+
+
+      <script>
+        function form2() {
+          let emobile = document.getElementById('mob_input').value
+          let eotp = document.getElementById('inp').value;
+          let btn2 = document.getElementById('inp').value;
+
+          if (er.length > 0) {
+            if (btn2 == '') {
+              $('#msg').show().html('OTP cannot be blank').fadeOut(5000);
+
+              //  alert("otp cannot be blank")
+            }
+            else if (btn2 != er) {
+              $('#msg').show().html('Wrong OTP').css('color','red');
+
+              // console.log("wrong otp")
+            }
+
+            else if (btn2 === er || btn2 !== '') {
+              //   alert("data sent")
+
+              $.ajax(
+                {
+                  type: 'POST',
+                  url: 'formpost3',
+                  dataType: 'JSON',
+                  data:
+                  {
+                    Mobile1: emobile,
+                    Otp1: eotp
+                  },
+                  success: function (result) {
+                    let refNumber3 = result.refnumber4;
+                    // alert(refNumber3);
+                    // console.log(refNumber3 + "hiii");
+                    let phone_no = result.mobile;
+                    // console.log(phone_no + "world ");
+                    window.location.href = `./kamal`;
+                  }
+                })
+            }
+
+          } else {
+
+            if (btn2 == '') {
+              $('#msg').show().html('OTP cannot be blank').fadeOut(5000);
+              //  console.log("otp cannot be blank")
+            }
+            else if (btn2 != er2) {
+              $('#msg').show().html('Wrong OTP').css('color','red');
+              // console.log("wrong otp")
+            }
+
+            else if (btn2 === er2 || btn2 !== '') {
+              //   alert("data sent")
+
+              $.ajax(
+                {
+                  type: 'POST',
+                  url: 'formpost3',
+                  dataType: 'JSON',
+                  data:
+                  {
+                    Mobile1: emobile,
+                    Otp1: eotp
+                  },
+                  success: function (result) {
+                    let refNumber3 = result.refnumber4;
+                    // alert(refNumber3);
+
+                    let phone_no = result.mobile;
+                    // console.log(phone_no+"world ");
+                    window.location.href = `./kamal`;
+                  }
+                })
+            }
+          }
+        }
+      </script>
+      <script>
+        document.querySelector("#mob_input").addEventListener("keypress", function (evt) {
+          if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+            evt.preventDefault();
+          }
+        });
+      </script>
+</body>
+
+</html>

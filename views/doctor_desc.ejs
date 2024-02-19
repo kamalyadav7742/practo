@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .tabset {
+    max-width: 65em;
+}
+
+.tabset > input[type="radio"] {
+    position: absolute;
+    left: -200vw;
+}
+
+.tabset .tab-panel {
+    display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+    display: block;
+}
+
+.tabset > label {
+    position: relative;
+    display: inline-block;
+    padding: 15px 15px 25px;
+    border: 1px solid transparent;
+    border-bottom: 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 15px;
+}
+
+.tabset > input:checked + label {
+    border-color: #ccc;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+    color: #f04a5d;
+}
+
+.tab-panel {
+    padding: 30px 0;
+    border-top: 1px solid #ccc;
+}
+
+
+/* Adding some additional effects */
+
+.tabset > label:hover {
+    background-color: #f7f7f7;
+}
+
+.tabset > input:checked + label:hover {
+    background-color: #fff;
+}
+
+.tabset > input:focus + label {
+    outline: none;
+}
+
+.tabset > input:checked + label::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #f04a5d;
+}
+
+.tabset > input:checked + label::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px 5px 0 5px;
+    border-style: solid;
+    border-color: #f04a5d transparent transparent transparent;
+}
+
+@media screen and (max-width: 767px) {
+    .tabset > label {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .tabset > input:checked + label::before,
+    .tabset > input:checked + label::after {
+        display: none;
+    }
+    
+    .tabset > input:first-child:checked ~ .tab-panels > 
+.tab-panel {
+display: block;
+box-sizing: border-box;
+width: 100%;
+padding: 20px;
+text-align: left;
+}
+}
+
+/* Define a custom color palette */
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #ff9900;
+  --background-color: #f5f5f5;
+}
+
+/* Add hover effects to links */
+a:hover {
+  color: var(--secondary-color);
+}
+
+
+/* Add shadows and gradients */
+.text-overlay {
+  border-radius: 6px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  color: black;
+}
+
+/* Use whitespace effectively */
+.text-overlay h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Use the primary color for buttons */
+.locate .btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Add a subtle shadow to buttons on hover */
+.locate .btn:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Add a custom underline to links on hover */
+.address a:hover {
+  background-image: linear-gradient(to bottom, var(--secondary-color), var(--secondary-color));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+}
+
+/* Add a subtle gradient background to the view button */
+.view {
+  background-image: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+  background-repeat: no-repeat;
+  background-size: 100% 200%;
+  transition: background-position 0.2s ease-in-out;
+}
+
+/* Move the background gradient on hover to create a subtle animation */
+.pro:hover .view {
+  background-position: 0% -100%;
+}
+
+
+.form-select {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        font-size: 1rem;
+        color: #333;
+        background-color: #fff;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    
+    .form-select option {
+        padding: 1rem;
+        font-size: 1rem;
+        color: #333;
+        background-color: #fff;
+    }
+    
+    .form-select:hover, .form-select:focus {
+        border-color: #8a45e6;
+        box-shadow: 0 0 0 3px rgba(138, 69, 230, 0.2);
+    }
+    
+    .form-select:hover option, .form-select:focus option {
+        background-color: white;
+        color: black;
+    }
+
+    .image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+.image-container img {
+  transition: transform 0.5s;
+}
+
+/* Zoom-in Animation */
+@keyframes zoom-in {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.image-container img:hover {
+  animation: zoom-in 0.5s forwards;
+}
+    </style>
+</head>
+
+<body>
+    <%-include('./common/header.ejs') %>
+</div>
+        <div class="container-fluid">
+            <div class="row px-2 py-3">
+                <div class="col-md-4 my-2 px-0">
+                    <select class="form-select" id="city" name="city" size="1" aria-label="size 1 select example">
+                        <option>Select With city</option>
+                        <% for(var i=0; i<result2.length; i++) { %>
+                            <option value="<%= result2[i].city %>">
+                                <%= result2[i].city %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+                <div class="col-md-4 my-2 px-0">
+                    <select class="form-select" id="speciality" name="speciality" size="1"
+                        aria-label="size 1 select example">
+                        <option>Select With Speciality</option>
+                        <% for(var i=0; i<result3.length; i++) { %>
+                            <option value="<%= result3[i].speciality %>">
+                                <%= result3[i].speciality %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+                <div class="col-md-3 mx-auto">
+                    <p class=" my-0 py-1 " style="font-size: 12px; color: grey;">Fed up of endless wait?</p>
+                    <p class=" my-0" style="color:#8a45e6">Look for clinic with Us</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row px-3 py-3" style="background-color: #f0f0f5;">
+                <div class="col-md-9">
+                   
+                    <div class="row py-3" style="background-color: white ;">
+                        <% for(var i=0; i<result.length; i++) { %>
+                            <div class="col-md-2 px-3 py-4">
+                                <div class="image-container">
+                                    <img src="/static/upload/<%= result[i].image %>" width="120px" height="120px"
+                                        style="border-radius: 10px;border: 1px solid black;">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-10 px-3 py-3">
+                                <div class="px-3">
+                                    <h3 style="font-weight: 700;">
+                                        <%= result[i].name %> <span style="font-size: 14px;"> Profile is claimed</span>
+                                    </h3>
+                                    <h5>
+                                        <%= result[i].study %>
+                                    </h5>
+                                    <h5>
+                                        <%= result[i].speciality %>
+                                    </h5>
+                                    <h6>
+                                        <%= result[i].experience %> Years Experience Overall
+                                    </h6>
+                                    <p><i class="fa-solid fa-circle-check" style="color:green"></i> Medical
+                                        Registeration Verified</p>
+                                    <p><i class="fa-solid fa-thumbs-up" style="color:green"></i> 100%</p>
+                                    <p>
+                                        <%= result[i].description %>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row my-3 px-3">
+                                <div class="tabset">
+                                    <!-- Tab 1 -->
+                                    <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+                                    <label for="tab1">Info</label>
+                                    <!-- Tab 2 -->
+                                    <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+                                    <label for="tab2">Stories</label>
+                                    <!-- Tab 3 -->
+                                    <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+                                    <label for="tab3">Consult Q&A</label>
+
+                                    <div class="tab-panels">
+                                        <section id="marzen" class="tab-panel">
+
+                                            <div class="row">
+                                                <h4 class="py-2 px-2">
+                                                    <%= result[i].address %>, <%= result[i].city %>
+                                                </h4>
+                                                <div class="col-md-4">
+                                                    <p class="py-2"><strong>Cusp Dental</strong><br> Shop No. 216-217,
+                                                        Second floor Vardhman City Mall, near Paramount School <%=
+                                                            result[i].address %>, <%= result[i].city %> Pincode-<%=
+                                                                    result[i].pincode %>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p class="py-2 px-auto"><strong>Mon-Sun</strong><br> 10:00 AM -
+                                                        02:00 PM <br>
+                                                        04:00 PM - 08:00 PM</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p class="py-2 px-2"><strong
+                                                            style="text-decoration: line-through;">₹ 300</strong>
+                                                        Free<br>Online Payment Available</p>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <section id="rauchbier" class="tab-panel">
+                                            <h4>Patient Stories for <span style="color: red;">
+                                                    <%= result[i].name %>
+                                                </span></h4>
+                                            <p><strong>These are patient’s opinions and do not necessarily reflect the
+                                                    doctor’s medical capabilities. Read more</strong><br><strong>142
+                                                    Result</strong><br> An elegant, malty German amber lager with a
+                                                balanced, complementary beechwood smoke character. Toasty-rich malt in
+                                                aroma and flavor, restrained bitterness, low to high smoke flavor, clean
+                                                fermentation profile, and an attenuated finish are characteristic.</p>
+                                        </section>
+                                        <section id="dunkles" class="tab-panel">
+                                            <h2>Dental checkup</h2>
+                                            <p>I have tartar in my teeth how many it costs for full cleaning up I am 24
+                                                years old Will it be removed and not form again</p>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-3 px-3">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae adipisci rem veritatis
+                        deleniti quos quia assumenda dolorem labore recusandae possimus! Dicta beatae pariatur quos.
+                        Libero optio ullam ipsum delectus id, deserunt quasi assumenda doloremque ea quis quidem vitae,
+                        ipsa ab nihil nobis labore incidunt quia dolore repudiandae nesciunt reiciendis aperiam,
+                        architecto fugiat! Aspernatur esse laudantium, sequi ipsam ipsa quidem sed praesentium culpa ab.
+                        Sit esse pariatur quia? Consequuntur doloribus praesentium deleniti facere magni distinctio
+                        dolorum totam velit nesciunt veniam assumenda sapiente incidunt inventore repudiandae fugit
+                        excepturi tenetur impedit blanditiis, deserunt ab suscipit. Similique alias iusto temporibus
+                        veniam voluptas nesciunt molestias dolores laudantium, possimus praesentium quae nemo facilis
+                        officia aspernatur doloribus voluptatibus perspiciatis esse quaerat ea officiis distinctio,
+                        vitae libero sapiente. Odit saepe iusto voluptate minima? Hic nam, magni aut non beatae
+                        repellendus vel a corporis in eius earum iure quo veniam totam amet maxime error assumenda
+                        eveniet animi natus quos!</p>
+                </div>
+            </div>
+            <%}%>
+
+        </div>
+        </div>
+    </div>
+</div>
+     
+
+        <%-include('./common/footer.ejs') %>
+        <script>
+            $(document).ready(function () {
+                $('#speciality').change(function () {
+                    var selectedOption = $(this).val();
+                    if (selectedOption !== '') {
+                        $.ajax({
+                            url: '/speciality/' + selectedOption,
+                            type: 'GET',
+                            success: function (response) {
+                                $('body').html(response);
+                                history.pushState({}, '', '/speciality/' + selectedOption);
+                            },
+                            error: function (error) {
+                                console.log(error);
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-rHoNlAarX9y2QDigy4sPuzL+YsSN7O4x3qLZ4GzQv2axoMIhtS83BpzRykaRzJG1" crossorigin="anonymous">
+    
+  <style>
+
+    footer.nb-footer {
+      background: #222;
+      border-top: 4px solid #b78c33;
+    }
+
+    footer.nb-footer .about {
+      margin: 0 auto;
+      margin-top: 40px;
+      max-width: 1170px;
+      text-align: center;
+    }
+
+    footer.nb-footer .about p {
+      font-size: 13px;
+      color: #999;
+      margin-top: 30px;
+    }
+
+    footer.nb-footer .about .social-media {
+      margin-top: 15px;
+    }
+
+    footer.nb-footer .about .social-media ul li a {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 50%;
+      font-size: 16px;
+      color: #b78c33;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    footer.nb-footer .about .social-media ul li a:hover {
+      background: #b78c33;
+      color: #fff;
+      border-color: #b78c33;
+    }
+
+    footer.nb-footer .footer-info-single {
+      margin-top: 30px;
+    }
+
+    footer.nb-footer .footer-info-single .title {
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 16px;
+      border-left: 4px solid #b78c33;
+      padding-left: 5px;
+    }
+
+    footer.nb-footer .footer-info-single ul li a {
+      display: block;
+      color: #aaa;
+      padding: 2px 0;
+    }
+
+    footer.nb-footer .footer-info-single ul li a:hover {
+      color: #b78c33;
+    }
+
+    footer.nb-footer .footer-info-single p {
+      font-size: 13px;
+      line-height: 20px;
+      color: #aaa;
+    }
+
+    footer.nb-footer .copyright {
+      margin-top: 15px;
+      background: #111;
+      padding: 7px 0;
+      color: #999;
+    }
+
+    footer.nb-footer .copyright p {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* CSS for screens smaller than or equal to 612px */
+    @media (max-width: 518px) {
+      .footer-info-single ul {
+        display: none;
+      }
+
+      .footer-info-single h3::after {
+        content: '\f078';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        float: right;
+      }
+
+      .footer-info-single h3:hover::after {
+        transform: rotate(180deg);
+        transition: all 0.3s ease;
+      }
+
+      .footer-info-single h3 {
+        cursor: pointer;
+      }
+
+      .footer-info-single ul li {
+        display: block;
+        margin: 0;
+        padding: 5px 0;
+      }
+
+      .footer-info-single ul li a {
+        padding: 0 10px;
+        display: block;
+      }
+    }
+
+    .social-media li a {
+      position: relative;
+    }
+
+  
+  </style>
+</head>
+
+<body>
+  <link href='//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <body>
+
+    <footer class="nb-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="about">
+              <img src="images/logo.png" class="img-responsive center-block" alt="">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nesciunt nulla odit, rem modi debitis saepe minus tenetur at aliquid sequi dignissimos officiis recusandae maxime numquam quod veritatis nostrum voluptatem?</p>
+
+              <div class="social-media">
+                <ul class="list-inline">
+                  <li><a href="#" title=""><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#" title=""><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" title=""><i class="fa fa-google-plus"></i></a></li>
+                  <li><a href="#" title=""><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="footer-info-single">
+              <h3 class="title">Help Center</h3>
+              <ul class="list-unstyled">
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> How to
+                    Pay</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a>
+                </li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i>
+                    Sitemap</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Delivery
+                    Info</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="footer-info-single">
+              <h3 class="title">Customer information</h3>
+              <ul class="list-unstyled">
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> About
+                    Us</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a>
+                </li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Sell Your
+                    Items</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Contact
+                    Us</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> RSS</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="footer-info-single">
+              <h3 class="title">Security & privacy</h3>
+              <ul class="list-unstyled">
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Terms Of
+                    Use</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Privacy
+                    Policy</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Return /
+                    Refund Policy</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Store
+                    Locations</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="footer-info-single">
+              <h3 class="title">Payment</h3>
+              <p>Sample HTML page with Twitter's Bootstrap. Code example of Easy Sticky Footer using HTML, Javascript,
+                jQuery, and CSS. This bootstrap tutorial covers all the major elements of responsive</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <p>Copyright © 2023. Your Company.</p>
+            </div>
+            <div class="col-sm-6"></div>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Toggle visibility of footer dropdown on click
+        $('.footer-info-single h3').click(function () {
+          if ($(window).width() <= 518) {
+            $('.footer-info-single ul').toggle();
+          } else {
+            $('.footer-info-single ul').show();
+          }
+        });
+
+        // Show footer dropdown on screens larger than 518px
+        $(window).resize(function () {
+          if ($(window).width() > 518) {
+            $('.footer-info-single ul').show();
+          } else {
+            $('.footer-info-single ul').hide();
+          }
+        });
+      });
+    </script>
+
+  </body>
+
+</html>

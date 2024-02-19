@@ -1,0 +1,269 @@
+<!-- FONT AWESOME AND JQUERY LINK -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+/>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- bootstrap link -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<style>
+  /* .personal_form {
+      background-color: rgb(243, 255, 255);
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    } */
+
+  #dashboard {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 5px;
+    background-color: rgb(28, 43, 69);
+    color: #eee;
+    z-index: 1;
+  }
+  #inbox {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 5px;
+    background-color: rgb(28, 43, 69);
+    color: #eee;
+    z-index: 1;
+  }
+  #chatbot {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 5px;
+    background-color: rgb(28, 43, 69);
+    color: #eee;
+    z-index: 1;
+  }
+  #visitor {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 5px;
+    background-color: rgb(28, 43, 69);
+    color: #eee;
+    z-index: 1;
+  }
+  #contacts {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 5px;
+    background-color: rgb(28, 43, 69);
+    color: #eee;
+    z-index: 1;
+  }
+  #analytics {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 5px;
+    background-color: rgb(28, 43, 69);
+    color: #eee;
+    z-index: 1;
+  }
+  #setting {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    padding: 5px;
+    border-radius: 0px 5px 5px 5px;
+    background-color: rgb(28, 43, 69);
+    color: #eee;
+    z-index: 1;
+  }
+  .icon_height {
+    height: 100vh;
+    background-color: rgb(28, 43, 69);
+    --bs-border-width: 0px;
+    --bs-bg-opacity: 1;
+    z-index: 1;
+  }
+  .list-group-item {
+    background-color: rgb(28, 43, 69);
+    border-bottom: 1px solid #d2cbcb;
+  }
+
+  .fa-dashboard,
+  .fa-envelope,
+  .fa-robot,
+  .fa-address-book,
+  .fa-chart-pie,
+  .fa-message,
+  /* .fa-bell, */
+  .fa-circle-user,
+  .fa-fill-drip,
+  .fa-user,
+  .fa-message,
+  .fa-gear {
+    color: whitesmoke;
+  }
+  
+
+  /* setting sidebar */
+  .sidebar2 {
+    position: fixed;
+    height: 100%;
+    width: fit-content;
+    top: 0;
+    left: 54px;
+    height: 100%;
+    z-index: 2;
+    overflow-y: scroll;
+    display: none;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  .ripple {
+    background-color: #eee;
+    color: black;
+  }
+
+  .ripple:hover {
+    background-color: rgb(2, 2, 2);
+    color: black;
+    border-radius: 5px;
+  }
+  
+</style>
+<body style="font-family:arial, Arial, sans-serif;">
+  <!-- icon side bar -->
+
+  <div style="position: fixed; display: flex; top: 59px; left: 0px">
+    <div class="icon_height" style="width: fit-content">
+      <ul class="list-group" style="height: 100%; width: fit-content">
+        <a href="/chatbotpanel">
+          <li class="list-group-item m-2" id="dashboard_icon">
+            <i class="fas fa-dashboard"> </i
+            ><span id="dashboard"> Dashboard </span>
+          </li>
+        </a>
+        <a href="/inbox">
+          <li class="list-group-item m-2" id="inbox_icon">
+            <i class="fas fa-envelope"></i><span id="inbox"> Inbox </span>
+          </li>
+        </a>
+        <a href="#">
+          <li class="list-group-item m-2" id="chatbot_icon">
+            <i class="fas fa-robot"></i><span id="chatbot"> Chabot </span>
+          </li>
+        </a>
+      
+        <a href="/Visitor">
+          <li class="list-group-item m-2" id="visitor_icon">
+            <i class="fas fa-user"></i><span id="visitor"> Visitor </span>
+          </li>
+        </a>
+        
+        <a href="/Conversation_analytics">
+          <li class="list-group-item m-2" id="analytics_icon">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span id="analytics"> Analytics </span>
+          </li>
+        </a>
+        <a href="/Setting">
+          <li class="list-group-item m-2" id="setting_icon">
+            <i class="fas fa-gear"></i><span id="setting"> Setting </span>
+          </li>
+        </a>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    $("#operator_add").click(function () {
+      $("#operator_input").show();
+      $("#operator_input_save").show();
+    });
+
+    $("#operator_input_save").click(function () {
+      var name = document.getElementById("operator_input").value;
+      $("#operator_input").hide();
+      $("#operator_input_save").hide();
+      $("#new_operator").append(
+        '<a href="" >' +
+          '<div> <i class="user_icon fa-solid fa-user"></i>' +
+          name +
+          "</div>" +
+          "</a>"
+      );
+    });
+  </script>
+
+  <script>
+    $("#dashboard_icon").hover(function () {
+      $("#dashboard").show();
+    });
+    $("#dashboard_icon").mouseleave(function () {
+      $("#dashboard").hide();
+    });
+
+    $("#inbox_icon").hover(function () {
+      $("#inbox").show();
+    });
+    $("#inbox_icon").mouseleave(function () {
+      $("#inbox").hide();
+    });
+
+    $("#chatbot_icon").hover(function () {
+      $("#chatbot").show();
+    });
+    $("#chatbot_icon").mouseleave(function () {
+      $("#chatbot").hide();
+    });
+
+    $("#visitor_icon").hover(function () {
+      $("#visitor").show();
+    });
+    $("#visitor_icon").mouseleave(function () {
+      $("#visitor").hide();
+    });
+
+    $("#contacts_icon").hover(function () {
+      $("#contacts").show();
+    });
+    $("#contacts_icon").mouseleave(function () {
+      $("#contacts").hide();
+    });
+
+    $("#analytics_icon").hover(function () {
+      $("#analytics").show();
+    });
+    $("#analytics_icon").mouseleave(function () {
+      $("#analytics").hide();
+    });
+
+    $("#setting_icon").hover(function () {
+      $("#setting").show();
+    });
+    $("#setting_icon").mouseleave(function () {
+      $("#setting").hide();
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>

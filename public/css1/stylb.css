@@ -1,0 +1,164 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+
+body {
+ background: #eee;
+}
+
+#side_nav {
+    background: #1c1f46;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+hr.h-color {
+      background: #eee;
+}
+
+/* .sidebar li.active {
+    background: #eee;
+    border-radius: 8px;
+} */
+
+/* .sidebar li.active a {
+    color: #000;
+} */
+
+.sidebar li a {
+    color: #fff;
+}
+
+.sidebar ul li a:hover {
+    background: #eee;
+    color: #000;
+    border-radius: 8px;
+}
+.nav a:hover {
+    background: rgb(255, 0, 162);
+    color: #fff;
+    border-radius: 8px;
+}
+
+.button1 {
+    background-color: #c0c61e;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+  }
+.button5 {
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 705px) {
+
+	.table th {
+		display: none;
+
+	}
+
+	.table,
+	.table tr,
+	.table td {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+	}
+
+	button {
+		text-align: center;
+	}
+
+	.table tr,
+	.table td {
+		margin-bottom: 10px;
+	}
+}
+
+
+th {
+	background-color: #1F2739;
+}
+
+tr:hover {
+	background-color: white;
+	-webkit-box-shadow: 0 6px 6px -6px #100e19;
+	-moz-box-shadow: 0 6px 6px -6px #0E1119;
+	box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+td:hover {
+	background-color: #FFF842;
+	color: #403E10;
+	font-weight: bold;
+	/* box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px; */
+	transform: translate3d(2px, -2px, 0);
+	transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+	transition-timing-function: line;
+}
+
+th{
+	font-size: 14px;
+	font-weight: 600;
+	background-color: #3C91E6;
+	color: #3C91E6;
+}
+
+div tr td{
+	font-size: 13px;
+}
+
+.cot{
+
+box-shadow: -1px 2px 17px -5px rgba(0,0,0,0.88);
+}
+
+.close {
+   color: white;
+}
+
+
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 20px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}

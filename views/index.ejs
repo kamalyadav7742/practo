@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>practo</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css'>
+
+
+    <!-- CSS  -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            background-size: cover;
+            box-sizing: border-box;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        ul li a {
+            text-decoration: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .slider {
+            height: 50%;
+            position: relative;
+            overflow: hidden;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: row nowrap;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -webkit-box-align: end;
+            -webkit-align-items: flex-end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .slider__nav {
+            width: 12px;
+            height: 12px;
+            margin: 2rem 12px;
+            border-radius: 50%;
+            z-index: 10;
+            outline: 6px solid #ccc;
+            outline-offset: -6px;
+            box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .slider__nav:checked {
+            -webkit-animation: check 0.4s linear forwards;
+            animation: check 0.4s linear forwards;
+        }
+
+        .slider__nav:checked:nth-of-type(1)~.slider__inner {
+            left: 0%;
+        }
+
+        .slider__nav:checked:nth-of-type(2)~.slider__inner {
+            left: -100%;
+        }
+
+        .slider__nav:checked:nth-of-type(3)~.slider__inner {
+            left: -200%;
+        }
+
+        .slider__nav:checked:nth-of-type(4)~.slider__inner {
+            left: -300%;
+        }
+
+        .slider__inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400%;
+            height: 100%;
+            -webkit-transition: left 0.4s;
+            transition: left 0.4s;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: row nowrap;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+        }
+
+        .slider__contents {
+            height: 100%;
+            padding: 2rem;
+            text-align: center;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex-flow: column nowrap;
+            -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .slider__image {
+            font-size: 2.7rem;
+            color: #2196F3;
+        }
+
+        .slider__caption {
+            font-weight: 500;
+            margin: 2rem 0 1rem;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+        }
+
+        .slider__txt {
+            color: #999;
+            margin-bottom: 3rem;
+            max-width: 300px;
+        }
+
+        @-webkit-keyframes check {
+            50% {
+                outline-color: #333;
+                box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+            }
+
+            100% {
+                outline-color: #333;
+                box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+            }
+        }
+
+        @keyframes check {
+            50% {
+                outline-color: #333;
+                box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+            }
+
+            100% {
+                outline-color: #333;
+                box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+            }
+        }
+
+
+
+        @media only screen and (max-width:574px) {
+            .card {
+                width: 300px;
+                margin-top: 0%;
+                max-width: fit-content;
+                margin: auto;
+                /* padding: auto; */
+                box-sizing: border-box;
+            }
+        }
+
+        @media only screen and (max-width:767px) {
+            .card {
+                width: 350px;
+                margin-top: 0%;
+
+                max-width: fit-content;
+                margin: auto;
+                /* padding: auto; */
+                box-sizing: border-box;
+            }
+        }
+
+        .hov .col-lg-2 {
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .hov .col-lg-2:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .refresh-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            cursor: pointer;
+            border: 1px solid #007bff;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .refresh-icon:hover {
+            background-color: #007bff;
+        }
+
+        .refresh-icon i {
+            font-size: 15px;
+            color: #007bff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .refresh-icon:hover i {
+            color: #fff;
+            transform: rotate(360deg);
+        }
+
+        @media screen and (max-width: 556px) {
+            .two-columns .col-lg-2 {
+                width: 50%;
+                float: none;
+            }
+
+            .two-columns .col-lg-3 {
+                width: 50%;
+                float: none;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <%-include('./common/header.ejs') %>
+        <div class="refresh-icon">
+            <i class="fas fa-sync-alt"></i>
+        </div>
+
+        <!-- banner start -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2"><a href="/usersignup">
+
+                        <img src="../image/banner-web.png" class="img-fluid" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- banner end -->
+
+        <!-- card Section -->
+
+        <div class="container-fluid mt-2">
+            <div class="row mt-5 two-columns justify-content-evenly">
+                <div class="col-lg-2 col-md-3 col-sm-6 mt-3">
+                    <div class="card"
+                        style="border-radius: 8%;  border: 1px solid #f0f0f5;box-shadow: 0 4px 8px rgba(0,0,0,.12);height: 100%">
+                        <img class="img-fluid" src="../image/hp (4).crdownload"
+                            style="border-top-right-radius: 8%;border-top-left-radius: 8%; background-color: #afcfed;"
+                            class="card-img-top img-fluid img1" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" id="p1">Instant Video Consulation</h5>
+                            <p class="card-text text-muted text-center">Connect within 60 secs</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mt-3">
+                    <div class="card"
+                        style="border-radius: 8%; border: 1px solid #f0f0f5;box-shadow: 0 4px 8px rgba(0,0,0,.12); height: 100%">
+                        <img class="img-fluid" src="../image/hp (1).crdownload"
+                            style="border-top-right-radius: 8%;border-top-left-radius: 8%; background-color: #98cbd6;"
+                            class="card-img-top img-fluid img1" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" id="p1">Find Doctors Near You</h5>
+                            <p class="card-text text-muted text-center">Confirmed appointments from Doctor</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mt-3">
+                    <div class="card"
+                        style="border-radius: 8%;  border: 1px solid #f0f0f5;box-shadow: 0 4px 8px rgba(0,0,0,.12);height: 100% ">
+                        <img class="img-fluid" src="../image/hp (2).crdownload"
+                            style="border-top-right-radius: 8%;border-top-left-radius: 8% ;background-color: #ccd0db;"
+                            class="card-img-top img-fluid img1" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" id="p1">Medicines</h5>
+                            <p class="card-text text-muted text-center">Essentials at your <br> doorsteps</p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mt-3">
+                    <div class="card"
+                        style="border-radius: 8%;  border: 1px solid #f0f0f5;box-shadow: 0 4px 8px rgba(0,0,0,.12);height: 100%">
+                        <img class="img-fluid" src="../image/hp (3).crdownload"
+                            style="border-top-right-radius: 8%;border-top-left-radius: 8% ;background-color: #afcfed"
+                            class="card-img-top img-fluid img1" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" id="p1">Lab Tests</h5>
+                            <p class="card-text text-muted text-center">Sample pickup at your <br> home</p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mt-3">
+                    <div class="card"
+                        style="border-radius: 8%;  border: 1px solid #f0f0f5;box-shadow: 0 4px 8px rgba(0,0,0,.12);height: 100%;">
+                        <img class="img-fluid" src="../image/dc1 (4).png"
+                            style="border-top-right-radius: 8%;border-top-left-radius: 8% ;background-color: #d5d8fc;"
+                            class="card-img-top img-fluid img1" alt="photo">
+                        <div class="card-body mx-auto">
+                            <h5 class="card-title text-center" id="p1">Surgeries</h5>
+                            <p class="card-text text-muted text-center">Safe and trusted surgery centers</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Card end -->
+
+        <!-- view all specialities -->
+
+        <div class="container-fluid mt-5">
+            <div class="row mt-5">
+                <div class="col-md-6 mt-5">
+                    <p class="p1">Consult top doctors online for any health concern</p>
+                    <p class="p2">Private online consultations with verified doctors in all specialists</p>
+
+                </div>
+                <div class="col-md-6 mt-5">
+                    <button type="button" class="btn btn-outline-primary" style="float: right;">View All
+                        Specialities</button>
+
+                </div>
+                <div class="row hov two-columns justify-content-evenly">
+                    <div class="col-lg-2 col-md-3 col-sm-6 mt-5 text-center">
+                        <img src="../image/dct (6).png" class="img-fluid mt-2" style="width: 120px;" />
+                        <p class="p3">Period doubts or Pregnancy</p>
+                        <a href="/new_consultation">
+                            <p class="p4">CONSULT NOW</p>
+                        </a>
+
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 mt-5 text-center">
+                        <img src="../image/dct (5).png" class="img-fluid mt-2" style="width: 120px;" />
+                        <p class="p3">Acne,Pimple or Skin<br> Issues</p>
+                        <a href="/new_consultation">
+
+                            <p class="p4">CONSULT NOW</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 mt-5 text-center">
+                        <img src="../image/dct (4).png" class="img-fluid mt-2" style="width: 120px;" />
+                        <p class="p3">Performance issues in<br> bed</p>
+                        <a href="/new_consultation">
+
+                            <p class="p4">CONSULT NOW</p>
+                        </a>
+
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 mt-5 text-center">
+                        <img src="../image/dct (3).png" class="img-fluid mt-2" style="width: 120px;" />
+                        <p class="p3">Cold, Cough or<br> Fever</p>
+                        <a href="/new_consultation">
+                            <p class="p4">CONSULT NOW</p>
+                        </a>
+
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 mt-5 text-center">
+                        <img src="../image/dct (2).png" class="img-fluid mt-2" style="width: 120px;" />
+                        <p class="p3">Child not Feeling<br> well</p>
+                        <a href="/new_consultation">
+                            <p class="p4">CONSULT NOW</p>
+                        </a>
+
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-6 mt-5 text-center">
+                        <img src="../image/dct (1).png" class="img-fluid mt-2" style="width: 120px;" />
+                        <p class="p3">Depression or <br>anxiety</p>
+                        <a href="/new_consultation">
+                            <p class="p4">CONSULT NOW</p>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end -->
+
+        <!-- Book an Appointment -->
+
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-md-12 mt-5">
+                    <p class="p1">Book an appointment for an in-clinic consultation</p>
+                    <p class="p2">Find experienced doctors across all specialties</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- cairsole -->
+        <!-- start -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="news-slider" class="owl-carousel">
+                        <% for(var i=0; i<result.length; i++) { %>
+                            <div class="post-slide">
+                                <div class="post-img">
+                                    <img src="/static/upload/<%= result[i].image %>">
+                                    <a href="/speciality/<%= result[i].specialist %>" class="over-layer"><i
+                                            class="fa fa-link"></i></a>
+                                </div>
+                                <div class="post-content">
+                                    <h3 class="post-title">
+                                        <a href="/speciality/<%= result[i].specialist %>">
+                                            <%= result[i].specialist %>
+                                        </a>
+                                    </h3>
+                                    <p class="post-description">
+                                        <%= result[i].about %>
+                                    </p>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end -->
+
+        <!-- Read top articles from health experts -->
+
+        <div class="container-fluid mt-1">
+            <div class="row justify-content-center">
+                <div class="col-md-11 mt-5" style=" border-top: 1px solid grey; border-bottom: 1px solid gray;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 mt-5">
+                            <p class="p5">Read top articles from health experts</p>
+                            <p class="p6 text-muted">Health articles that keep you informed about good health practices
+                                and achieve your goals.</p>
+                            <div>
+                                <button type="button" class="btn btn-outline-primary">See all article</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-5">
+                            <div class="row justify-content-evenly">
+                                <div class="col-md-6">
+                                    <img class="img-fluid" src="../image/rt (1).png" />
+                                    <p class="p6">CORONAVIRUS</p>
+                                    <P class="p7">12 Coronavirus Myth and Facts That You Should Be Aware Of</P>
+                                    <p class="text-muted">Dr.Diana Borgio</p>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <img class="img-fluid" src="../image/rt (2).png" />
+                                    <p class="p6">VITAMINS AND SUPPLEMENTS</p>
+                                    <P class="p7">Eating Right to Build Immunity Against Cold and Viral Infections</P>
+                                    <p class="text-muted">Dr.Diana Borgio</p>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end -->
+
+
+        <!-- start -->
+        <div class="container-fluid">
+            <div class="row">
+                <p class="p8 mt-5">What our users have to say</p>
+            </div>
+        </div>
+        <div class="slider">
+            <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav" />
+            <input type="radio" name="slider" title="slide2" class="slider__nav" />
+            <input type="radio" name="slider" title="slide3" class="slider__nav" />
+            <input type="radio" name="slider" title="slide4" class="slider__nav" />
+            <div class="slider__inner">
+                <div class="slider__contents"><i class=" slider__image fa-solid fa-user"></i>
+                    <h2 class="slider__caption">Dr. Kamal Yadav</h2>
+                    <p class="slider__txt">Very easy to book,maintain history. Hassle free from older versions of
+                        booking appointment via telephone.. Thanks Practo for making it simple.</p>
+                </div>
+                <div class="slider__contents"><i class=" slider__image fa-solid fa-user"></i>
+                    <h2 class="slider__caption">Dr. Manish Gulia</h2>
+                    <p class="slider__txt">Very easy to book,maintain history. Hassle free from older versions of
+                        booking appointment via telephone.. Thanks Practo for making it simple.</p>
+                </div>
+                <div class="slider__contents"><i class=" slider__image fa-solid fa-user"></i>
+                    <h2 class="slider__caption">Sr.Dr. Nishant </h2>
+                    <p class="slider__txt">Very helpful. Far easier than doing same things on computer. Allows quick and
+                        easy search with speedy booking. Even maintains history of doctors visited.</p>
+                </div>
+                <div class="slider__contents"><i class=" slider__image fa-solid fa-user"></i>
+                    <h2 class="slider__caption">Compunder Bunty</h2>
+                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis
+                        possimus illo quos, corporis minima!</p>
+                </div>
+            </div>
+        </div>
+
+        <%-include('./common/footer.ejs') %>
+
+            <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+
+            <script src="../js/bootstrap.bundle.min.js"></script>
+
+            <script>
+                const refreshIcon = document.querySelector('.refresh-icon i');
+
+                refreshIcon.addEventListener('click', () => {
+                    location.reload();
+                    window.scrollTo(0, 0);
+                });
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $("#news-slider").owlCarousel({
+                        items: 4,
+                        itemsDesktop: [1199, 4],
+                        itemsDesktopSmall: [980, 2],
+                        itemsMobile: [600, 1],
+                        navigation: true,
+                        navigationText: ["", ""],
+                        pagination: true,
+                        autoPlay: true
+                    });
+
+                });
+            </script>
+</body>
+
+</html>

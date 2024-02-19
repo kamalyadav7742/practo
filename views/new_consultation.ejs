@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>practo</title>
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+
+  <script src="/static/CDN/jquery.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+  <style>
+    .p1 {
+      margin-top: 0;
+      text-align: start;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 18px 10px;
+      border-bottom: 1px solid #f0f0f5;
+      color: inherit;
+    }
+
+    #image-container {
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      /* set height of div to 100% to fill column */
+    }
+
+    #image {
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+      /* center image horizontally */
+    }
+
+    .dropdown-content a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .fever a,
+    .headache a,
+    .stomach a {
+      display: block;
+      padding: 5px 0;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .fever a:hover,
+    .headache a:hover,
+    .stomach a:hover
+     {
+      background-color: #f2f2f2;
+    }
+
+    input[type=radio] {
+      margin-right: 10px;
+    }
+
+    input[type=radio]:checked:before {
+      content: '\2022';
+      /* color: #2196F3; */
+      font-weight: bold;
+    }
+
+    .pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #aae000;
+      margin-left: 4px;
+      animation: pulse 1.2s ease-in-out infinite;
+      -webkit-box-shadow: 0 0 0 0 rgba(170, 224, 0, .6);
+      box-shadow: 0 0 0 0 rgba(170, 224, 0, .6);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(170, 224, 0, 0.6);
+      }
+
+      50% {
+        transform: scale(1.5);
+        box-shadow: 0 0 0 6px rgba(170, 224, 0, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(170, 224, 0, 0);
+      }
+    }
+    .form-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 6px;
+  width: 100%;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:hover, .form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.refresh-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.refresh-icon:hover {
+  background-color: #007bff;
+}
+
+.refresh-icon i {
+  font-size: 24px;
+  color: #007bff;
+  transition: all 0.3s ease-in-out;
+}
+
+.refresh-icon:hover i {
+  color: #fff;
+  transform: rotate(360deg);
+}
+
+  </style>
+</head>
+<div class="refresh-icon">
+  <i class="fas fa-sync-alt"></i>
+</div>
+
+<body style="background-color: rgb(240,240,245);">
+  <nav class="navbar navbar-expand-lg bg-dark  ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="/image/white_practo_logo.svg" width="120px"></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- end -->
+
+  <div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-5 bg-light" style="border-right: 1px solid black;">
+        <p class="p1">Consult with a Doctor <span class="pulse"></span></p>
+        <label for="exampleFormControlInput1" class="form-label" style="padding: 3px 6px;">Tell us your symptom or
+          health problem</label>
+        <div class="mb-3">
+          <textarea class="form-control" placeholder="Eg: fever, headache" id="myInput" rows="3"
+            onkeyup="filterFunction()" style=" padding: 1px 6px;"></textarea>
+            <p class="text-muted " style="font-size: 10px; padding: 8px 6px;">Min 4 characters</p>
+          <div id="myDropdown" class="dropdown-content">
+            <div class="fever mt-2">
+              <a href="#">
+                <input type="radio" name="selected-symptom" value="pediatrics"> pediatrics
+              </a>
+              <a href="#">
+                <input type="radio" name="selected-symptom" value="General physican"> General physican
+              </a>
+              <a href="#">
+                <input type="radio" name="selected-symptom" value="Ear, Nose ,Throat"> Ear, Nose ,Throat
+              </a>
+             
+            </div>
+            <div class="headache mt-2">
+              <a href="#">
+                <input type="radio" name="selected-symptom" value="Neurology"> Neurology
+              </a>
+              <a href="#">
+                <input type="radio" name="selected-symptom" value="General physican"> General physican
+              </a>
+              <a href="#">
+                <input type="radio" name="selected-symptom" value="Psychiatry">Psychiatry
+              </a>
+             
+            </div>
+            <div class="stomach" id="diagnosis-div">
+              <a href="#">
+                <input type="radio" name="selected-diagnosis" value="Stomach and digestion"> Stomach and digestion
+              </a>
+              <a href="#">
+                <input type="radio" name="selected-diagnosis" value="Genaecology"> Genaecology
+              </a>
+              <a href="#">
+                <input type="radio" name="selected-diagnosis" value="Dermotology"> Dermotology
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div style="padding: 1px 6px;">
+          <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
+          <input type="number" id="mob_input" name="mob_input" placeholder=" Mobile Number" required class="form-control " oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10">
+          
+          
+  <div id="msg01" class="text-center"></div>
+  <div class="w-100 d-flex justify-content-center mt-2 mb-4">
+    <button type="button" class="btn btn-outline-dark" id="get_otp"
+      style="color: black;text-align: center;width: 100px;border-radius: 1vw;width:20vw;margin-top:2vw;font-weight: bold;text-transform: uppercase;">Get
+      OTP</button>
+  </div>
+
+  <div id="transit">
+      <input type="number" id="inp" placeholder="Enter OTP" class="form-control btn-outline-dark"
+        style="background: #f2f2f2b0;width: 100%;border-radius: 5px;border: none;border-bottom: 1px solid grey;font-weight: bold;" />
+      <div class="text-secondary mt-2">OTP Expire In : <span id="counter"></span></div>
+
+    <div id="msg"></div>
+    <div class="d-flex justify-content-center mt-2">
+      <button type="button" id="veri" class="btn btn-outline-dark" onclick="form2()"style="color: black;text-align: center;border-radius: 1vw;width:18vw;font-weight: bold;text-transform: uppercase;">
+        verify</button>
+
+      <button type="button " id="resend" class=" btn btn-outline-dark"
+        style="color: black;text-align: center;border-radius: 1vw;width: 18vw;font-weight: bold;text-transform: uppercase;">
+        resend</button>
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+      <div class="col-md-5 bg-light d-md-flex d-none">
+        <div id="image-container" class="mx-auto"
+          style="display: flex; justify-content: center; align-items: center; height: 100%;">
+          <img id="image" class="img-fluid" style="max-width: 100%; max-height: 100%; margin: auto;"
+            src="../image/consult (1).png">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  
+  <!-- <div class="container">
+    <form id="login" onsubmit="process(event)">
+      <p>Enter your phone number:</p>
+      <input id="phone" type="tel" name="phone" />
+      <input type="submit" class="btn" value="Verify" />
+    </form>
+    <div class="alert alert-info" style="display: none"></div>
+    <div class="alert alert-error" style="display: none"></div>
+  </div> -->
+  <!-- otp -->
+
+  <script>
+    document.getElementById('transit').style.display = 'none'
+    $('#msg').hide()
+    $('#msg01').hide()
+    // let otp = '';
+    document.getElementById('get_otp').addEventListener('click', function () {
+      let smobile = document.getElementById('mob_input').value;
+      //console.log(smobile)
+      if (smobile == "") {
+        $('#msg01').show().html('mobile field cannot be empty').fadeOut(5000);
+        // alert("mobile field cannot be empty")
+        return false
+      }
+      else if ((smobile.length > 10) || (smobile.length < 10)) {
+        // alert("mobile number must be of 10 digits")
+        $('#msg01').show().html('Mobile number must be of 10 digits').fadeOut(5000);
+        return false
+      }
+      else {
+        let otp = ''
+        for (var i = 0; i < 6; i++) {
+          otp = otp + [Math.floor(Math.random() * 10)]
+          // console.log(" ")
+        }
+        $.ajax({
+          url: "/otpsend1",
+          method: "POST",
+          dataType: "JSON",
+          data: {
+            er02: otp,
+            smobile: smobile
+          },
+          success: function (result) {
+          }
+
+        })
+        // console.log("one time password is " + otp)
+        window.er = otp
+        $('#get_otp').remove("")
+        // timer
+        let timerOn = true;
+        function timer(remaining) {
+          var m = Math.floor(remaining / 60);
+          var s = remaining % 60;
+          s = s < 10 ? '0' + s : s;
+          document.getElementById('counter').innerHTML = m + ':' + s;
+          remaining -= 1;
+          if (remaining >= 0 && timerOn) {
+            setTimeout(function () {
+              timer(remaining);
+            }, 1000);
+            return;
+          }
+          if (!timerOn) {
+
+          }
+          er = ''
+          $('#resend').show()
+        }
+        timer(600);
+        return document.getElementById('transit').style.display = 'block'
+      }
+    })
+    window.er2 = '';
+    document.getElementById('resend').addEventListener('click', function () {
+      let smobile = document.getElementById('mob_input').value;
+      $('#resend').hide()
+      $('#veri').slideDown(2000)
+      let res = '';
+      er = '';
+      for (var i = 0; i < 6; i++) {
+        res = res + [Math.floor(Math.random() * 10)]
+        // console.log(" ")
+      }
+
+      $.ajax({
+        url: "/otpsend2",
+        method: "POST",
+        dataType: "JSON",
+        data: {
+          er04: res,
+          smobile: smobile
+
+        },
+        success: function (result) {
+        }
+      })
+      er2 = res;
+      let timerOn = true;
+      function timer(remaining) {
+        var m = Math.floor(remaining / 60);
+        var s = remaining % 60;
+        s = s < 10 ? '0' + s : s;
+        document.getElementById('counter').innerHTML = m + ':' + s;
+        remaining -= 1;
+        if (remaining >= 0 && timerOn) {
+          setTimeout(function () {
+            timer(remaining);
+          }, 1000);
+          return;
+        }
+        if (!timerOn) {
+        }
+        // Do timeout stuff here
+        $('#msg').show().html('Timeout for otp, Resend otp').fadeOut(5000);
+        $('#resend').show()
+      }
+      timer(600);
+    })
+    // verify otp
+    document.getElementById('veri').addEventListener('click', function () {
+      window.btn1 = document.getElementById('inp').value;
+      if (btn1 == '') {
+        $('#veri').slideDown(2000)
+      }
+      else if (btn1 === er) {
+        er = ''
+        // console.log(btn1 + " otp matched successfully")
+        $('#veri').slideUp(2000)
+      }
+      else if (btn1 === er2) {
+        // console.log(btn1 + " otp matched successfully")
+        $('#veri').slideUp(2000)
+      }
+      else if ((btn1 !== er) || (btn1 !== er2)) {
+        $('#veri').slideDown(2000)
+        // alert(btn1 + "otp does not matched")
+        $('#msg').show().html('OTP does not matched').fadeOut(5000);
+        // console.log(btn1 + " otp does not match")
+      }
+    })
+  </script>
+
+
+<script>
+  function form2() {
+  let emobile = document.getElementById('mob_input').value;
+  let eotp = document.getElementById('inp').value;
+
+  if (er.length > 0) {
+    if (eotp === '') {
+      $('#msg').show().html('OTP cannot be blank').fadeOut(5000);
+    } else if (eotp !== er) {
+      $('#msg').show().html('Wrong OTP').css('color', 'red');
+    } else {
+      window.location.href = '/payment';
+      // $.post('formpost3', {Mobile1: emobile, Otp1: eotp}, function(result) {
+      //   window.location.href = '/kamal';
+      // }, 'json');
+    }
+  } else {
+    if (eotp === '') {
+      $('#msg').show().html('OTP cannot be blank').fadeOut(5000);
+    } else if (eotp !== er2) {
+      $('#msg').show().html('Wrong OTP').css('color', 'red');
+    } else {
+      window.location.href = '/payment';
+      // $.post('formpost3', {Mobile1: emobile, Otp1: eotp}, function(result) {
+      //   window.location.href = '/kamal';
+      // }, 'json');
+    }
+  }
+}
+
+</script>
+  <script>
+    document.querySelector("#mob_input").addEventListener("keypress", function (evt) {
+      if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+        evt.preventDefault();
+      }
+    });
+  </script>
+  <!-- otp end -->
+
+  <script>
+    // Hide all the <a> tags initially
+    var aTags = document.getElementsByTagName("a");
+    for (var i = 0; i < aTags.length; i++) {
+      aTags[i].style.display = "none";
+    }
+
+    function filterFunction() {
+      var input, filter, dropdown, divs, a, i, j, divClass;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      dropdown = document.getElementById("myDropdown");
+      divs = dropdown.getElementsByTagName("div");
+      for (i = 0; i < divs.length; i++) {
+        divClass = divs[i].className.toUpperCase();
+        if (divClass.indexOf(filter) > -1) {
+          a = divs[i].getElementsByTagName("a");
+          for (j = 0; j < a.length; j++) {
+            a[j].style.display = "";
+          }
+        } else {
+          a = divs[i].getElementsByTagName("a");
+          for (j = 0; j < a.length; j++) {
+            a[j].style.display = "none";
+          }
+        }
+      }
+
+      // Hide all the <a> tags again if the search input is empty
+      if (filter === '') {
+        for (var i = 0; i < aTags.length; i++) {
+          aTags[i].style.display = "none";
+        }
+      }
+    }
+
+
+  </script>
+
+  <script>
+    var images = ["../image/consult (2).png", "../image/consult (3).png", "../image/consult (1).png"]; // array of image sources
+    var currentIndex = 0; // current index of the displayed image
+
+    function changeImage() {
+      currentIndex = (currentIndex + 1) % images.length; // update current index
+      document.getElementById("image").src = images[currentIndex]; // update image source
+    }
+
+    setInterval(changeImage, 3000); // call changeImage() every 3 seconds
+  </script>
+
+
+  <script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    const info = document.querySelector(".alert-info");
+    const error = document.querySelector(".alert-error");
+
+    function process(event) {
+      event.preventDefault();
+
+      const phoneNumber = phoneInput.getNumber();
+
+      info.style.display = "";
+      info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+    }
+  </script>
+
+<script>
+  const refreshIcon = document.querySelector('.refresh-icon i');
+  
+  refreshIcon.addEventListener('click', () => {
+    location.reload();
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  });
+</script>
+
+  <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+  <script src="../js/jquery-3.6.3.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

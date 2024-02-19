@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+  <style>
+    #cart-button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .col-md-5 {
+      border: 1px solid red;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin-bottom: 4px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+
+    .time-slot {
+      display: inline-block;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .time-slot.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+
+
+    .time-slot.selected {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+   .cart {
+  max-height: 300px;
+  overflow-y: auto;
+  position: fixed;
+  top: 110px;
+  right: -300px;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 999;
+  transition: right 0.3s ease-in-out;
+}
+
+.cart.show-cart {
+  right: 0;
+}
+
+.cart h6 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Style for table in cart */
+
+.cart table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cart table td {
+  padding: 10px;
+  border-bottom: 1px solid #e1e1e1;
+  text-align: center;
+}
+
+.cart table td.product-thumbnail img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.cart table td.product-name {
+  text-align: left;
+}
+
+.cart table td.product-price {
+  font-weight: bold;
+}
+
+.cart table td.product-quantity {
+  width: 100px;
+}
+
+.cart table td.product-subtotal {
+  font-weight: bold;
+}
+
+/* Style for checkout button */
+.cart .checkout-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.cart .checkout-button:hover {
+  background-color: #3e8e41;
+}
+
+
+.cart-total button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  float: right;
+}
+
+.cart-summary {
+  padding: 20px;
+  border-top: 1px solid #e1e1e1;
+  margin-top: 20px;
+}
+
+.cart-summary .cart-total {
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#cart-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#cart-button:hover {
+  background-color: #3e8e41;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+
+  <h1>Book an Appointment</h1>
+  <div class="container-fluid">
+    <div class="row justify-content-evenly">
+      <div class="col-md-5" style="border: 1px solid black;">
+        <form method="POST" action="/appoint">
+          <label for="doctorId">Doctor ID:</label>
+          <input type="text" id="doctorId" name="doctorId"><br><br>
+
+          <label for="patientId">Patient ID:</label>
+          <input type="text" id="patientId" name="patientId"><br><br>
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date"><br><br>
+
+      </div>
+      <div class="col-md-5" style="border: 1px solid black;">
+        <label for="time">Time:</label>
+        <div style="height: 300px; overflow-y: scroll;">
+          <div id="morning-slots">
+            <h3>Morning Slots</h3>
+            <!-- Generate morning time slots with a 15-minute gap before the current time -->
+            <script>
+              var now = new Date();
+              var hour = now.getHours();
+              var minute = now.getMinutes();
+              var timeSlots = document.getElementById("morning-slots");
+              for (var i = 10; i < 12; i++) {
+                for (var j = 0; j < 5; j++) {
+                  var time = i + ":" + (j * 15 < 10 ? "0" + j * 15 : j * 15);
+                  if (i < hour || (i == hour && j * 15 < minute)) {
+                    var slot = '<div class="time-slot disabled hide" data-time="' + time + '">' + time + '</div>';
+                  } else if (i == hour && j * 15 >= minute && j * 15 < minute + 15) {
+                    var slot = '<div class="time-slot enabled hide" data-time="' + time + '">' + time + '</div>';
+                  } else {
+                    var slot = '<div class="time-slot hide" data-time="' + time + '">' + time + '</div>';
+                  }
+                  timeSlots.innerHTML += slot;
+                  if ((j + 1) % 5 == 0) {
+                    timeSlots.innerHTML += '<br/>';
+                  }
+                }
+              }
+            </script>
+          </div>
+
+
+
+          <div id="afternoon-slots">
+            <h3>Afternoon Slots</h3>
+            <!-- Generate afternoon time slots with a 15-minute gap before the current time -->
+            <script>
+              var now = new Date();
+              var hour = now.getHours();
+              var minute = now.getMinutes();
+              var timeSlots = document.getElementById("afternoon-slots");
+              var slotCount = 0; // initialize counter variable
+              for (var i = 12; i < 16; i++) {
+                for (var j = 0; j < 4; j++) {
+                  var time = i + ":" + (j * 15 < 10 ? "0" + j * 15 : j * 15);
+                  var slotClass = "time-slot";
+                  if (i < hour || (i == hour && j * 15 < minute)) {
+                    slotClass += " disabled hide";
+                  } else {
+                    slotClass += " hide";
+                  }
+                  var slot = '<div class="' + slotClass + '" data-time="' + time + '">' + time + '</div>';
+                  timeSlots.innerHTML += slot;
+                  slotCount++; // increment counter variable
+                  if (slotCount % 5 == 0) { // add a line break after every fourth slot
+                    timeSlots.innerHTML += '<br>';
+                  }
+                }
+              }
+            </script>
+
+            <div id="evening-slots">
+              <h3>Evening Slots</h3>
+              <!-- Generate evening time slots with a 15-minute gap starting from 16:00 -->
+              <script>
+                var now = new Date();
+                var currentHour = now.getHours();
+                var currentMinute = now.getMinutes();
+
+                var hour = 16; // start from 16
+                var timeSlots = document.getElementById("evening-slots");
+                var count = 0; // keep track of number of slots generated
+                for (var i = hour; i < 20; i++) {
+                  for (var j = 0; j < 4; j++) {
+                    var slotHour = i;
+                    var slotMinute = j * 15;
+                    if (slotHour < currentHour || (slotHour == currentHour && slotMinute < currentMinute)) { // disable past time slots
+                      var slotClass = "time-slot disabled";
+                    } else {
+                      var slotClass = "time-slot";
+                    }
+                    var time = slotHour + ":" + slotMinute.toString().padStart(2, "0"); // add leading zero to minutes < 10
+                    var slot = '<div class="' + slotClass + '" data-time="' + time + '">' + time + '</div>';
+                    timeSlots.innerHTML += slot;
+                    count++;
+                    if (count % 5 == 0) { // add line break after every 4 slots
+                      timeSlots.innerHTML += "<br>";
+                    }
+                  }
+                }
+
+              </script>
+            </div>
+
+
+          </div>
+
+          <div class="text-center my-4">
+
+            <input type="hidden" id="time" name="time">
+            <input type="submit" value="Book Appointment">
+          </div>
+
+          <script>
+            // Add click event listeners to time slots
+            var slots = document.getElementsByClassName("time-slot");
+            for (var i = 0; i < slots.length; i++) {
+              slots[i].addEventListener("click", function () {
+                var timeInput = document.getElementById("time");
+                timeInput.value = this.getAttribute("data-time");
+                // Change the selected time slot's class
+                var selected = document.getElementsByClassName("selected");
+                for (var j = 0; j < selected.length; j++) {
+                  selected[j].classList.remove("selected");
+                }
+                this.classList.add("selected");
+              });
+            }
+          </script>
+          </form>
+
+        </div>
+      </div>
+
+
+      <!-- upcoming dates -->
+      <div class="row justify-content-evenly">
+        <div class="col-md-5">
+          <div>
+            <form method="POST" action="/appoint">
+
+              <label for="selected-date">Select a date:</label>
+              <input type="date" id="selected-date" onchange="showSlots()">
+          </div>
+          </form>
+
+        </div>
+        <div class="col-md-5">
+          <div style="height: 300px; overflow-y: scroll;">
+            <div id="slots-container"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <script>
+        var morningSlots = generateMorningSlots();
+        var afternoonSlots = generateAfternoonSlots();
+        var eveningSlots = generateEveningSlots();
+
+        function generateMorningSlots() {
+          var now = new Date();
+          var hour = now.getHours();
+          var minute = now.getMinutes();
+          var slots = [];
+          for (var i = 10; i < 12; i++) {
+            for (var j = 0; j < 4; j++) {
+              var time = i + ":" + j * 15;
+              if (i == hour && j * 15 < minute) {
+                var slot = '<div class="time-slot disabled hide" data-time="' + time + '">' + time + '</div>';
+              } else {
+                var slot = '<div class="time-slot hide" data-time="' + time + '">' + time + '</div>';
+              }
+              slots.push(slot);
+            }
+          }
+          return slots;
+        }
+
+        function generateAfternoonSlots() {
+          var slots = [];
+          for (var i = 12; i < 16; i++) {
+            for (var j = 0; j < 4; j++) {
+              var time = i + ":" + j * 15;
+              var slot = '<div class="time-slot" data-time="' + time + '">' + time + '</div>';
+              slots.push(slot);
+            }
+          }
+          return slots;
+        }
+
+        function generateEveningSlots() {
+          var hour = 16; // start from 16
+          var slots = [];
+          for (var i = hour; i < 20; i++) {
+            for (var j = 0; j < 4; j++) {
+              var time = i + ":" + j * 15;
+              var slotClass = "time-slot";
+              if (i == hour && j * 15 < 0) { // disable timeslots before 16:00
+                slotClass += " disabled";
+              }
+              var slot = '<div class="' + slotClass + '" data-time="' + time + '">' + time + '</div>';
+              slots.push(slot);
+            }
+          }
+          return slots;
+        }
+
+        function showSlots() {
+          var dateInput = document.getElementById("selected-date");
+          var selectedDate = new Date(dateInput.value);
+          var slotsContainer = document.getElementById("slots-container");
+          slotsContainer.innerHTML = "";
+
+          for (var i = 0; i < 3; i++) {
+            var date = new Date(selectedDate.getTime() + i * 24 * 60 * 60 * 1000);
+            var dateString = date.toLocaleDateString();
+            var slots = "";
+
+            if (date.getDay() !== 6 && date.getDay() !== 0) { // exclude weekends
+              slots += '<h3>' + dateString + '</h3>';
+              slots += '<div class="morning-slots">' + morningSlots.join("") + '</div>';
+              slots += '<div class="afternoon-slots">' + afternoonSlots.join("") + '</div>';
+              slots += '<div class="evening-slots">' + eveningSlots.join("") + '</div>';
+            } else {
+              slots += '<h3>' + dateString + ' (weekend)</h3>';
+            }
+
+            slotsContainer.innerHTML += slots;
+          }
+        }
+
+        function showSlots() {
+          var dateInput = document.getElementById("selected-date"); 3
+          var selectedDate = new Date(dateInput.value);
+          var slotsContainer = document.getElementById("slots-container");
+          slotsContainer.innerHTML = "";
+
+          for (var i = 0; i < 3; i++) {
+            var date = new Date(selectedDate.getTime() + i * 24 * 60 * 60 * 1000);
+            var dateString = date.toLocaleDateString();
+            var dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }); // get the day of the week
+            var slots = "";
+
+            if (date.getDay() !== 6 && date.getDay() !== 0) { // exclude weekends
+              slots += '<h3>' + dateString + ', ' + dayOfWeek + '</h3>'; // add day of the week to the heading
+              slots += '<div class="morning-slots">' + morningSlots.join("") + '</div>';
+              slots += '<div class="afternoon-slots">' + afternoonSlots.join("") + '</div>';
+              slots += '<div class="evening-slots">' + eveningSlots.join("") + '</div>';
+            } else {
+              slots += '<h3>' + dayOfWeek + ', ' + dateString + ' (weekend)</h3>'; // add day of the week to the heading
+            }
+
+            slotsContainer.innerHTML += slots;
+          }
+        }
+
+      </script>
+    </div>
+
+    <!-- add to cart -->
+    <button id="cart-button" class="cart-button">Cart <span id="cart-count">(0)</span></button>
+    <div class="cart">
+      <table style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="cart-summary">
+
+        <div class="cart-total">Total: <span id="cart-total">$0.00</span></div>
+        <button id="checkout-button" class="checkout-button">Checkout</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-2 col-md-4 col-sm-6 my-3 mx-auto" style="border: 1px solid grey; border-radius: 5px;">
+        <div class="p-1 my-2">
+          <h6 style="font-weight: 700;">COVID RT-PCR</h6>
+          <p style="font-size: 12px;">Known as Covid -19 Virus Qualitative Pcr Throat Swab.</p>
+          <p>E-Reports on next day</p>
+          <h5 style="font-weight: 700;">₹750</h5>
+          <button class="btn btn-primary add-to-cart" style="width: 100%;"
+            data-item='{"name": "COVID RT-PCR", "description": "Known as Covid -19 Virus Qualitative Pcr Throat Swab.", "price": 750}'>Add</button>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 my-3 mx-auto" style="border: 1px solid grey; border-radius: 5px;">
+        <div class="p-1 my-2">
+          <h6 style="font-weight: 700;">MRI Scan</h6>
+          <p style="font-size: 12px;">An imaging test that uses powerful magnets and radio waves to create detailed
+            pictures of the inside of your body.</p>
+          <p>E-Reports in 2-3 days</p>
+          <h5 style="font-weight: 700;">₹3000</h5>
+          <button class="btn btn-primary add-to-cart" style="width: 100%;"
+            data-item='{"id": "mri", "name": "MRI1 Scan", "description": "An imaging test that uses powerful magnets and radio waves to create detailed pictures of the inside of your body.", "price": 3000}'>Add</button>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6 my-3 mx-auto" style="border: 1px solid grey; border-radius: 5px;">
+        <div class="p-1 my-2">
+          <h6 style="font-weight: 700;">MRI Scan</h6>
+          <p style="font-size: 12px;">An imaging test that uses powerful magnets and radio waves to create detailed
+            pictures of the inside of your body.</p>
+          <p>E-Reports in 2-3 days</p>
+          <h5 style="font-weight: 700;">₹3000</h5>
+          <button class="btn btn-primary add-to-cart" style="width: 100%;"
+            data-item='{"id": "mri", "name": "heart Scan", "description": "An imaging test that uses powerful magnets and radio waves to create detailed pictures of the inside of your body.", "price": 3000}'>Add</button>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6 my-3 mx-auto" style="border: 1px solid grey; border-radius: 5px;">
+        <div class="p-1 my-2">
+          <h6 style="font-weight: 700;">MRI Scan</h6>
+          <p style="font-size: 12px;">An imaging test that uses powerful magnets and radio waves to create detailed
+            pictures of the inside of your body.</p>
+          <p>E-Reports in 2-3 days</p>
+          <h5 style="font-weight: 700;">₹3000</h5>
+          <button class="btn btn-primary add-to-cart" style="width: 100%;"
+            data-item='{"id": "mri", "name": "gt Scan", "description": "An imaging test that uses powerful magnets and radio waves to create detailed pictures of the inside of your body.", "price": 3000}'>Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- tests.ejs -->
+<div class="container-fluid mt-3">
+  <div class="row">
+    <h4 style="font-weight: 700;">Top Booked Diagnostic Tests</h4>
+  </div>
+  <div class="row">
+    <% for (let i = 0; i < tests.length; i++) { %>
+      <div class="col-lg-2 col-md-4 col-sm-6 my-3 mx-auto" style="border: 1px solid grey; border-radius: 5px;">
+        <div class="p-1 my-2">
+          <h6 style="font-weight: 700;"><%= tests[i].name %></h6>
+          <p style="font-size: 12px;"><%= tests[i].description %></p>
+          <p>E-Reports on next day</p>
+          <h5 style="font-weight: 700;">₹<%= tests[i].price %></h5>
+          <button class="btn btn-primary add-to-cart" style="width: 100%;"
+            data-item='{"name": "<%= tests[i].name %>", "description": "<%= tests[i].description %>", "price": <%= tests[i].price %> }'>
+            Add
+          </button>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>
+
+
+<h1>POST Form Example</h1>
+<div>
+    <form method="post" action="/testapi">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="description" name="description" required>
+  </div>
+  <div>
+    <label for="message">Message:</label>
+    <input id="price" name="price" rows="5" required />
+  </div>
+  <button value="submit" type="submit">Submit</button>
+</form>
+      </div>
+    </div>
+    <script>
+      // Initialize cart
+      var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Add to cart function
+      function addToCart(item) {
+        var parsedItem = JSON.parse(item);
+        if (cart.find(i => i.name === parsedItem.name)) {
+          alert("This product is already in your cart.");
+          return;
+        }
+        cart.push(parsedItem);
+        updateCartDisplay();
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+
+      // Update cart display function
+      function updateCartDisplay() {
+        var cartList = document.querySelector('.cart tbody');
+        cartList.innerHTML = '';
+        var totalAmount = 0;
+        for (var i = 0; i < cart.length; i++) {
+          var listItem = document.createElement('tr');
+          var item = cart[i];
+          listItem.innerHTML = '<td>' + item.name + '</td><td>' + item.price + '</td><td><a class="remove-from-cart" href="#" data-item="' + item.name + '"><i class="fa text-danger fa-trash"></i></a></td>';
+          cartList.appendChild(listItem);
+          totalAmount += item.price;
+        }
+
+
+
+        // Add event listener to checkout button
+        var checkoutButton = document.getElementById('checkout-button');
+        checkoutButton.addEventListener('click', function () {
+          // Create a URL string with the cart data as a query parameter
+          var cartData = encodeURIComponent(JSON.stringify(cart));
+          // var checkoutUrl = 'checkout.ejs?cart=' + cartData;
+          var checkoutUrl = '/checkout?cart=' + cartData;
+
+          // Redirect to checkout page
+          window.location.href = checkoutUrl;
+        });
+
+        // Attach event listener to all remove-from-cart buttons
+        var removeFromCartButtons = document.querySelectorAll('.remove-from-cart');
+        for (var i = 0; i < removeFromCartButtons.length; i++) {
+          removeFromCartButtons[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            var itemName = event.target.parentNode.getAttribute('data-item');
+            cart = cart.filter(item => item.name !== itemName);
+            updateCartDisplay();
+            localStorage.setItem('cart', JSON.stringify(cart));
+          });
+          // add click event listener to trash icon
+          var trashIcon = removeFromCartButtons[i].querySelector('i');
+          trashIcon.addEventListener('click', function (event) {
+            event.preventDefault();
+            var itemName = event.target.parentNode.getAttribute('data-item');
+            cart = cart.filter(item => item.name !== itemName);
+            updateCartDisplay();
+            localStorage.setItem('cart', JSON.stringify(cart));
+          });
+        }
+        // Update cart count
+        var cartCount = document.getElementById('cart-count');
+        cartCount.innerHTML = '(' + cart.length + ')';
+
+        // Update cart total amount
+        var cartTotal = document.getElementById('cart-total');
+        cartTotal.innerHTML = '$' + totalAmount.toFixed(2);
+      }
+
+
+      // Attach event listener to all add-to-cart buttons
+      var addToCartButtons = document.querySelectorAll('.add-to-cart');
+      for (var i = 0; i < addToCartButtons.length; i++) {
+        addToCartButtons[i].addEventListener('click', function (event) {
+          var item = event.target.getAttribute('data-item');
+          addToCart(item);
+        });
+      }
+
+      // Attach event listener to cart button
+      var cartButton = document.getElementById('cart-button');
+      cartButton.addEventListener('click', function () {
+        var cartList = document.querySelector('.cart');
+        cartList.classList.toggle('show-cart');
+      });
+
+      // Initialize cart display on page load
+      updateCartDisplay();
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>

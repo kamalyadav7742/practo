@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Surgeries</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- font -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .bg {
+            background-image: url(../image/surgeries.jpg);
+            background-size: cover;
+            height: 450px;
+            box-sizing: border-box;
+        }
+
+        .caption3 {
+            width: 45%;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+            position: absolute;
+            top: 28%;
+            
+            left: 50%;
+            color: #fff;
+            text-align: center;
+        }
+
+        .p1 {
+            color: black;
+            text-align: start;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+
+        .p2 {
+            color: black;
+            text-align: start;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .phone {
+            color: rgb(33, 43, 226);
+        }
+
+        .hov:hover {
+            transform: scaleY(0.9);
+            /* opacity: 25; */
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 1.4px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif, 'arial';
+            font-weight: 600;
+            font-size: 72px;
+            color: white;
+            text-align: center;
+        }
+
+        h4 {
+            font-family: 'Roboto', sans-serif, 'arial';
+            font-weight: 400;
+            font-size: 20px;
+            color: #9b9b9b;
+            line-height: 1.5;
+        }
+
+        /* ///// inputs /////*/
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
+
+
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+  background: #F9F9F9;
+  height: 500px;
+  padding: 25px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+.container {
+
+  margin: 0 auto;
+  position: relative;
+}
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 18px;
+  padding: 15px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#contact button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type="submit"]:hover {
+  background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+        li{
+            list-style: none;
+            text-align: start;
+          
+            color: rgba(0, 0, 0, 0.645);
+
+        }
+
+        .p4{
+            color: rgba(0, 0, 0, 0.645);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        
+
+        @media only screen and (max-width: 772px) {
+    li{
+        text-align: center;
+            line-height: 25px;
+    }
+}
+
+
+@media only screen and (max-width: 1081px) {
+    .mh{
+        text-align: center;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 771px) {
+    .stop{
+      display: none;
+
+    }
+}
+
+@media only screen and (max-width: 901px) {
+    .caption3{
+        width: 49%;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            color: #fff;
+            text-align: center;
+    }
+
+    .caption3 .p1{
+        font-size:20px;
+    }
+}
+
+.list ul li{
+      margin-left: -45px;
+}
+
+.mt{
+    width: 371px;
+}
+/*  */
+
+#contact-submit {
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact-submit.loading {
+  background-color: #555;
+}
+
+#contact-submit.loading:before {
+  content: " ";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  border-top-color: #555;
+  animation: spin 0.8s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*  */
+
+#popup {
+  display: none; /* hide the popup by default */
+  position: fixed; /* position the popup relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+}
+
+.popup-content {
+  position: absolute; /* position the popup content relative to the popup */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#close-popup {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#close-popup:hover {
+  background-color: #3e8e41;
+}
+
+@media screen and (max-width: 556px) {
+  .two-columns .col-lg-2 {
+    width: 50%;
+    float: none;
+  }
+
+  .two-columns .col-lg-3 {
+    width: 50%;
+    float: none;
+  }
+
+
+ .card-body  h5{
+    font-size: 15px;
+  }
+}
+.refresh-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.refresh-icon:hover {
+  background-color: #007bff;
+}
+
+.refresh-icon i {
+  font-size: 24px;
+  color: #007bff;
+  transition: all 0.3s ease-in-out;
+}
+
+.refresh-icon:hover i {
+  color: #fff;
+  transform: rotate(360deg);
+}
+
+    </style>
+</head>
+
+<body>
+
+  <%-include('./common/header.ejs') %>
+
+    <div class="refresh-icon">
+      <i class="fas fa-sync-alt"></i>
+    </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 bg" style="position: relative;">
+                    <div class="caption3 d-none d-md-block">
+                        <p class="p1">End to end care from Top Surgeons at our  Care Clinics</p>
+                        <p class="p2">Talk to our care expert today to book your consultation.All insurance accepted &
+                            No-cost EMI available.</p>
+                        <div class="row">
+                            <div class="col-md-4 hov ms-3 border border-dark">
+                                <p class="mt-3 mh " style="text-align: end; color: black;  font-weight: 500;">Reach Out to
+                                    US On</p>
+
+                            </div>
+                            <div class="col-md-4 hov border border-dark" >
+                                <a href="tel:+917357150771"><p class="mt-3" style="text-align: start; color: black ;"> <i
+                                        class="fa-solid fa-phone phone"></i> 7357150771</p></a> 
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- end -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <p style="font-size: 22px; font-weight: 600;">We are experts in Surgical solutions for 50+
+                            ailments.</p>
+
+                        <div class="row two-columns mt-4 justify-content-evenly text-center">
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                               
+
+
+                                <img src="../image/trans (1).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Hernia Treatment</p>
+
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (2).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Lipoma Removal</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (3).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Sebaceous cyst</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6">
+                                <img src="../image/trans (4).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Sebaceous cyst</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (2).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Lipoma Removal</p>
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (5).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">TURP</p>
+
+                            </div>
+                            
+                        </div>
+
+                        <!-- modal -->
+
+                        <div class="modal fade mt" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" style="font-size: 15px; font-weight: 600;" id="exampleModalLabel">Book an appointment for Anal Fissure with our expert surgeon</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form method="post" action="/appointment">
+                                    <div class="mb-3">
+                                      <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                    </div>
+                                    <div class="mb-3">
+                                      <input type="text" class="form-control" id="recipient-name" name="contact" placeholder="Contact">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <select id="city" name="city" class="form-select" aria-label="Default select example">
+                                            <option  selected>City</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Jaipur">Jaipur</option>
+                                            <option value="Agra">Agra</option>
+                                            <option value="Ajmer">Ajmer</option>
+                                            <option value="Alwar">Alwar</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Noida">Noida</option>
+                                            <option value="Uttar Pardesh">Uttar Pardesh</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <div class="text-center mb-2">
+                                      <button type="submit" class="btn btn-outline-dark">Book Appointment</button>
+                                      <p class="mt-2" style="text-align: center; font-size: 12px;">By submitting the form, you agree to Practo's  <span style="color: blue; font-size: 16px;"> T & C</span></p>
+                                    </div>
+                                  </div>
+                                </form>
+                            </div>
+                          </div>
+                        
+
+                        <!-- second II -->
+                        <div class="row mt-4 two-columns justify-content-evenly text-center">
+                            <div class="col-lg-2 col-md-4 col-sm-6">
+                                <img src="../image/trans (6).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Varicose Veins</p>
+
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (7).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Anal Fissure</p>
+
+
+                            </div>
+
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (7).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Anal Fissure</p>
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (8).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Gynaecomastia</p>
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (9).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Cataract</p>
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (10).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Cataract</p>
+
+
+                            </div>
+                        </div>
+
+                        
+                        <!--  III -->
+                        <div class="row mt-4 two-columns justify-content-evenly text-center">
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (11).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  class="img-fluid" style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Piles</p>
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (12).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Cataract</p>
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (7).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Anal Fissure</p>
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (13).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Hair</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (6).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Varicose Veins
+
+                                </p>
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (5).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">TURP</p>
+
+                            </div>
+                        </div>
+
+                        <!--  IV -->
+                        <div class="row mt-4 two-columns justify-content-evenly text-center">
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (1).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Hernia Treatment</p>
+
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (2).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Lipoma Removal</p>
+
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (3).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Sebaceous cyst</p>
+
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (4).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Sebaceous cyst</p>
+
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (13).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">Hair</p>
+
+
+                            </div>
+                            <div class="col-lg-2 col-md-4  col-sm-6">
+                                <img src="../image/trans (5).jpg" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  style="height: 70px;" />
+                                <p style="font-size: 13px; text-align: center;" class="mt-2">TURP</p>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6 mt-5  stop"
+                        style=" border-radius:  3% 3% 3%; height: 600px; position: sticky; top:0px; border: 1px solid gray;">
+
+                        <div class="container container-fluid mt-5">
+                            <form id="contact">
+                                <h4 style="font-size: 15px;">Contact us for custom quote</h4>
+                                <fieldset>
+                                  <input name="name" id="name" placeholder="Your name" type="text" tabindex="1" required autofocus>
+                                </fieldset>
+                                <fieldset>
+                                  <input name="email" id="email" placeholder="Your Email Address" type="email" tabindex="2" required>
+                                </fieldset>
+                                <fieldset>
+                                  <input name="number" id="number" placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required pattern="[0-9]{10}">
+                                </fieldset>
+                                <fieldset>
+                                  <input name="website" id="website" placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
+                                </fieldset>
+                                <fieldset>
+                                  <textarea name="mess" id="mess" placeholder="Type your message here...." tabindex="5" required></textarea>
+                                </fieldset>
+                                <fieldset >
+                                    <button name="submit" type="submit" id="contact-submit" onclick="submitForm(event)" data-submit="...Sending">Submit</button>
+
+                                </fieldset>
+                              </form>
+
+                              <div id="popup">
+                                <div class="popup-content">
+                                  <h2>Thank you for submitting the form!</h2>
+                                  <p>We will get back to you as soon as possible.</p>
+                                  <button id="close-popup">Close</button>
+                                </div>
+                              </div>
+                              
+                                </div>
+                                <!-- <div class="col-xs-12">
+                                    <button type="button" class="btn btn-light">Send Message</button>
+                                </div> -->
+                    </div>
+
+                    <div class="row two-columns text-center">
+                        <div class="col-md-6 mt-5" >
+                            <h4 style="font-weight: 600;" class="mb-4">Our Departments</h4>
+                            <div class="row justify-content-evenly">
+
+                                <div class="col-lg-3 col-md-4  col-sm-6">
+                                    <img src="../image/ser (1).png" class="img-fluid" />
+                                    <p>Urology<br>4 ailments</p>
+                                </div>
+                                <div class="col-lg-3 col-md-4  col-sm-6">
+                                    <img src="../image/ser (2).png" class="img-fluid" />
+                                    <p>Orthopedics<br>8 ailments</p>
+                                </div>
+                                <div class="col-lg-3 col-md-4  col-sm-6">
+                                    <img src="../image/ser (3).png" class="img-fluid" />
+                                    <p>General Surgery<br>9 ailments</p>
+                                </div>
+                            </div>
+                            <!-- II -->
+                            <div class="row two-columns text-center justify-content-evenly">
+
+                                <div class="col-lg-3 col-md-4  col-sm-6">
+                                    <img src="../image/ser (4).png" class="img-fluid" />
+                                    <p>Proctology<br>5 ailments</p>
+                                </div>
+                                <div class="col-lg-3 col-md-4  col-sm-6">
+                                    <img src="../image/ser (5).png" class="img-fluid" />
+                                    <p>Cosmetic<br>6 ailments</p>
+                                </div>
+                                <div class="col-lg-3 col-md-4  col-sm-6">
+                                    <img src="../image/ser (6).png" class="img-fluid" />
+                                    <p>Ophthamology<br>4 ailments</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 mt-5">
+
+                                    <p style="text-align: start; font-weight: 600; font-size: 20px; letter-spacing: 3px;">Know more about Care</p>
+                                    
+                                    <p class="text-muted" style="text-align: start;"> Care is your partner in your journey to improve the health of yourself, your family members and friends.  Care believes in providing affordable access to quality healthcare and helps patients pick the best surgery option for their health condition.  Care operates 70 clinics, along with 100 partner hospitals and 200 surgeons to provide the best care for its customers.</p>
+                                    
+                                    <p class="text-muted" style="text-align: start;"> Care is your partner in your journey to improve the health of yourself, your family members and friends.  Care believes in providing affordable access to quality healthcare and helps patients pick the best surgery option for their health condition.  Care operates 70 clinics, along with 100 partner hospitals and 200 surgeons to provide the best care for its customers.</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 mt-5">
+                                    <p style="text-align: start; font-weight: 700; font-size: 18.3px; letter-spacing: 2px;">You can get hassle-free treatment for following ailments</p>
+
+                                    <div class="row mt-5">
+                                        <div class="col-md-3 list">
+                                            <ul class="text-center">
+                                                <li><p class="p4">General Surgery</p></li>
+                                                <li>Hernia Treatment</li>
+                                                <li>Lipoma Removal</li>
+                                                <li>Circumcision</li>
+                                                <li>Varicose Veins</li>
+                                                <li>Sebaceous cyst</li>
+                                                <li>Varicocele</li>
+                                                <li>Hydrocele</li>
+                                                <li>Appendectomy</li>
+                            
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3 list">
+                                            
+                                            <ul>
+                                                <li><p class="p4">Cosmetic</p></li>
+                                                <li>Rhinoplasty</li>                                               
+                                                 <li>Breast Reduction/ Augmentation</li>
+                                                <li>Breast Lift</li> 
+                                                <li>Liposuction</li>    
+                                                <li>Gynaecomastia</li>
+                                                <li>Lump in Breast</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3 list">
+                                            <ul>
+                                                <li><p class="p4">Ophthamology</p></li>
+                                                <li>Cataract</li>
+                                                <li>Lasik</li>
+                                                <li>Glaucoma</li>
+                                                <li>Squinteye</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3 list">
+                                            <ul>
+                                                <li><p class="p4">Orthopedics</p></li>
+                                                <li>Knee Replacement</li>
+                                                <li>Arthroscopy</li>
+                                                <li>Carpal Tunnel Syndrome</li>
+                                                <li>Lumbar Laminectomy</li>
+                                                <li>ACL Repair</li>
+                                                <li>Microdiscectomy</li>
+                                                <li>Knee Arthroscopy</li>
+                                                <li>Shoulder Arthroscopy</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <p style="text-align: start; font-weight: 600; font-size: 20px; letter-spacing: 3px;">Practo Care is available in the following cities</p>
+                                <div class="col-md-12">
+                                    <p class="text-muted" style="text-align: start;">Bangalore, Delhi NCR, Mumbai, Hyderabad, Ahmedabad, Pune, Jaipur , Kolkata, Indore, Lucknow, Chandigarh, Ernakulam, Coimbatore, Kanpur, Mysore, Bhubaneswar, Vijayawada, Visakhapatnam, Bhopal, Nagpur, Chennai/p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+  <%-include('./common/footer.ejs') %>
+
+  <script>
+    $(document).on('click', '#contact-submit', function(event) {
+      event.preventDefault();
+      // Get the form element
+      const form = document.getElementById('contact');
+    
+      // Get the button element
+      const button = document.getElementById('contact-submit');
+    
+      // Show loading state
+      button.classList.add('loading');
+    
+      var name = $('#name').val();
+      var email = $('#email').val();
+      var number = $('#number').val();
+      var website = $('#website').val();
+      var mess = $('#mess').val();
+    
+      console.log(name, email, number, website, mess);
+    
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        console.log('Invalid email');
+        alert('Please enter a valid email address.');
+        button.classList.remove('loading');
+        return;
+      }
+    
+      console.log('Form inputs valid');
+    
+      // Submit form via AJAX
+      $.ajax({
+        url: '/message',
+        method: 'post',
+        data: {
+          name: name,
+          email: email,
+          number: number,
+          website: website,
+          mess: mess
+        },
+        success: function(result) {
+          // Hide loading state
+          button.classList.remove('loading');
+          
+          // Show popup if form submission is successful
+          if (result !== undefined) {
+            $('#popup').show();
+          //   form.reset();
+          }
+        },
+        error: function(error) {
+          console.error('Error submitting form:', error); 
+        }
+      });
+      
+      $('#close-popup').click(function() {
+        $('#popup').hide();
+      });
+    });
+    </script>
+    
+  
+  <script>
+    const refreshIcon = document.querySelector('.refresh-icon i');
+    
+    refreshIcon.addEventListener('click', () => {
+      location.reload();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>

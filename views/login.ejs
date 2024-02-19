@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easygo Visitor Login</title>
+  <link rel="icon" href="/static/img/egv_logo.png" type="image/gif">
+  <link rel="stylesheet" href="/static/CDN/bootstrap5.min.css">
+  <script src="/static/CDN/bootstrap5.bundle.min.JS"></script>
+  <script src="/static/CDN/jquery.js"></script>
+  <link rel="stylesheet" href="/static/vendor/fontawesome-free/css/all.css">
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+  ::placeholder {
+    color: #ff9c00;
+  }
+</style>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+  .checkbox-wrapper-17 input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .checkbox-wrapper-17 label {
+
+
+    cursor: pointer;
+    width: 30px;
+    height: calc(30px / 2);
+    background: grey;
+    border-radius: 100px;
+    position: relative;
+  }
+
+  .checkbox-wrapper-17 label:after {
+    content: '';
+    position: absolute;
+    top: 6%;
+    left: 2.5%;
+    width: calc(50% - 5%);
+    height: calc(100% - 11%);
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+
+  .checkbox-wrapper-17 input:checked+label {
+    background: #ff9c00;
+  }
+
+  .checkbox-wrapper-17 input:checked+label:after {
+    left: calc(100% - 2.5%);
+    transform: translateX(-100%);
+  }
+
+  .checkbox-wrapper-17 label:active:after {
+    width: 55%;
+  }
+</style>
+
+<body>
+
+
+  </nav>
+
+  </div>
+
+
+
+  <form action='/auth' method='post' class="p-3 mx-3 "
+    style="background-color:rgb(255, 255, 255);  border-radius: 10px;box-shadow: 0px 0px 20px #aaaaaa;height: auto;">
+    <h4 class='text-center '>USER LOGIN</h4>
+    <!-- user input -->
+    <div class="form-outline mt-4">
+      <input type="text" name='userID' id="userID" style="    background: #f2f2f2b0;
+          font-size: 3vw;
+          width: 100%;
+          border-radius: 5px;
+          border: none;
+          border-bottom: 1px solid grey;
+          font-weight: bold;
+          padding: 10px;" placeholder="User ID" required />
+    </div>
+    <!-- Password input -->
+    <div class="form-outline mt-5 pb-3">
+
+      <input id="password" type="password" name='password' style="    background: #f2f2f2b0;
+          font-size: 3vw;
+          width: 100%;
+          border-radius: 5px;
+          border: none;
+          border-bottom: 1px solid grey;
+          font-weight: bold;
+          padding: 10px;" class="input  " placeholder="Password" required />
+    </div>
+    <div class="row my-3 ">
+      <div class="col-6 d-flex justify-content-start checkbox-wrapper-17">
+        <div>
+          <input class="form-check-input" type="checkbox"
+            style="width: 15px;height: 15px;border-radius: 10px;margin-top: 7px;" value="" id="eye" onclick="toggle()">
+
+          <label class="form-check-label" for="eye" style="font-size: 10px; ">
+          </label>
+          <p style="font-size: 2.5vw;font-weight: bold;">Show Password</p>
+
+        </div>
+      </div>
+
+      <div class="col-6 d-flex justify-content-end checkbox-wrapper-17">
+        <!-- Checkbox -->
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="form2Example31"
+            style="width: 15px;height: 15px;border-radius: 10px;margin-top: 7px;" checked />
+
+          <label class="form-check-label" for="form2Example31" style="font-weight: bold; font-size: 10px;"> </label>
+
+          <p style="font-size: 2.5vw;font-weight: bold;">Remember Me</p>
+
+        </div>
+      </div>
+      <div class="col text-end mt-4">
+        <!-- Simple link -->
+        <a href="#!" style="font-size: 12px;"> Forgot password? </a>
+      </div>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center">
+      <!-- Submit button -->
+
+      <button type="submit" class="btn  " style="color: white;
+          text-align: center;
+          width: 100px;
+          background-color: #ff9c00;
+          border-radius: 5px;
+          font-size: 3vw;
+          width: 250px;
+          font-weight: bold;
+          text-transform: uppercase;">Sign In</button>
+    </div>
+  </form>
+
+
+</body>
+<script>
+  var state = false;
+  function toggle() {
+    if (state) {
+      document.getElementById("password"
+
+      ).
+        setAttribute("type", "password");
+      document.getElementById("eye").style.color = '#7a797e';
+      state = false;
+    }
+    else {
+      document.getElementById("password").
+        setAttribute("type", "text");
+      document.getElementById("eye").style.color = '#5887ef';
+      state = true;
+    }
+  }
+</script>
+
+</html>

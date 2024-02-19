@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+<style>
+  .notification {
+    background: white;
+    border-radius: 5px;
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+
+
+
+  .card-content {
+    max-width: 30rem;
+    background-color: #fff;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    padding: 4rem .5rem;
+    box-shadow: 1px 1px 2rem rgba(0, 0, 0, .3);
+    text-align: center;
+  }
+
+  .card-content h1 {
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+  }
+
+  .card-content p {
+    font-size: .8rem;
+    margin: 0 0 2rem 0;
+  }
+
+  input {
+    padding: .8rem 1rem;
+    width: 40%;
+    border-radius: 5rem;
+    outline: none;
+    border: .1rem solid #d1d1d1;
+    font-size: .7rem;
+  }
+
+  ::placeholder {
+    color: #d1d1d1;
+  }
+
+  .subscribe-btn {
+    padding: .8rem 2rem;
+    border-radius: 5rem;
+    background: linear-gradient(90deg, #ff9966, #ff5e62);
+    color: #fff;
+    font-size: .7rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  /* modal */
+  .modal-dialog {
+    max-width: 800px;
+  }
+
+  .modal-content {
+    border-radius: 10px;
+    border: none;
+    overflow: hidden;
+  }
+
+  .modal-header {
+    background-color: #2a2a2a;
+    color: white;
+    border-bottom: none;
+  }
+
+  .modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .btn-close {
+    color: white;
+  }
+
+  .btn-close:hover {
+    color: #bbb;
+  }
+
+  .modal-body {
+    background-color: white;
+    padding: 2rem;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="file"] {
+    border: none;
+    background-color: #f2f2f2;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  input[type="text"],
+  textarea,
+  select {
+    border: none;
+    background-color: #f2f2f2;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  input[type="text"]:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #5f5f5f;
+  }
+
+  .form-select {
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .row {
+    margin-bottom: -6px;
+  }
+
+  .form-control:focus {
+    border-color: none;
+  }
+
+  .modal-footer {
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  button[type="submit"] {
+    background-color: #2a2a2a;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #444;
+  }
+</style>
+
+<body style="background-color: #eee;">
+  <%- include('../partials/main_navbar.ejs') %>
+    <%- include('../partials/main_sidebar.ejs') %>
+      <%- include('../partials/setting_sidebar.ejs') %>
+        <div class="" style=" margin-top: 65px;margin-right: 15px;
+    margin-left: 285px; display: flex; justify-content: center; align-items: center;">
+          <div class="container-fluid notification mt-3 ">
+            <div class="row p-3">
+              <div class="col-12 pb-2 border-bottom">
+                <i class="fas fa-bell"></i>
+                <span>Create Dynamic Pages</span>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-12 pb-3" style="font-size: 12px">
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  data-bs-whatever="@mdo">Add_Product</button>
+
+                <div class="modal modal-dialog modal-xl fade" id="exampleModal" tabindex="-1"
+                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+
+                      <div class="modal-body mb-5">
+                        <form style="border: 1px solid grey;" method="post" action="/add_description"
+                          enctype="multipart/form-data">
+                          <div class="row justify-content-evenly mt-2">
+                            <div class="col-md-6">
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="image">Product Image</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <input type="file" name="images" class="form-control" id="images" multiple>
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="name">Product Name</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" id="name" name="name" maxlength="18"
+                                    placeholder="Product name..">
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="description">Quantity</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" id="quantity" name="quantity" maxlength="15"
+                                    placeholder="Product description..">
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="price">Price</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" id="price" name="price" maxlength="15"
+                                    placeholder="Product Price..">
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="price">Manufatured by</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" id="manufacture" name="manufacture"
+                                    placeholder="Manufacture company name..">
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="price">Highlights</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <textarea class="form-control" id="highlight" name="highlight"
+                                    placeholder="Highlights about Product" rows="2"></textarea>
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="price">Description</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <textarea class="form-control" id="description" name="description"
+                                    placeholder="Write Descripton Here" rows="3"></textarea>
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="text">Storage</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <input type="text" class="form-control" id="storage" name="storage"
+                                    placeholder="Storage of Product">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="price">Pages Name</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <select class="form-select" id="page" name="page" size="1"
+                                    aria-label="size 1 select example">
+                                    <option selected>Our Pages</option>
+                                    <option value="baby care">Baby Care</option>
+                                    <option value="diabetes care">Diabetes Care</option>
+                                    <option value="heart health">HeartHealth</option>
+                                    <option value="cough & cold">Cough & Cold</option>
+                                    <option value="sexual wellness">Sexual Wellness</option>
+                                    <option value="skin care">Skin Care</option>
+                                    <option value="pain relief">Pain Relief</option>
+                                    <option value="family care">Family Care</option>
+                                    <option value="health conditions">Health Conditions</option>
+                                    <option value="alternate medicines">Health Conditions</option>
+                                    <option value="weight management">Weight</option>
+                                    <option value="women care">Women Care</option>
+                                    <option value="personal care">Personal Care</option>
+                                    <option value="devices & instru.">Devices & Instru.</option>
+                                    <option value="daily health needs">Daily Health Needs</option>
+                                    <option value="fitness & wellness">Fitness & Wellness</option>
+                                  </select>
+                                </div>
+                              </div><br>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="price">Key Ingredients</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <textarea class="form-control" id="keyingredient" name="keyingredient"
+                                    placeholder="Key Ingredients of Product" rows="3"></textarea>
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="price">Key Features</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <textarea class="form-control" id="keyfeature" name="keyfeature"
+                                    placeholder="Key Feature of Product" rows="3"></textarea>
+                                </div>
+                              </div>
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="text">How to Use</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <textarea class="form-control" id="howtouse" name="howtouse"
+                                    placeholder="Process of Use Product" rows="3"></textarea>
+                                </div>
+                              </div>
+
+                              <div class="row justify-content-evenly mt-2">
+                                <div class="col-md-3">
+                                  <label for="text">Precautions</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <textarea class="form-control" id="precaution" name="precaution"
+                                    placeholder="Precautions of Product" rows="2"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly my-2 ">
+                              <div class="text-center">
+                                <a href="/add_description"> <button type="submit" id="form_submit"
+                                    class="btn btn-primary">Add
+                                    Product</button></a>
+                                <div style="float: right;">
+
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+
+                              </div>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- modal 3 -->
+              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form style="border: 1px solid grey;" method="post" action="/add_consult"
+                        enctype="multipart/form-data">
+                        <div class="row justify-content-evenly mt-3">
+                          <div class="col-md-6">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label for="image">Image</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="file" name="images" id="images">
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-4">
+                                <label for="name">Name</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="text" id="name" name="name" maxlength="18"
+                                  placeholder="Enter Specialist or common issue">
+                              </div>
+                            </div>
+
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-4">
+                                <label for="price">Price</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="text" id="price" name="price" maxlength="15" placeholder="Product Price..">
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-12 mx-auto">
+                                <select class="form-select" id="type" name="type" size="1"
+                                  aria-label="size 1 select example">
+                                  <option selected>Select Type</option>
+                                  <option value="special">Specialities Concerns</option>
+                                  <option value="common">Common Health Concerns</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="row my-4">
+                              <div class="row justify-content-evenly">
+                                <a href="/add_consult"> <button type="submit" id="form_submit"
+                                    class="btn btn-primary">Add
+                                    Product</button></a>
+                              </div>
+                            </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
+
+          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form style="border: 1px solid grey;" method="post" action="/drprofile"
+                        enctype="multipart/form-data">
+                        <div class="row justify-content-evenly mt-3">
+                          <div class="col-md-6">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label for="image">Image</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="file" name="images" id="images">
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-4">
+                                <label for="name">Name</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="text" id="name" name="name" maxlength="18"
+                                  placeholder="Enter Name">
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-4">
+                                <label for="name">Experience</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="number" class="form-control" id="experience" name="experience" maxlength="3"
+                                  placeholder="Experience In Years">
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-4">
+                                <label for="name">speciality</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="text" id="speciality" name="speciality" maxlength="18"
+                                  placeholder="Enter Specialist">
+                              </div>
+                            </div>
+
+
+                            <div class="row my-4">
+                              <div class="row justify-content-evenly">
+                                <a href="/add_description"> <button type="submit" id="form_submit"
+                                    class="btn btn-primary">Add Profile</button></a>
+                              </div>
+                            </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
+
+          <!-- start labtest -->
+          <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form style="border: 1px solid grey;" method="post" action="/testapi">
+                     
+                        <div class="row justify-content-evenly mt-3">
+                          <div class="col-md-6">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label for="Name">Name</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="text" name="name" id="name">
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-4">
+                                <label for="name">Description</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="text" id="description" name="description" maxlength="18"
+                                  placeholder="Enter Name">
+                              </div>
+                            </div>
+                            <div class="row justify-content-evenly mt-3">
+                              <div class="col-md-4">
+                                <label for="name">Price</label>
+                              </div>
+                              <div class="col-md-8">
+                                <input type="number" class="form-control" id="price" name="price" maxlength="3"
+                                  placeholder="Enter Price">
+                              </div>
+                            </div>
+
+                            <div class="row my-4">
+                              <div class="row justify-content-evenly">
+                                <button type="submit" id="form_submit"
+                                    class="btn btn-primary">Add</button>
+                              </div>
+                            </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end -->
+
+          <!-- modal @2 -->
+
+          <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+            data-bs-whatever="@mdo">Add Medicine</button>
+
+          <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+            data-bs-whatever="@mdo">Add Consult</button>
+          <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal3"
+            data-bs-whatever="@mdo">Add Dr.Profile</button>
+          <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal4"
+            data-bs-whatever="@mdo">Add Labtest</button>
+
+</body>
+<div class="modal modal-xl fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Medicine</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body mb-5">
+        <form method="post" action="/add_medicine" enctype="multipart/form-data">
+          <div class="row justify-content-evenly mt-2">
+            <div class="col-md-6">
+              <div class="row justify-content-evenly mt-2">
+                <div class="col-md-3">
+                  <label for="name">Category Name</label>
+                </div>
+                <div class="col-md-8">
+                  <input class="w-100" type="text" id="name" name="name" maxlength="18" placeholder="Category name..">
+                </div>
+              </div>
+              <div class="row justify-content-evenly mt-2">
+                <div class="col-md-3">
+                  <label for="image">Category Image</label>
+                </div>
+                <div class="col-md-8">
+                  <input class="w-100" type="file" name="image" id="image">
+                </div>
+              </div>
+              <div class="row justify-content-evenly mt-2">
+                <div class="col-md-3">
+                  <label for="price">Type</label>
+                </div>
+                <div class="col-md-8">
+                  <select class="form-select" id="cat" name="cat" size="1" aria-label="size 1 select example">
+                    <option selected>Our Pages</option>
+                    <option value="Health">Health</option>
+                    <option value="Category">Category</option>
+                  </select>
+                  <br>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button style="width: 180px;" type="submit" id="form_submit"
+                  class="btn btn-primary mx-auto">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</html>

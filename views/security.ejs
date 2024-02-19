@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>security</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            font-family: Lato, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #414146;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        .p1 {
+            font-size: 50px;
+            text-align: center;
+            font-weight: 600;
+            color: #414146
+        }
+
+        .font {
+            color: #ffa94a;
+        }
+
+        .p2 {
+            font-size: 37px;
+            text-align: start;
+            font-weight: 600;
+            color: #414146
+        }
+
+        .p3 {
+            font-size: 37px;
+            text-align: start;
+            font-weight: 600;
+            color: #414146
+        }
+
+        .p4 {
+            text-align: start;
+            font-size: 14px;
+            margin-top: 12px;
+            font-weight: 400;
+            margin-left: 10px;
+        }
+
+        .p5 {
+            font-size: 40px;
+            text-align: start;
+            font-weight: 600;
+            color: #414146
+        }
+
+        /* faq */
+
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        h1 {
+            text-align: center;
+            /* margin: 2rem 0; */
+           
+            font-size: 2.5rem;
+        }
+
+        .accordion {
+            width: 90%;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
+        .accordion-item {
+            color: #111;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        .accordion-item-header {
+            padding: 0.5rem 3rem 0.5rem 1rem;
+            min-height: 3.5rem;
+            line-height: 1.25rem;
+            background-color: white ;
+            color: black;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .accordion-item-header::after {
+            content: "\002B";
+            font-size: 2rem;
+            position: absolute;
+            right: 1rem;
+        }
+
+        .accordion-item-header.active::after {
+            content: "\2212";
+        }
+
+        .accordion-item-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .accordion-item-body-content {
+            padding: 1rem;
+            line-height: 1.5rem;
+            border-top: 1px solid;
+            border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+        }
+
+        @media(max-width:767px) {
+            html {
+                font-size: 14px;
+            }
+        }
+
+        /* Hide the content initially */
+/* .contaianer-fluid {
+  opacity: 0;
+} */
+
+/* Animate the fadeIn effect */
+.contaianer-fluid.animated {
+  opacity: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <%-include('./common/header.ejs') %>
+
+
+        <div class="contaianer-fluid mt-3">
+            <div class="row justify-content-center">
+                <div class="col-md-9 mt-4 mb-5">
+
+                    <p class="p1">Trust: the foundation on which Practo is built</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- end -->
+
+        <div class="contaianer-fluid mt-5 animated fadeIn">
+            <div class="row mt-5 justify-content-evenly">
+                <div class="col-md-5">
+                    <p class="p2 mb-5 mt-5"> Your data has only one owner. YOU!</p>
+                    <p class="mt-3"><i class="fa-solid fa-check font "></i> Practo does not have access to your data</p>
+                    <p class="mt-3"><i class="fa-solid fa-check font"></i> Practo does not sell or share your data with
+                        any third party</p>
+                    <p class="mt-3"><i class="fa-solid fa-check font"></i> Practo follows stringent policies so that
+                        data isn’t compromised at any step</p>
+
+                    <div class="row justify-content-space mx-1">
+                        <div class="col-md-3 col-sm-6 text-center mt-5 ">
+                            <img src="../image/verified.png" class="img-fluid" style="height: 34px;" />
+                            <p style="line-height: 25px;">HIPAA<br>
+                                certified</p>
+
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 mx-1 text-center  mt-5">
+                            <img src="../image/kt1.png" class="img-fluid" style="height: 34px;" />
+                            <p style="line-height: 25px;">256-bit<br>
+                                encryption</p>
+
+
+                        </div>
+                        <div class="col-md-3 col-sm-6 mx-1 text-center mt-5 ">
+                            <img src="../image/kt2.png" class="img-fluid" style="height: 34px;" />
+                            <p style="line-height: 25px;">ISO 27001<br>
+                                compliant data centers</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-5 mt-5">
+                    <img src="../image/security.png" class="img-fluid" />
+
+                </div>
+            </div>
+        </div>
+
+        <!-- end -->
+
+        <div class="container-fluid mt-5" style="background-color: rgb(240,240,245);">
+            <div class="row justify-content-evenly">
+                <div class="col-md-5 text-center mt-4">
+                    <img src="../image/iso-section.png" class="img-fluid mt-4" style="height: 70px;" />
+
+                </div>
+
+                <div class="col-md-5 mt-4">
+                    <p class="p3">We are ISO 27001 certified</p>
+
+                    <p style="font-size: 15px;"><Span style="color: orange;">BSI</Span> — a global authority in
+                        information security standards — has<span style="color: orange;">certified</span> that Practo
+                        ensures confidentiality, availability, and integrity of its information assets
+                    </p>
+
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-8 mx-5">
+
+                        <p><i class="fa-solid fa-check font "></i> Secure organizational practices ensured by awareness
+                            and stringent access controls</p>
+                        <p><i class="fa-solid fa-check font "></i> Secure processes through strong administrative
+                            controls and monitoring</p>
+                        <p><i class="fa-solid fa-check font "></i> Secure systems with strong technical measures, and
+                            frequent vulnerability assessments and penetration testing</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-evenly mt-5">
+                    <div class="col-md-4 mb-5 py-5" style=" background-color: white;">
+                        <div class="row justify-content-center">
+                            <di class="col-md-11" style="border-bottom: 4px solid #14bef0">
+                                <p class="mt-2"
+                                    style="color: #414146; font-size: 15px; font-weight: 600; text-align: start;">Data
+                                    security for patients</p>
+                            </di>
+                        </div>
+                        <p class="p4"><span>-</span> Your data is for your eyes only</p>
+                        <p class="p4"><span>-</span> No one at Practo can view your data</p>
+                        <p class="p4"><span>-</span> We do not send you messages without your permission</p>
+                        <p class="p4"><span>-</span> We send promotional messages with an option to opt out any time</p>
+                        <p class="p4"><span>-</span> We do not share data with any third party</p>
+
+                    </div>
+                    <div class="col-md-4 mb-5 py-5" style=" background-color: white;">
+
+                        <div class="row justify-content-center">
+                            <di class="col-md-11" style="border-bottom: 4px solid orange">
+                                <p class="mt-2"
+                                    style="color: #414146; font-size: 15px; font-weight: 600; text-align: start;">Data
+                                    security for doctors</p>
+                            </di>
+                        </div>
+                        <p class="p4"><span>-</span> We do not have access to read or view your practice data</p>
+                        <p class="p4"><span>-</span> We do not share data with any third party</p>
+                        <p class="p4"><span>-</span> Doctors are in full control to decide what communication has to be
+                            sent to their patients</p>
+                        <p class="p4"><span>-</span> We follow stringent data policies to ensure users’ privacy and
+                            security</p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- end -->
+
+        <div class="contaianer-fluid mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-5 text-center mb-4 mt-3">
+                    <img src="../image/providers.png" class="img-fluid" style="height: 300px;" />
+
+
+                </div>
+                <div class="col-md-5 text-center mb-4 mt-3">
+                    <p class="p5">Secure platform for healthcare providers</p>
+                    <p style="font-size: 15px; text-align: start;">Each Practo product is designed to protect data
+                        security and privacy</p>
+
+                </div>
+                <div class="row justify-content-evenly mt-4">
+                    <div class="col-md-5 mt-3 text-center py-5" style="background-color: rgb(240,240,245);">
+                        <img src="../image/promo.png" class="img-fluid mt-1" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">We never send promotions to your walk-in patients
+                        </p>
+                        <p style="font-size: 14px;">As per our<span style="color: orange;">privacy policy</span>, we
+                            never reach out to your walk-in patients or send any promotional communication to them. The
+                            only way for any patient to receive any promotion from us is if they visit<span
+                                style="color: #ffa94a;">Practo.com</span>, or download our app independently and give us
+                            permission to contact them. Practo does not have any access to your patient database stored
+                            in Ray.</p>
+
+                    </div>
+                    <div class="col-md-5 mt-3 text-center py-5" style="background-color: rgb(240,240,245);">
+                        <img src="../image/backups.png" class="img-fluid mt-1" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">Your data has multiple encrypted backups</p>
+                        <p style="font-size: 14px;">All data is backed up and versioned multiple times at secure
+                            locations across the world. We also employ a smart feature called point-in-time recovery to
+                            retrieve the data from a specific time period.</p>
+
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-evenly mt-4">
+                    <div class="col-md-5 mt-3 text-center py-5" style="background-color: rgb(240,240,245);">
+                        <img src="../image/share.png" class="img-fluid mt-" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">We don’t sell your data</p>
+                        <p style="font-size: 14px; ">We are fully aware of the sensitivity of your healthcare
+                            information and take data privacy extremely seriously. We go to great lengths to protect it
+                            and will never ever sell it to anyone.</p>
+
+                    </div>
+                    <div class="col-md-5 mt-3 text-center py-5" style="background-color: rgb(240,240,245);">
+                        <img src="../image/data-security.png" class="img-fluid mt-" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">We never mix doctors’ data with patients’ data</p>
+                        <p style="font-size: 14px;">Our platform uses industry-grade firewalls and follows a stringent
+                            privacy policy designed to keep providers’ data separate from patients’ data.</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end -->
+
+        <div class="contaianer-fluid mt-5" style="background-color: rgb(240,240,245);">
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-5 text-center mb-4 mt-5">
+                    <p class="p5">Secure place for your health data</p>
+                    <p style="font-size: 15px; text-align: start;">Keeping your data safe is the core of every decision
+                        we make at Practo</p>
+
+
+                </div>
+                <div class="col-md-5 text-center mb-4 mt-5">
+                    <img src="../image/patient.png" class="img-fluid" style="height: 250px;" />
+
+
+                </div>
+                <div class="row justify-content-evenly mt-4">
+                    <div class="col-md-5 mt-3 text-center py-5" style="background-color: white;">
+                        <img src="../image/pdata.png" class="img-fluid mt-1" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">Your data is for your eyes only</p>
+                        <p style="font-size: 14px;">Anything that you share on Practo is completely private. No one else
+                            can access it. We give an unprecedented level of control so that only you can decide who
+                            sees what.</p>
+
+                    </div>
+                    <div class="col-md-5 mt-3 text-center py-5" style="background-color:white;">
+                        <img src="../image/p256.png" class="img-fluid mt-1" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">Everything is protected with 256-bit encryption</p>
+                        <p style="font-size: 14px;">Practo uses world-class standards to shield your data from
+                            unauthorized intrusion. It is always protected with multiple layers of encryption (256-bit
+                            encryption over the network).</p>
+
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-evenly mt-4">
+                    <div class="col-md-5 mt-3 text-center mb-5 py-5" style="background-color:white">
+                        <img src="../image/finger.png" class="img-fluid mt-" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">Two-factor authentication prevents unauthorized
+                            access</p>
+                        <p style="font-size: 14px; ">Extra measures are good. Therefore, we let you enable two-factor
+                            authentication so that your data is absolutely secure, and no one else can access it except
+                            you.</p>
+
+                    </div>
+                    <div class="col-md-5 mt-3 text-center mb-5 py-5" style="background-color: white">
+                        <img src="../image/logout.png" class="img-fluid mt-" style="height: 100px;" />
+                        <p style="font-size: 18px;font-weight: 600;">Remote logout fends off suspicious logins</p>
+                        <p style="font-size: 14px;">Whenever a new device logs into your account, Practo notifies you
+                            immediately, so that you can review the activity and log out if needed..</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end -->
+
+        <div class="contaianer-fluid">
+            <div class="row">
+                <h1 class="my-auto">FAQ</h1>
+                <div class="accordion ">
+                    <div class="accordion-item">
+                        <div class="accordion-item-header">
+                            What is Practo’s view on data security and Privacy?
+                        </div>
+                        <div class="accordion-item-body">
+                            <div class="accordion-item-body-content">
+                                <p>At Practo we take data security and privacy extremely seriously. It is one of the
+                                foundational pillars of our company and is implemented at the core of every product.</p>
+
+                               <p> We believe that healthcare data is the most sensitive information about you and must
+                                receive appropriate protection. Practo collects or uses any personal or sensitive
+                                personal information belonging to you only after receiving appropriate and clear consent
+                                from you. Further, we understand that people change their minds, so no consent is
+                                permanent and our systems are built with the flexibility so that any consent given can
+                                later be revoked.</p>
+
+                               <P> This is why all our products have features where patients and providers are in control
+                                and can decide what they want to share and what they prefer to keep private.</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-item-header">
+                            What data does Practo have?
+                        </div>
+                        <div class="accordion-item-body">
+                            <div class="accordion-item-body-content">
+                               <P>At the outset, our data is stored with 256 bit encryption on HIPAA compliant servers. Further, we are an ISO27001:2013 certified company. This certification is one of the most recognized and stringent information security certification that validates a company's efforts on protecting data and all kinds of information assets.</P>
+                               <P>We have two distinct data sets. First is when health care providers use our software to store information regarding the patients they are treating. This can include information about the patient, their diagnosis, treatment plan, any clinical notes, communication and other details. All of this is stored on behalf of the provider. and Practo cannot access this. It is stored privately and securely for every provider who uses our software.</P>
+                               <P>The other data set is when patients directly visit Practo and use Practo to store their health history or undertake a healthcare transaction, such as booking an appointment, online consultation and more. We store all this data on behalf of the patient and this too is stored with 256 bit encryption and HIPAA compliant servers. Any patient who uses our service, gives us permission to reach out to them from time to time with marketing and/or other communication which he/she can opt out of when he/she chooses so.</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-item-header">
+                            I am a doctor using your Ray software, what kind of access do you have to my data stored in Ray?
+                        </div>
+                        <div class="accordion-item-body">
+                            <div class="accordion-item-body-content">
+                                Practo does not have access to the data stored in Ray.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-item-header">
+                            If you don’t have any access to data in Ray, how can you send those appointment confirmation or feedback collection SMSes to my walk-in patients?
+                        </div>
+                        <div class="accordion-item-body">
+                            <div class="accordion-item-body-content">
+                               <P>To be clear - we build the technology that enables YOU to send the SMSes. Therefore, while our systems send the SMS, they can only be sent by the doctor explicitly allowing the system to do so. These can be toggled in the settings tab in your Ray software. Enabling this setting and/or does not give Practo access to any other aspect of your data other than what is required to complete sending of the SMS. It also does not give Practo permission for Practo to reach out to the patient for any other reason. In addition, all of this is done via an automated system with no human involvement or intervention possible.</P>
+                               <P>For example, when you enable the settings to send an appointment confirmation SMS to your walk-in patient, the system will take phone number of that patient, locate the appointment detail that you have confirmed and send that information to that patient. Beyond this, Practo does not get any rights to send any other message or communication or to reach out to the patient for any reason whatsoever. Further, you can, at any time, revoke even this facility by simply changing the settings inside Ray.</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-item-header">
+                            I had a walk-in patient who received marketing communication from Practo. How is this possible?
+                        </div>
+                        <div class="accordion-item-body">
+                            <div class="accordion-item-body-content">
+                               <P>There is no way your walk-in patient will receive promotional communication from Practo. The only way it is possible is if this patient who has been a walk-in patient at your clinic, later independently visits Practo.com and signs up for an account with Practo. At this point, he gives us his/her permission that Practo can reach out to him with promotional material. Only once we get this permission directly from the patient when he decided to visit our website do we reach out to him/her.</P>
+                               <P>Unless your walk-in patient visits Practo independently and gives us permission, no marketing communication is received by him from Practo. The only communication they will receive will be what you have enabled in your settings in Ray. If you’d like to review these settings you can<span style="color: orange;"> click here</span> to log in to Ray and review your settings.</P>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <%-include('./common/footer.ejs') %>
+
+
+            <script>
+                const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+                accordionItemHeaders.forEach(accordionItemHeader => {
+                    accordionItemHeader.addEventListener("click", event => {
+
+                        // Uncomment in case you only want to allow for the display of only one collapsed item at a time!
+
+                        // const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+                        // if(currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader!==accordionItemHeader) {
+                        //   currentlyActiveAccordionItemHeader.classList.toggle("active");
+                        //   currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+                        // }
+
+                        accordionItemHeader.classList.toggle("active");
+                        const accordionItemBody = accordionItemHeader.nextElementSibling;
+                        if (accordionItemHeader.classList.contains("active")) {
+                            accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                        }
+                        else {
+                            accordionItemBody.style.maxHeight = 0;
+                        }
+
+                    });
+                });
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>

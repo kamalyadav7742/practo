@@ -1,0 +1,166 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Website Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        .imuug {
+            background: url(../image/wallpaper.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        @media screen and (max-width: 420px) {
+            .slap {
+                margin-left: -30px;
+            }
+            h2{
+                font-size: 19px;
+            }
+            p{
+                font-size: 14px;
+            }
+            h6{
+                font-size: 16px;
+            }
+            .inp{
+                margin-left: -10px;
+            }
+            .btn{
+                margin-left: -10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+   
+    <%-include('./common/sidebar.ejs') %>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 imuug">
+                <div class="row">
+                    <div class="col-md-5  ms-4 mt-4 px-3" style="position: relative;">
+                        <div class="slap">
+                            <h2 style="font-weight: 700;">Patients are looking for doctors like you</h2>
+                            <p class="mt-3">Millions of patients are looking for the right doctor on Practo. Start your
+                                digital
+                                journey with Practo Profile</p>
+                            <h6 class="mt-2">Let’s take the first step and create your account:</h6>
+                          
+                                <a href="/doctorsignup">
+                            <button class="btn btn-warning "
+                                style="width: 280px; text-align: center;">Create Your Account</button></a><br>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row mt-5 justify-content-evenly">
+            <div class="col-md-5 text-center">
+                <img src="../image/profiles.png" class="img-fluid" style="height: 400px;">
+            </div>
+            <div class="col-md-5 mx-4 mt-5">
+                <h1>Edit your profile from anywhere, effortlessly</h1>
+                <p class="mt-2">- Easily add or modify your details</p>
+                <p class="mt-2">- Add information that matters to your patients - timings, fees, new services, and much
+                    more</p>
+                <p class="mt-2">- Keep all your information up to date, with ease
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="background-color: #f0f0f5;">
+        <div class="row mt-5 justify-content-evenly">
+            <div class="col-md-5 my-5 mx-5">
+                <h2 class="mt-3">Keep track of patient feedback</h2>
+                <p>- Know what your patients have to say about you</p>
+                <p>- Interact with them through your Practo profile</p>
+                <p>- Build your credibility by replying to their feedback</p>
+                <p>- Let everyone read the great feedback patients leave for you</p>
+            </div>
+            <div class="col-md-5 my-5">
+                <img src="../image/profiles-feedback.png" class="img-fluid" height="400px">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row my-4 justify-content-evenly">
+            <div class="col-md-5 my-4">
+                <img src="../image/profiles-editor.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-5">
+                <h1 class="mt-4" style="font-weight: 500;">Improve your profile with tips from us</h1>
+                <p>Does your profile have all the information? We’ll remind you about all the minute details that can
+                    make an huge difference impact on your online presence.
+                </p>
+            </div>
+        </div>
+    </div>
+
+ 
+
+    <div class="container-fluid" style="background-color: #f0f0f5;">
+        <div class="row my-5">
+            <h2 class="text-center mt-4">Create your free Practo profile in 3 simple steps</h2>
+        </div>
+        <div class="row justify-content-evenly my-2">
+            <div class="col-md-3 text-center">
+                <i class="fa-solid fa-address-card fa-4x text-center"></i>
+                <h5 class="mt-2">Register or find yourself on Practo.com</h5>
+                <p>Enter your name, email id, mobile number and clinic or establishment name.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="fa-solid fa-user-doctor fa-4x"></i>
+                <h5 class="mt-2">Register or find yourself on Practo.com</h5>
+                <p>Enter your name, email id, mobile number and clinic or establishment name.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="fa-solid fa-id-card fa-4x"></i>
+                <h5 class="mt-2">Register or find yourself on Practo.com</h5>
+                <p>Enter your name, email id, mobile number and clinic or establishment name.</p>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="text-center my-3 ">
+                <a href="/doctorsignup">
+                <button class="btn btn-warning">Create Your Profile Here</button></a>
+            </div>
+            <div class="row">
+                <p class="text-center py-4">Note: Verifying your medical registration and qualification ensures that you
+                    get listed as a genuine medical practitioner.</p>
+            </div>
+        </div>
+    </div>
+
+    <%-include('./common/footer.ejs') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+
+
+</body>

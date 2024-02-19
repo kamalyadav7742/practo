@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bing Maps Example</title>
+    <meta charset="utf-8" />
+    <script type='text/javascript'
+        src='https://www.bing.com/api/maps/mapcontrol?key=[AnWDKADbfs-2qPNcalwldIq87TSwPbfeCXPpDEGy0darizGvYYaHOiNw8jm_bkQk]&callback=loadMapScenario'
+        async defer></script>
+    <style>
+        #myMap {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="myMap"></div>
+    <input type="text" id="city" name="city" placeholder="Enter city name">
+    <input type="text" id="lat" name="lat" placeholder="Latitude">
+    <input type="text" id="lng" name="lng" placeholder="Longitude">
+
+    <script>
+        let map, pushpin;
+
+        function loadMapScenario() {
+            map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                credentials: 'AnWDKADbfs-2qPNcalwldIq87TSwPbfeCXPpDEGy0darizGvYYaHOiNw8jm_bkQk'
+            });
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    let pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    // Center the map at the user's current location.
+                    map.setView({ center: pos, zoom: 15 });
+
+                    // Add a pushpin at the user's current location.
+                    pushpin = new Microsoft.Maps.Pushpin(pos);
+                    map.entities.push(pushpin);
+
+                    // Fill the input fields with the latitude and longitude values.
+                    document.getElementById('lat').value = pos.lat;
+                    document.getElementById('lng').value = pos.lng;
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+            // Add event listener to the city input field.
+            document.getElementById('city').addEventListener('keydown', function (event) {
+                if (event.keyCode === 13) {
+                    geocodeCity();
+                }
+            });
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+
+        function geocodeCity() {
+            let city = document.getElementById('city').value;
+            let geocoder = new Microsoft.Maps.Search.SearchManager(map);
+            geocoder.geocode({
+                where: city,
+                callback: function (result, userData) {
+                    if (result && result.results && result.results.length > 0) {
+                        let location = result.results[0].location;
+                        let pos = {
+                            lat: location.latitude,
+                            lng: location.longitude
+                        };
+                        map.setView({ center: pos, zoom: 15 });
+                        pushpin.setLocation(pos);
+                        document.getElementById('lat').value = pos.lat;
+                        document.getElementById('lng').value = pos.lng;
+                        document.getElementById('address').value = result.results[0].address.formattedAddress;
+                    } else {
+                        alert('Sorry, we could not find the location for the city you entered.');
+                    }
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

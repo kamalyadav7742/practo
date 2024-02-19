@@ -1,0 +1,166 @@
+<!-- fontawesome -->
+<!-- bootstrap link -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/all.min.css">
+<link rel="stylesheet" href="../css/fontawesome.min.css">
+
+<style>
+    
+body {
+        background-color: #fff;
+        font-family:arial, Arial, sans-serif;
+        font-size: 14px;
+    }
+p{
+    margin: 0%;
+}
+
+
+.sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 59px;
+      right: 0;
+      background: rgb(245, 247, 249);
+      overflow-x: hidden;
+      transition: 0.5s;
+      /* padding-top: 60px; */
+    }
+      
+      .sidenav a{
+        /* padding: 8px 8px 8px 32px; */
+        text-decoration: none;
+        /* font-size: 25px; */
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .sidenav a:hover {
+        color: #000000;
+      }
+      
+      .sidenav .closebtn {
+        position: absolute;
+        top: -9px;
+        right: 19px;
+        font-size: 36px;
+        margin-left: 0px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+
+
+    .site_btn{
+        background-color: #201a34;
+        color: #eee;
+        border-radius:5px;
+        padding: 5px;
+    }
+   @media (min-width: 408px){
+.d-md-flex {
+    display: flex!important;
+}}
+#main-navbar{
+    position: relative;
+}
+</style>
+
+<!--Main Navigation-->
+<header style="width: 100%; position: fixed; top: 0;  z-index: 1000;">
+    <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light " style="background:  rgb(28, 43, 69);">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand " href="#">
+                <img src="/image/white_practo_logo.svg" alt="" width="60px" height="35px" style="border-radius: 15px 15px 0 15px;">
+            </a>
+            <!-- Chatboat Heading -->
+            <div class=" d-md-flex input-group w-auto my-auto ">
+                <p style=" padding-top: 10px; font-weight: 500; color: whitesmoke; font-size: 15px;">Super Admin</p>
+            </div>
+
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                <!-- Notification dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false" style="    color: whitesmoke;">
+                        <img src="/static/img/bell-icon.png" alt="" >
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Some news</a></li>
+                        <li><a class="dropdown-item" href="#">Another news</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a> </li>
+                    </ul>
+                </li>
+
+                <!-- Icon -->
+                <li class="nav-item">
+                    <a class="nav-link me-3 me-lg-0" href="#">
+                        <i class="fas fa-fill-drip"></i>
+                    </a>
+                </li>
+
+                <!-- Avatar -->
+                <li class="nav-item">
+                    <div class="nav-link" href="#">
+                        <div id="mySidenav" class="sidenav">
+                            
+                            <div style="background: rgb(247, 247, 249); color: rgb(5, 5, 5);">
+                                <div class="container-fluid">
+                                        <select id="standard-select" class="mt-2" style="border: none;background: rgb(247, 247, 249);">
+                                          <option value="English">LANG</option>
+                                          <option value="Eng">Eng</option>
+                                          <option value="Hindi">Hindi</option>
+                                          <option value="French">French</option>
+                                        </select>
+
+                                    <div class="row mt-5">
+                                        <div class="col-sm-md-lg-12" >
+                                         <div class="col-4">
+                                                <a href="/logout"><button type="button" style="border: none;" class="btn btn-outline-primary mb-2 "> <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button></a>
+                            </div>
+                        <div>
+                                </div>
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        </div>
+                    </div> 
+                </li>
+            </ul>
+
+            <span style="font-size:20px;cursor:pointer"  onclick="openNav()"><i class="fa fa-circle-user"></i></span>
+            </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        </ul>
+        </div>
+        <!-- Container wrapper -->
+        </nav>
+    <!-- Navbar -->
+</header>
+
+    
+    
+    <!-- sidebar icon  -->
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "300px";
+        }
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    

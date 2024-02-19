@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>practo</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .p1 {
+            margin-top: 0;
+            text-align: start;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 18px 10px;
+            border-bottom: 1px solid #f0f0f5;
+            color: inherit;
+        }
+        .p2 {
+            margin-top: 0;
+            text-align: start;
+            font-size: 20px;
+            font-weight: 400;
+            padding: 1px 10px;
+            color: inherit;
+        }
+        .p3 {
+            margin-top: 0;
+            text-align: start;
+            font-size: 14px;
+            padding: 1px 10px;
+            color: inherit;
+        }
+        #image-container {
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* set height of div to 100% to fill column */
+}
+
+#image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto; /* center image horizontally */
+}
+
+.dropdown-content a{
+    text-decoration: none;
+    color: black;
+}
+
+.symptoms a,
+.diagnosis a {
+  display: block;
+  padding: 5px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.symptoms a:hover,
+.diagnosis a:hover {
+  background-color: #f2f2f2;
+}
+
+input[type=radio] {
+  margin-right: 10px;
+}
+
+input[type=radio]:checked:before {
+  content: '\2022';
+  /* color: #2196F3; */
+  font-weight: bold;
+}
+
+.pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #aae000;
+    margin-left: 4px;
+    animation: pulse 1.2s ease-in-out infinite;
+    -webkit-box-shadow: 0 0 0 0 rgba(170,224,0,.6);
+    box-shadow: 0 0 0 0 rgba(170,224,0,.6);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(170, 224, 0, 0.6);
+  }
+  
+  50% {
+    transform: scale(1.5);
+    box-shadow: 0 0 0 6px rgba(170, 224, 0, 0);
+  }
+  
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(170, 224, 0, 0);
+  }
+}
+
+.doctor-image img{
+    height: 34px;
+    border-radius: 50%;
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 10px;
+}
+.refresh-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.refresh-icon:hover {
+  background-color: #007bff;
+}
+
+.refresh-icon i {
+  font-size: 15px;
+  color: #007bff;
+  transition: all 0.3s ease-in-out;
+}
+
+.refresh-icon:hover i {
+  color: #fff;
+  transform: rotate(360deg);
+}
+
+    </style>
+</head>
+<div class="refresh-icon">
+  <i class="fas fa-sync-alt"></i>
+</div>
+
+<body style="background-color: rgb(240,240,245);">
+    <nav class="navbar navbar-expand-lg bg-dark  ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="/image/white_practo_logo.svg" width="120px"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- end -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-5 bg-light" style="border-right: 1px solid black;">
+                <p class="p1"><i class="fa-solid fa-arrow-left"></i> Confirm & Pay</p>
+               
+                <p class="p2">Verified Dermatologists online now <span class="pulse"></span></p>
+                                <div class="doctor-image ms-2">
+                                    <span class="each-image"><img alt="Doctor" src="../image/doc1.jpg"/> </span>
+                                        <span class="each-image"><img alt="Doctor" src="../image/doc2.jpg"/> </span>
+                                            <span class="each-image"><img alt="Doctor" src="../image/doc3.jpg"/> </span>
+                                                <span class="each-image">+ <span id="result"></span> Doctor are Online</span>
+                                </div>
+                            </article>
+                <p class="p3">One of them will speak to you shortly.</p>
+                <p class="p3"><i class="fa-solid fa-comment-medical" style="color: #02a401; font-size: 18px;"></i> <span>93% of users found online consultation helpful</span></p>
+                <p class="p3"><i class="fa-solid fa-mobile-screen" style="color: #02a401; font-size: 18px;"></i> <span>Consultation will happen only on mobile app</span></p>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Patient Name</label>
+                    <input type="text" class="form-control" style="max-width: 330px;">
+                  </div>
+                <div class="ms-2">
+                    <button type="button" class="btn btn-outline-dark px-3 mb-5 mt-1 ">Continue to Payment</button>
+                </div>
+            </div>
+
+            <div class="col-md-5 bg-light d-md-flex d-none " >
+                <div id="image-container" class="mx-auto"  style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                  <img id="image" class="img-fluid" style="max-width: 100%; max-height: 100%; margin: auto;" src="../image/affordable-money-v1.png">
+                </div>
+              </div>
+              
+        </div>
+    </div>
+<!--  -->
+<!-- <script>
+ function filterFunction() {
+  var input, filter, dropdown, divs, a, i, j, divClass;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  dropdown = document.getElementById("myDropdown");
+  divs = dropdown.getElementsByTagName("div");
+  for (i = 0; i < divs.length; i++) {
+    divClass = divs[i].className.toUpperCase();
+    if (divClass.indexOf(filter) > -1) {
+      a = divs[i].getElementsByTagName("a");
+      for (j = 0; j < a.length; j++) {
+        a[j].style.display = "";
+      }
+    } else {
+      a = divs[i].getElementsByTagName("a");
+      for (j = 0; j < a.length; j++) {
+        a[j].style.display = "none";
+      }
+    }
+  }
+}
+
+
+</script> -->
+<script>
+ const input = document.querySelector('.form-control');
+const button = document.querySelector('.btn');
+
+input.addEventListener('input', () => {
+  if (input.value.trim() === '') {
+    button.disabled = true;
+    button.classList.remove('btn-primary');
+    button.classList.add('btn-outline-dark');
+  } else {
+    button.disabled = false;
+    button.classList.remove('btn-outline-dark');
+    button.classList.add('btn-outline-danger');
+  }
+});
+
+
+</script>
+
+<script>
+  function generateRandomNumber() {
+let randomNumber = Math.floor(Math.random() * 101) + 100;
+document.getElementById("result").innerHTML = randomNumber;
+}
+
+window.addEventListener("load", function() {
+generateRandomNumber();
+});
+</script>
+
+<script>
+ // Hide all the <a> tags initially
+var aTags = document.getElementsByTagName("a");
+for (var i = 0; i < aTags.length; i++) {
+  aTags[i].style.display = "none";
+}
+
+function filterFunction() {
+  var input, filter, dropdown, divs, a, i, j, divClass;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  dropdown = document.getElementById("myDropdown");
+  divs = dropdown.getElementsByTagName("div");
+  for (i = 0; i < divs.length; i++) {
+    divClass = divs[i].className.toUpperCase();
+    if (divClass.indexOf(filter) > -1) {
+      a = divs[i].getElementsByTagName("a");
+      for (j = 0; j < a.length; j++) {
+        a[j].style.display = "";
+      }
+    } else {
+      a = divs[i].getElementsByTagName("a");
+      for (j = 0; j < a.length; j++) {
+        a[j].style.display = "none";
+      }
+    }
+  }
+  
+  // Hide all the <a> tags again if the search input is empty
+  if (filter === '') {
+    for (var i = 0; i < aTags.length; i++) {
+      aTags[i].style.display = "none";
+    }
+  }
+}
+
+
+</script>
+    <script>
+        var images = ["../image/consult (2).png", "../image/consult (3).png", "../image/consult (1).png"]; // array of image sources
+        var currentIndex = 0; // current index of the displayed image
+      
+        function changeImage() {
+          currentIndex = (currentIndex + 1) % images.length; // update current index
+          document.getElementById("image").src = images[currentIndex]; // update image source
+        }
+      
+        setInterval(changeImage, 3000); // call changeImage() every 3 seconds
+      </script>
+      
+
+    <script>
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        const info = document.querySelector(".alert-info");
+        const error = document.querySelector(".alert-error");
+
+        function process(event) {
+            event.preventDefault();
+
+            const phoneNumber = phoneInput.getNumber();
+
+            info.style.display = "";
+            info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+        }
+    </script>
+
+    
+<script>
+  const refreshIcon = document.querySelector('.refresh-icon i');
+  
+  refreshIcon.addEventListener('click', () => {
+    location.reload();
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  });
+</script>
+
+    <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+    <script src="../js/jquery-3.6.3.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

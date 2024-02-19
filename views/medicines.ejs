@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Medicine</title>    
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+
+
+  <style>
+    .caption {
+      position: absolute;
+      top: 30%;
+      left: 16px;
+      width: 50%;
+      bottom: 10%;
+      left: 45%;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    .caption1 {
+      width: 50%;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      position: absolute;
+      top: 26%;
+      left: 16px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .caption2 {
+      width: 50%;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      position: absolute;
+      top: 26%;
+      left: 16px;
+      color: #fff;
+      text-align: start;
+    }
+
+    .p13 {
+      font-size: 25px;
+      letter-spacing: 3px;
+      color: black;
+      text-align: start;
+      font-weight: 500;
+    }
+
+    .p14 {
+      color: black;
+      font-size: 30px;
+      text-align: start;
+      font-weight: 800;
+    }
+
+    .icon {
+      font-size: 25px;
+      text-align: start;
+
+    }
+
+    .font {
+      border: 1px solid white;
+      border-style: solid 1px white;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-width: 5px;
+      border-radius: 50%;
+    }
+
+    .hq {
+      height: 100%;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+
+
+
+    .slider {
+      height: 50%;
+      position: relative;
+      overflow: hidden;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+      -webkit-box-align: end;
+      -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .slider__nav {
+      width: 12px;
+      height: 12px;
+      margin: 2rem 12px;
+      border-radius: 50%;
+      z-index: 10;
+      outline: 6px solid #ccc;
+      outline-offset: -6px;
+      box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .slider__nav:checked {
+      -webkit-animation: check 0.4s linear forwards;
+      animation: check 0.4s linear forwards;
+    }
+
+    .slider__nav:checked:nth-of-type(1)~.slider__inner {
+      left: 0%;
+    }
+
+    .slider__nav:checked:nth-of-type(2)~.slider__inner {
+      left: -100%;
+    }
+
+    .slider__nav:checked:nth-of-type(3)~.slider__inner {
+      left: -200%;
+    }
+
+    .slider__nav:checked:nth-of-type(4)~.slider__inner {
+      left: -300%;
+    }
+
+    .slider__inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 400%;
+      height: 100%;
+      -webkit-transition: left 0.4s;
+      transition: left 0.4s;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+    }
+
+    .slider__contents {
+      height: 100%;
+      padding: 2rem;
+      text-align: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .slider__image {
+      font-size: 2.7rem;
+      color: #2196F3;
+    }
+
+    .slider__caption {
+      font-weight: 500;
+      margin: 2rem 0 1rem;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+    }
+
+    .slider__txt {
+      color: #999;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+
+    @-webkit-keyframes check {
+      50% {
+        outline-color: #333;
+        box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+      }
+
+      100% {
+        outline-color: #333;
+        box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+      }
+    }
+
+    @keyframes check {
+      50% {
+        outline-color: #333;
+        box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+      }
+
+      100% {
+        outline-color: #333;
+        box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+      }
+    }
+
+    @media only screen and (max-width: 1052px) {
+
+      .p13 {
+        font-size: 15px;
+      }
+
+      .p14 {
+        font-size: 15px;
+      }
+    }
+
+    @media screen and (max-width: 562px) {
+  .two-columns .col-lg-6{
+    margin-top: 10px;
+    float: none;
+  }
+
+
+}
+
+  </style>
+</head>
+
+<body>
+
+  <%-include('./common/header.ejs') %>
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <img src="../image/medi (1).jpg" class="d-block w-100" alt="...">
+          <div class="caption d-none d-md-block">
+            <p style="text-align: start; color: green; font-size: 16px; font-weight: 700;">AVAILABLE ANYWHERE</p>
+            <h5 class="mb-5" style="color: black; font-size: 25px; text-align: start;">Deivering in <span
+                style="font-weight:700 ;">100+</span> Cities All Our India</h5>
+
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../image/medi (3).jpg" class="d-block w-100" alt="...">
+          <div class="caption d-none d-md-block">
+            <h5 style="text-align: start; color: green; font-size: 20xpx; font-weight: 700;">Genuine Medicines</h5>
+            <p class="text-muted" style="text-align: start; font-size: 16px;">All Medicines & Health Product are Source
+              From Practo Trusted Network of Verified pharmacies and Medical Stores</p>
+          </div>
+        </div>
+        <div class="carousel-item active">
+          <img src="../image/medi (1).jpg" class="d-block w-100" alt="...">
+          <div class="caption d-none d-md-block">
+
+            <p style="text-align: start; color: green; font-size: 16px; font-weight: 700;">TRUSTED CARE</p>
+            <p style="color: black;font-weight: 700;font-size: 30px; text-align: start;">Relaible on home Time Delivery
+            </p>
+            <p class="text-muted" style="text-align: start;">Our in-house pharmacists ensure your Medicine reach you
+              when YYou need them</p>
+
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Browse medicines & health products -->
+    <!-- cairsole -->
+    
+    <p style=" font-size: 24px; font-weight: 600; letter-spacing: 2px;">Browse medicines & health products</p>
+    <div class="container-fluid">
+      <% for(var i=0; i<cat.length; i++) { %>
+        <div id="myCarousel<%= i %>" class="carousel slide container" data-bs-ride="carousel">
+          <h1><%= cat[i].cat %></h1>
+          <div class="carousel-inner w-100">
+            <% for(var j=0; j<result.length; j++) { %>
+              <% if(result[j].cat==cat[i].cat) { %>
+                <div class="carousel-item <%= j==i*3 ? 'active' : '' %>">
+                  <div class="col-md-3">
+                    <a href="/products_page/<%= result[j].name %>">
+                      <div class="card card-body" style="border: none;">
+                        <div class="post-slide">
+                          <div class="post-img">
+                        <img class="img-fluid" src="/static/upload/<%= result[j].image %>">
+                <a href="/products_page/<%= result[j].name %>" class="over-layer"><i class="fa fa-link"></i></a>
+                        </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>  
+                <% } %>
+                <% } %>       
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel<%= i%>" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel<%= i%>" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+          </div>
+        </div>
+      <% } %>
+      </div
+
+    
+    <!-- INTRODUCING CONSULTATION DESK -->
+
+    <div class="container-fluid mt-5">
+      <div class="row two-columns mx-3 justify-content-center">
+        <div class="col-md-6">
+          <p class="p11">INTRODUCING CONSULTATION DESK</p>
+          <p class="p12">Don’t self medicate. Talk to an expert. Consult a doctor in less than 2 minutes.</p>
+        </div>
+        <div class="col-md-6">
+          <p class="p11">INTRODUCING FAST DELIVERY</p>
+          <p class="p12">Tired of waiting in a queue? Too weak to go down and buy medicines?</p>
+        </div>
+
+        <div class="row mx-1">
+          <div class="col-lg-6 col-md-6 col-sm-6" style="position: relative;">
+            <img src="../image/wallpaperflare.com_wallpaper.jpg" class="img-fluid" />
+            <div class="caption1 d-none d-md-block">
+              <p class="p13">Chat With a <br><span class="p14">Doctor</span></p>
+              <div class="icon">
+                <button type="button" class="btn btn-outline-dark">Let's<i
+                    class="fa-solid fa-chevron-right font"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6" style="position: relative;">
+
+            <img src="../image/red3.jpg" class="img-fluid" />
+            <div class=" caption2 d-none d-md-block">
+              <p class="p13">Home Delivery In<br><span class="p14">24-48 HOURS</span></p>
+              <div class="icon">
+                <button type="button" class="btn btn-outline-dark">Let's<i
+                    class="fa-solid fa-chevron-right font"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- medicines -->
+    <!-- start -->
+    <div class="container-fluid">
+      <div class="row">
+        <p class="p8 mt-5">What our users have to say</p>
+      </div>
+    </div>
+    <div class="slider" style=" height: 300px;">
+      <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav" />
+      <input type="radio" name="slider" title="slide2" class="slider__nav" />
+      <input type="radio" name="slider" title="slide3" class="slider__nav" />
+      <input type="radio" name="slider" title="slide4" class="slider__nav" />
+      <div class="slider__inner hq">
+        <div class="slider__contents py-auto"><i class=" slider__image fa-solid fa-user"></i>
+          <h2 class="slider__caption">Dr. Kamal Yadav</h2>
+          <p class="slider__txt"><span style="font-size: 40px; color: black; font-weight: 700;">“</span>Beautiful
+            application with elegant UI Design. I found this app very useful. Placed Order for a few medicines and
+            recieved in just two days. Same medicine costs me +100 from local Shop. Recommended application. :-).
+          </p>
+        </div>
+        <div class="slider__contents"><i class=" slider__image fa-solid fa-user"></i>
+          <h2 class="slider__caption">Dr. Manish Gulia</h2>
+          <p class="slider__txt"><span style="font-size: 40px; color: black; font-weight: 700;">“</span>Beautiful
+            application with elegant UI Design. I found this app very useful. Placed Order for a few medicines and
+            recieved in just two days. Same medicine costs me +100 from local Shop. Recommended application. :-).
+          </p>
+        </div>
+        <div class="slider__contents"><i class=" slider__image fa-solid fa-user"></i>
+          <h2 class="slider__caption">Sr.Dr. Nishant </h2>
+          <p class="slider__txt"><span style="font-size: 40px; color: black; font-weight: 700;">“</span>Beautiful
+            application with elegant UI Design. I found this app very useful. Placed Order for a few medicines and
+            recieved in just two days. Same medicine costs me +100 from local Shop. Recommended application. :-).
+          </p>
+        </div>
+        <div class="slider__contents"><i class=" slider__image fa-solid fa-user"></i>
+          <h2 class="slider__caption">Compunder Bunty</h2>
+          <p class="slider__txt"><span style="font-size: 40px; color: black; font-weight: 700;">“</span>Beautiful
+            application with elegant UI Design. I found this app very useful. Placed Order for a few medicines and
+            recieved in just two days. Same medicine costs me +100 from local Shop. Recommended application. :-).
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <%-include('./common/footer.ejs') %>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script>
+    $('.carousel .carousel-item').each(function () {
+var minPerSlide = 4;
+var next = $(this).next();
+if (!next.length) {
+next = $(this).siblings(':first');
+}
+next.children(':first-child').clone().appendTo($(this));
+
+for (var i = 0; i < minPerSlide; i++) { next=next.next(); if (!next.length) { next=$(this).siblings(':first'); } next.children(':first-child').clone().appendTo($(this)); } });
+</script>
+
+</body>
+
+</html>

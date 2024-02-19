@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health And Wellness</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <style>
+        .imug {
+            background-image: url(../image/hero-image.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .nav-item {
+            margin: auto 8px;
+
+        }
+
+        html,body{
+            overflow-x: hidden;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 40px;
+            font-weight: 500;
+
+        }
+
+        .navbar-nav li a {
+            color: white;
+            font-weight: 500;
+        }
+
+        .heading {
+            color: white;
+            padding: 60px 10px 10px 40px;
+        }
+
+        .desc {
+            color: white;
+            padding: 25px 10px 10px 40px;
+        }
+
+        .abc {
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .form {
+            border-radius: 8px;
+        }
+
+        .input {
+            border: 1px solid #787887;
+            border-radius: 8px;
+            height: 40px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .sect {
+            width: 100%;
+        }
+        .alex p{
+            font-size: 14px;
+        }
+        .para{
+            margin-left: 14px;
+        }
+        .imeg img{
+            background-color: transparent;
+            display: inline-block;
+            max-width: 100%;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        #popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: none;
+}
+
+#popup h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#popup p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#popup button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#popup button:hover {
+  background-color: #0062cc;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid imug">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid pt-4">
+                    <a class="navbar-brand ms-5" href="#">Practo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav" style="float: inline-end;">
+                        <ul class="navbar-nav" style="margin-left: 16%;">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#Our Services">Our Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#Our EcoSystem">Our EcoSystem</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Product Capabilities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Testimonials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">FAQs</a>
+                            </li>
+                            <li class="nav-item ">
+                                <button class=" btn btn-secondary btn-sm my-auto px-3" style="border-radius: 12px;"
+                                    aria-current="page" href="#">Group
+                                    Insurance</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row ">
+            <div class="col-md-6">
+                <h3 class="heading">Your Workplace Health and Wellness Partner</h3>
+                <h5 class="desc">Over 30cr users benefited by our holistic, customizable and accessible healthcare
+                    solutions</h5>
+            </div>
+            <div class="col-md-4 abc my-5">
+                <div class="form my-3 mx-2 px-3">
+                    <h3 class="mt-4">Schedule a Demo</h3>
+                    <form id="demo-form" action="/wellness_demo" method="post">
+                        <input class="input my-2" type="text" name="name" placeholder="Name" required minlength="2" maxlength="50"><br>
+                        <input class="input my-2" type="text" name="org_name" placeholder="Organization Name" required minlength="2" maxlength="50"><br>
+                        <input class="input my-2" type="tel" name="number" placeholder="Contact Number" required pattern="[0-9]{10}"><br>
+                        <input class="input my-2" type="email" name="email" placeholder="Official Email I.d." required><br>
+                        <select class="form-select input my-2" aria-label="Default select example" name="org_size" required>
+                            <option value="" disabled selected>Organization Size</option>
+                            <option value="<500"><500</option>
+                            <option value="500-1000">500-1000</option>
+                            <option value="1000-5000">1000-5000</option>
+                            <option value="5000+">5000+</option>
+                        </select>
+                        <select class="form-select input my-2" aria-label="Default select example" name="interested" required>
+                            <option value="" disabled selected>Interested In</option>
+                            <option value="Taking Demo">Taking Demo</option>
+                            <option value="Referring Someone">Referring Someone</option>
+                            <option value="Enquiring about an existing plan">Enquiring about an existing plan</option>
+                            <option value="A career Opportunity">A career Opportunity</option>
+                        </select>
+                        <button type="submit" value="submit" class="input sect my-auto">Schedule a Demo</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="popup">
+                <h2>Thank you for submitting the form!</h2>
+                <p>We will get in touch with you soon.</p>
+                <button id="close-popup">Close</button>
+              </div>
+              
+            
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row my-5">
+            <div class="col-md-10 mx-auto">
+            <img src="../image/total_protect_dweb.png" class="img-fluid" height="296px" style="cursor: pointer;">
+        </div>
+        </div>
+    </div>
+
+    <div class="contaianer-fluid">
+        <div class="row mx-auto my-4">
+            <h3 class="text-center" id="Our Services">Our Services</h3>
+        </div>
+        <div class="row justify-content-center alex">
+            <div class="col-md-5 d-flex my-3 ">
+                <img src="../image/consultation.png" height="100px" alt="">
+                <div class="para">
+                    <h5>Easy Online consultations</h5>
+                    <p>Over 25 specialities guided by best in class doctors for effective care around the clock.</p>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex my-3">
+                <img src="../image/pharmacy.png" height="100px" alt="">
+                <div class="para">
+                    <h5>Online Pharmacy</h5>
+                    <p>COVID-19 essentials and self-test kits provided, along with access to a large inventory for medicines.</p>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex my-3 ">
+                <img src="../image/lab-test.png" height="100px" alt="">
+                <div class="para">
+                    <h5>Lab Tests at Home</h5>
+                    <p>Discounts upto 20% on NABL-accredited lab tests and at-home tests in multiple cities.</p>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex my-3">
+                <img src="../image/insurance.png" height="100px" alt="">
+                <div class="para">
+                    <h5>Group Health Insurance</h5>
+                    <p>Over 500+ day care procedures covered with a variety of payment options, for employees and family members.</p>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex my-3 ">
+                <img src="../image/wellbeing.png" height="100px" alt="">
+                <div class="para">
+                    <h5>Mental Wellbeing Solutions</h5>
+                    <p>Specially focused Mental Wellness plans available with regular informative webinars and constant support.</p>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex my-3">
+                <img src="../image/ambulance.png" height="100px" alt="">
+                <div class="para">
+                    <h5>SOS Ambulance Service</h5>
+                    <p>24/7 round the clock Ambulatory services along with equipped medical staff.</p>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex my-3 ">
+                <img src="../image/covid-care.png" height="100px" alt="">
+                <div class="para">
+                    <h5>SOS Ambulance Service</h5>
+                    <p>Covid-19 specific online consultations, lab tests, medical equipment, SOS assistance, and home care services</p>
+                </div>
+            </div>
+            <div class="col-md-5 d-flex my-3">
+                <img src="../image/activities.png" height="100px" alt="">
+                <div class="para">
+                    <h5>Engagement Activities & Gamification</h5>
+                    <p>Webinars and other knowledge-building sessions, peer-group challenges, and other employee engagement activities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row mt-5 mb-4">
+            <h2 class="text-center">Why Choose Us?</h2>
+        </div>
+        <div class="row mb-4 alex justify-content-evenly">
+            <div class="col-md-4 d-flex px-4">
+                <img src="../image/organizations.png" height="100px" alt="">
+                <div class="parag">
+                    <h5>For Organizations</h5>
+                    <p>Manage benefits, Improve Communication and Engage Employees</p>
+                 </div>
+            </div>
+            <div class="col-md-4 d-flex px-4">
+                <img src="../image/employees.png" height="100px" alt="">
+                <div class="parag">
+                    <h5>For Employees</h5>
+                    <p>Better Health, Easy Management and more vitality</p>
+                 </div>
+            </div>
+            <div class="col-md-4 d-flex px-4">
+                <img src="../image/leaders.png" height="100px" alt="">
+                <div class="parag">
+                    <h5>For Leaders</h5>
+                    <p>Culture of Health and Wellness, Peer Interactions</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row my-5">
+            <h2 class="text-center" id="Our EcoSystem">Practo Ecosystem</h2>
+            <p class="text-center">With a rating of 4.5+ we ensure our healthcare solutions are top quality and uniquely personalised to every employee.</p>
+        </div>
+        <div class="row justify-content-evenly">
+            <div class="col-md-3">
+                <div class="d-flex my-5">
+                <img src="../image/ic-plus.png" height="55px" alt="">
+                <div class="para">
+                    <h5>1.2 lakh+</h5>
+                    <p>Doctor partners</p>
+                 </div>
+                </div>
+                <div class="d-flex my-5">
+                <img src="../image/ic-doctor.png" height="55px" alt="">
+                <div class="para">
+                    <h5>30cr+</h5>
+                    <p>Patients per year</p>
+                 </div>
+                </div>
+                <div class="d-flex my-5">
+                <img src="../image/ic-chat.png" height="55px" alt="">
+                <div class="para">
+                    <h5>15k+</h5>
+                    <p>Instant consultations per day</p>
+                 </div>
+                </div>
+            </div>
+            <div class="col-md-7 imeg">
+                <img src="../image/world-map.png" style="opacity: 0.7;">
+            </div>
+        </div>
+    </div>
+
+    <%-include ('./common/footer.ejs') %>
+
+<!-- <script>
+    const form = document.getElementById('demo-form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Add your pop-up code here
+        alert('Form submitted successfully!');
+    });
+</script> -->
+
+<!-- <script>
+    $(document).ready(function() {
+  $('#demo-form').submit(function(event) {
+    event.preventDefault();
+    
+    // Get the form data
+    const formData = $(this).serialize();
+    
+    // Submit the form data using AJAX
+    $.ajax({
+      url: '/submit-form',
+      type: 'POST',
+      data: formData,
+      success: function() {
+        // Show the popup
+        $('#popup').fadeIn();
+      },
+      error: function() {
+        console.log('Error submitting form');
+      }
+    });
+  });
+
+  $('#close-popup').click(function() {
+    // Hide the popup
+    $('#popup').fadeOut();
+  });
+});
+
+</script> -->
+    <script src="jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

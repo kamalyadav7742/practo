@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Pannel</title>
+  <!-- Bootstrap CSS Sidebar -->
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/CDN/fontawesome.css" />
+  <script src="/static/CDN/jquery.js"></script>
+  <script src="/static/CDN/bootstrap5.2.3bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/fontawesome.min.css">
+
+  <!-- ajex -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+
+</head>
+<style>
+  .trial {
+    width: auto;
+    height: 600px;
+    margin-top: 25px;
+    background: white;
+    border-radius: 5px;
+    /* box-shadow: rgba(0, 0, 0, 0.34) 0px 0px 8px; */
+  }
+
+  @media (min-width: 992px) {
+    .responsive-font {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .responsive-font {
+      font-size: 12px;
+    }
+  }
+
+  .pagination_button:hover {
+    background-color: #eee;
+    border-radius: 5px;
+  }
+
+  li:hover {
+    background-color: #eee;
+  }
+
+  .tabcontent {
+    display: none;
+  }
+
+  @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+
+
+  form {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .pseudo-search {
+    display: inline;
+    border: 2px solid #ccc;
+    border-radius: 100px;
+    padding: 10px 15px;
+    transition: background-color 0.5 ease-in-out;
+  }
+
+  input {
+    border: 0;
+    background-color: transparent;
+    width: 200px;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  button,
+  i {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  select {
+    border: none;
+  }
+
+  @media screen and (max-width: 705px) {
+
+    .table th {
+      display: none;
+
+    }
+
+    .table,
+    .table tr,
+    .table td {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    button {
+      text-align: center;
+    }
+
+    .table tr,
+    .table td {
+      margin-bottom: 10px;
+    }
+  }
+
+
+  th {
+    background-color: #1F2739;
+  }
+
+  th {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #3C91E6;
+    color: #3C91E6;
+  }
+
+  div tr td {
+    font-size: 13px;
+  }
+
+  .cot {
+
+    box-shadow: -1px 2px 17px -5px rgba(0, 0, 0, 0.88);
+  }
+
+  .close {
+    color: white;
+  }
+</style>
+
+<body style="background: #eee;">
+  <%- include('../partials/main_navbar.ejs') %> <%- include('../partials/main_sidebar.ejs') %> <%-
+        include('../partials/setting_sidebar.ejs') %>
+        <!--Main layout-->
+        <main style="margin-top: 58px; margin-left: 260px;  " id="main_container">
+          <div class="container pt-4 ps-4 pb-5">
+
+            <div class="row mt-1 m-0">
+              <div class="container  responsive-font">
+
+                <div style="text-align: right;">
+                  <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Add Games
+                  </button>
+                </div>
+              </div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                      <h1 class="modal-title fs-5 mx-auto text-white" id="exampleModalLabel">Add Game</h1>
+                      <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="fname">Game i.d.</label>
+                          </div>
+                          <div class="col-md-8 border">
+                            <!-- <form method="post" action="/auto"> -->
+
+                            <input type="text" id="game_id" name="game_id" placeholder="Enter i.d.">
+                          </div>
+
+                        </div><br>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="lname">Game Name</label>
+                          </div>
+
+                          <div class="col-md-8 border">
+                            <input type="text" id="game_name" name="game_name" placeholder="Game name..">
+                          </div>
+                        </div><br>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="country">Main-Category</label>
+                          </div>
+
+                          <div class="col-md-8 border">
+                            <select id="category" name="category">
+                              <option value="Games">Games</option>
+                              <option value="PlayStation">PlayStation</option>
+                              <option value="Controller">Controller</option>
+                            </select>
+                          </div>
+                        </div><br>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="country">Game-Type</label>
+                          </div>
+                          <div class="col-md-8 border">
+                            <select id="Type" name="Type">
+                              <option value="action">Action</option>
+                              <option value="adventure">Adventure</option>
+                              <option value="stage">Stage</option>
+                            </select>
+                          </div>
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                    <div class="modal-footer bg-dark">
+                      <a href="/canned_responses"> <button type="submit" id="form_submit"
+                          class="btn btn-outline-light">Add
+                          Game</button></a>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <form>
+
+                <div class="pseudo-search">
+                  <input type="text" id="find_amd" placeholder="Search..." autofocus required>
+
+                  <i class="fa fa-globe places"></i>
+                  <button class="fa fa-search" type="submit"></button>
+
+                </div>
+              </form>
+
+
+
+
+
+
+
+        <!-- II -->
+
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" value=""></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <form action="/update/:name" method="post">
+                        <label for="fname">Game i.d.</label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="GFGclass" id="divGFG1"></div>
+
+                    </div>
+
+                  </div><br>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="lname">Game Name</label>
+                    </div>
+
+                    <div class="col-md-8">
+                      <div class="GFGclass" id="divGFG2"></div>
+
+                    </div>
+                  </div><br>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="country">Main-Category</label>
+                    </div>
+
+                    <div class="col-md-8">
+
+                      <div class="GFGclass" id="divGFG3"></div>
+
+
+                    </div>
+
+                  </div><br>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="country">Game-Type</label>
+                    </div>
+
+                    <div class="col-md-8">
+                      <div class="GFGclass" id="divGFG4"></div>
+
+
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a href="/index"> <button type="submit" class="btn btn-primary">Add Game</button></a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <script src="../js/script.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+        <script>
+          $(document).ready(function () {
+            $("#find_amd").on("keyup", function () {
+              var value = $(this).val().toLowerCase();
+              $("#ivr_table tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+              var letCount = $("#ivr_table tr td").length;
+
+            });
+          });
+        </script>
+
+        <script>
+          $(document).ready(function () {
+            $(document).on('click', '#form_submit', function () {
+              var game_id = document.getElementById("game_id").value
+              var game_name = document.getElementById("game_name").value
+              var category = document.getElementById("category").value
+              var Type = document.getElementById("Type").value
+              $.ajax({
+                url: "/auto",
+                method: "post",
+                data: {
+                  game_id,
+                  game_name: game_name,
+                  category: category,
+                  Type: Type
+                },
+                success: function (result) {
+                  console.log(result)
+                }
+
+              });
+            });
+          });
+
+        </script>
+
+        <!-- edit -->
+        <script>
+          document.querySelector("#mobile_inpp").addEventListener("keypress", function (evt) {
+            if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+              evt.preventDefault();
+            }
+          });
+
+        </script>
+
+        <script>
+          $(function () {
+            // ON SELECTING ROW
+            $(".gfgselect").click(function () {
+              //FINDING ELEMENTS OF ROWS AND STORING THEM IN VARIABLES
+              var a =
+                $(this).parents("tr").find(".game_id ").text();
+
+              var p1 = "";
+
+              var b =
+                $(this).parents("tr").find(".game_name ").text();
+
+              var p2 = "";
+              var c =
+                $(this).parents("tr").find(".category").text();
+
+              var p3 = "";
+
+              var d =
+                $(this).parents("tr").find(".Type").text();
+
+              var p4 = "";
+
+
+              // CREATING DATA TO SHOW ON MODEL
+              p1 +=
+                "<input type='text' style='height:34px;font-size: 13px;box-shadow: 0px 1px 10px rgb(211, 211, 211); ' min='0' disabled class='form-control' name='game_id' value=" + a + " id='a'>";
+              p2 +=
+                "<input type='text' style='height:34px;font-size: 13px;box-shadow: 0px 1px 10px rgb(211, 211, 211); ' min='0'  disabled  class='form-control' name='category' value=" + b + " id='b'>";
+              p3 +=
+                "<input type='text' style='height:34px;font-size: 13px;box-shadow: 0px 1px 10px rgb(211, 211, 211); ' min='0'  disabled  class='form-control' name='game_name' value=" + c + " id='c'>";
+              p4 +=
+                "<input type='text' style='height:34px;font-size: 13px;box-shadow: 0px 1px 10px rgb(211, 211, 211); ' min='0' class='form-control' name='Type'  value=" + d + " id='d' id='mobile_inpp'>";
+
+
+
+              $("#divGFG1").empty();
+              $("#divGFG2").empty();
+              $("#divGFG3").empty();
+              $("#divGFG4").empty();
+
+
+              $("#divGFG1").append(p1);
+              $("#divGFG2").append(p2);
+              $("#divGFG3").append(p3);
+              $("#divGFG4").append(p4);
+
+
+            });
+          });
+        </script>
+
+</body>
+
+</html>

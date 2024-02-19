@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <title>Document</title>
+    <style>
+        
+                body {
+                    font-family: Lato;
+                }
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .text-overlay {
+            border-radius: 6px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            background-color: white;
+            padding: 20px;
+            color: black;
+        }
+
+        .text-overlay h2 {
+            margin-top: 0;
+        }
+
+        .text-overlay p {
+            margin-bottom: 0;
+        }
+
+
+        .address a:hover {
+            text-decoration: underline;
+        }
+        .locate .btn{
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .view{
+            color: skyblue;
+            visibility: hidden;
+        }
+        .pro:hover .view{
+            visibility: visible;
+        }
+        
+        .qa-container {
+  margin-top: 30px;
+}
+
+.qa-item {
+  margin-bottom: 20px;
+}
+
+.qa-question {
+  font-weight: bold;
+  font-size: 18px;
+  color: #444444;
+  margin-bottom: 10px;
+}
+
+.qa-answer {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666666;
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #dddddd;
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <%-include('./common/header.ejs') %>
+
+    <div class="container-fluid">
+        <div class="row px-2 py-3" id="result">
+            <div class="col-md-4 my-2 px-0">
+                <select class="form-select" id="city" name="city" size="1"
+                aria-label="size 1 select example">
+                <option >Select With city</option>
+                <% for(var i=0; i<result2.length; i++) { %>
+                    <option value="<%= result2[i].city %>"><%= result2[i].city %></option>
+                <% } %>
+                </select>
+            </div>
+            <div class="col-md-4 my-2 px-0">
+                <select class="form-select" id="speciality" name="speciality" size="1"
+                aria-label="size 1 select example">
+                <option >Select With Speciality</option>
+                <% for(var i=0; i<result3.length; i++) { %>
+                <option value="<%= result3[i].speciality %>"><%= result3[i].speciality %></option>
+                <% } %>
+                </select>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <p class=" my-0 py-1 " style="font-size: 12px; color: grey;">Fed up of endless wait?</p>
+                <p class=" my-0" style="color:#8a45e6">Look for clinic with Us</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="container-fluid" style="background-color: #434ea2;position: sticky; top: 0;">
+            <div class="row py-2">
+                <div class="col-md-2 ">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label text-white" for="flexCheckDefault">
+                            FREE Appointment
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label  text-white" for="flexCheckDefault">
+                            Video Consult
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <div class="dropdown-toggle btn-sm text-white" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Availability
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Available in 1 day</a></li>
+                            <li><a class="dropdown-item" href="#">Available on Next day</a></li>
+                            <li><a class="dropdown-item" href="#">Available on 7 day</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown d-flex">
+                        <h6 class="my-auto text-white">Sort By</h6>
+                        <div class="dropdown-toggle btn-sm text-white ms-2" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Availability
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Relevance</a></li>
+                            <li><a class="dropdown-item" href="#">Earliest available</a></li>
+                            <li><a class="dropdown-item" href="#">Price - Low to High</a></li>
+                            <li><a class="dropdown-item" href="#">Price - High to low</a></li>
+                            <li><a class="dropdown-item" href="#">Year of </a></li>
+                            <li><a class="dropdown-item" href="#">Recommendation</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9 px-5">
+                    <div class="py-3">
+                        <img src="/image/sensodine.png" width="100%">
+                    </div>
+                    <div class="my-3">
+                        <h4>36 Doctors Available in Delhi</h4>
+                    </div>
+                    <div class="d-flex">
+                        <img src="/image/tick image.png" style="height: 25px;">
+                        <p class="ps-2">Book appointments with minimum wait-time & verified doctor details</p>
+                    </div>
+                    <hr>
+                    <div class="row pro">
+                        <% for(var i=0; i<result.length; i++) { %>
+                        <div class="col-md-3 my-auto">
+                            <div>
+                                <img src="/static/upload/<%= result[i].image %>" width="150px" height="150px" style="border-radius: 50%;">
+                            </div>
+                            <div class="view py-2 ps-5">
+                                <h5 class="px-auto py-auto">View Profile</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/speciality/<%= result[i].speciality %>/<%= result[i].name%>"><h4><%= result[i].name %></h4></a>
+                            <p><%= result[i].speciality %></p>
+                            <p><%= result[i].experience %> Years Overall</p>
+                            <p class="address"><a href=""><%= result[i].address %></a> . <a href="">The Dental Roots</a> +
+                                <a href="">1 more</a>
+                            </p>
+                            <p><%= result[i].fees %> Consultation fee at clinic</p>
+                        </div>
+                        <div class="col-md-3 my-2">
+                            <div style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%;">
+                                <div class="d-flex" style="color: green;">
+                                    <i class="fa-solid fa-business-time my-auto"></i>
+                                    <p class="my-auto">Available Today</p>
+                                </div>
+                                <div>
+                                    <button class="btn w-100 py-auto" style="margin: auto; display: block;">
+                                        <p style="font-size: 15px; margin: auto; background-color: lightskyblue;" class="py-2 px-3">Book Clinic Visit</p>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="btn w-100 btn-outline-info " style="margin: auto; display: block;">Video Consult</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <%}%>
+                    </div>
+                    <div class="qa-container">
+                        <% for(var i=0; i<result1.length; i++) { %>
+                        <div class="qa-item">
+                          <div class="qa-question"><%= result1[i].question %></div>
+                          <div class="qa-answer"><%= result1[i].answer %></div>
+                        </div>
+                        <%}%>
+                      </div>
+                      
+                </div>
+                    
+                <div class="col-md-3 px-0" style="border: 1px solid red;">
+                    <div style="position: sticky;top: 42px; ">
+                        <div class="image-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31460.78154131194!2d77.24896929402018!3d28.583391180705686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1682662592521!5m2!1sen!2sin"
+                                width="100%" height="521" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="text-overlay">
+                                <p style="font-size:18px;font-weight: 500;">Provide current location to see Dentist near you</p>
+                                <p style="font-size: 12px; color: gray;">You are seeing results from dwarka. See results near you</p><br>
+                                    <button class="btn my-1 btn-outline-secondary">Dwarka</button>
+                                    <button class="btn my-1 btn-outline-secondary">Rohini</button>
+                                    <button class="btn my-1 btn-outline-secondary">Pitampura</button>
+                                    <button class="btn my-1 btn-outline-secondary">Paschim Vihar</button>
+                                    <button class="btn my-1 btn-outline-secondary">Lajpat Nagar</button>
+                                <div>
+                                    <div class="d-flex locate ">
+                                <button class="btn my-2 mx-2 py-2 px-1 bg-none text-primary">Search Location</button>
+                                <button class="btn my-2 mx-2 py-2 px-1 btn-primary "><i class="fa-solid fa-location-crosshairs"></i> Current Location</button>
+                            </div>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <%-include('./common/footer.ejs') %>
+
+        <script>
+            $(document).ready(function() {
+                $('#speciality').change(function() {
+                    var selectedOption = $(this).val();
+                    if (selectedOption !== '') {
+                        $.ajax({
+                            url: '/speciality/' + selectedOption,
+                            type: 'GET',
+                            success: function(response) {
+                                $('body').html(response);
+                                 history.pushState({}, '', '/speciality/' + selectedOption);
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            }
+                        });
+                    }
+                });
+            });
+            </script>
+<script>
+    $(document).ready(function() {
+        $('#city').change(function() {
+            var selectedOption = $(this).val();
+            if (selectedOption !== '') {
+                $.ajax({
+                    url: '/speciality/p_speciality/' + selectedOption,
+                    type: 'GET',
+                    success: function(response) {
+                        $('body').html(response);
+                        history.pushState({}, '', '/speciality/p_speciality/' + selectedOption);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+        
+        </body>
+</html>

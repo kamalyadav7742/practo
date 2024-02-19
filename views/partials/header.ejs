@@ -1,0 +1,234 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+  html,
+  body {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  body {
+    background: aliceblue;
+    padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+  }
+</style>
+ <style>
+  .navbar-bg {
+    background-color: #1c1f46;
+    height: 46px;
+    width: 100%;
+    color: white;
+    border-bottom: 1px solid;
+    position: absolute;
+    top: 0;
+    padding-top: px;
+    z-index: 100;
+  }
+
+  .subnav {
+    float: left;
+    overflow: hidden;
+  }
+
+  .subnav .subnavbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+/* 
+  .navbar a:hover,
+  .subnav:hover .subnavbtn {
+    background-color: #1c1f46;
+  } */
+
+  .subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #1c1f46;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .subnav-content a {
+    float: left;
+    color: white;
+    text-decoration: none;
+  }
+
+  .subnav-content a:hover {
+    background-color: #dfdfdf;
+    color: black;
+  }
+
+  .subnav:hover .subnav-content {
+    display: block;
+  }
+
+  .navText2 {
+    text-align: end;
+    margin-right: 20px;
+    margin-top: -18px;
+  }
+
+  .navText {
+    text-align: start;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    background-color: #1c1f46;
+    top: 0;
+    left: 0;
+    padding-top: 40px;
+    overflow-x: hidden;
+    transition: 0.5s;
+
+  }
+
+  .sidebar a {
+    margin-top: 10px;
+    margin: 0 20px 0 20px;
+    padding: 5px 0px 0px 5px;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+    color: white;
+    background-color: transparent;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: -13px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    right: 0;
+    font-size: 30px;
+    border: none;
+  }
+
+  .openbtn {
+    font-size: 25px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 5px 13px;
+    border: none;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 5;
+    margin-top: -8px;
+
+  }
+
+
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {
+      padding-top: 15px;
+    }
+
+    .sidebar a {
+      font-size: 18px;
+    }
+  }
+
+  .tabpan li.active {
+    background-color: #dfdfdf;
+  }
+
+  a:hover {
+    color: #fff
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+  .schbtn a {
+    border: none;
+  }
+
+  .cmpbtn {
+    border-top: none;
+    border: 0px solid transparent;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+</style>
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid" style="background-color: #1c1f46;"> 
+        <a class="navbar-brand" href="#"><i fa fa-home></i></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link ms-2" aria-current="page"  style="color: #fff; " href="#">
+                <h6><img src="/image/white_practo_logo.svg" alt="" width="22px" height="22px"
+
+                  style="border-radius: 15px 15px 0px 15px">&nbsp;Chatbot</h6></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <button class="btn btn-outline" type="submit" style="background-color: rgb(109, 84, 36);  color: white; ">User</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+      <div id="mySidebar" class="sidebar" style="overflow-x: scroll !important; width: 180px;  margin-top: 40px;">
+
+        <ul style="list-style: none; width: 100%;">
+          <li class=" "><a href="#" style=" text-decoration:none; color:white; font-size: 12px;"><i class="fa fa-home"
+                aria-hidden="true"></i> Dashboard</a></li>
+          <li class="mt-5 "><a href="#" style="text-decoration:none; color:white; font-size: 12px;"><i
+                class="fa fa-comments" aria-hidden="true"></i>
+              Chatbots</a></li>
+          <li class="mt-5 "><a href="#" style="text-decoration:none; color:white; font-size: 12px;"><i
+                class="fa fa-address-book" aria-hidden="true"></i>
+              Persons</a></li>
+          <li class="mt-5 "><a href="#" style="text-decoration:none; color:white; font-size: 12px;"> <i
+                class="fa fa-users"></i> User </a></li>
+
+          <li class="mt-5 "><a href="#" style="text-decoration:none; color:white; font-size: 12px;"><i
+                class="fa fa-address-card" aria-hidden="true"></i>
+              Mail</a></li>
+
+          <li class="mt-5 "><a href="#" style="text-decoration:none; color:white; font-size: 12px;"><i
+                class="fa fa-chart-line"></i>
+              Statstics</a></li>
+        </ul>
+
+        <div style="margin-top: 150px;"></div>
+      </div>
+    </nav>
+  </div>
+  </div> 
